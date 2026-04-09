@@ -913,10 +913,10 @@ export const CardStackVariationsPage = () => {
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-2xl font-bold font-apfel_grotezk">Card Stack Design Variations</h1>
             <a 
-              href="/?page=albarham" 
+              href="./?page=albarham" 
               onClick={(e) => {
                 e.preventDefault();
-                window.location.href = '/?page=albarham';
+                window.location.href = "./?page=albarham";
               }}
               className="text-red-600 hover:text-red-800 font-semibold text-sm"
             >

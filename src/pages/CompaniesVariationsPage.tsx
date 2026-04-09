@@ -238,7 +238,7 @@ export const CompaniesVariationsPage = () => {
             <div className="flex items-center gap-4">
               <h1 className="text-xl font-bold font-apfel_grotezk text-gray-900">Companies Variations 2.0</h1>
               <a 
-                href="/?page=albarham" 
+                href="./?page=albarham" 
                 className="text-sm font-semibold text-gray-500 hover:text-red-600 transition-colors"
               >
                 ← Back to Home

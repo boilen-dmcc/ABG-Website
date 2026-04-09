@@ -335,7 +335,7 @@ export const AlBarhamHeader = ({ containerMode = "standard" }: AlBarhamHeaderPro
           <div className="flex items-center justify-between h-auto py-4 min-h-[90px]">
             {/* Logo */}
             <div className="flex items-center">
-              <a href="/" className="block relative">
+              <a href="./" className="block relative">
                 <img 
                   src="https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770304174349-0.png" 
                   alt="Al-Barham Group" 
