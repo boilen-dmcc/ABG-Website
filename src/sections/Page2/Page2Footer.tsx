@@ -5,7 +5,7 @@ export const Page2Footer = () => {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
           <div className="text-center sm:text-left">
             <p className="text-xs sm:text-sm text-gray-400">
-              © 2026 Al Barham Group. All rights reserved.
+              © 2026 Al-Barham Group. All rights reserved.
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6">

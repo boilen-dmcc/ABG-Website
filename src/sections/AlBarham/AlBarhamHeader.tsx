@@ -1,6 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 
+// Token placeholder pattern (within this file only)
+const LAYOUT = {
+  CONTENT_WIDTH: 1304,
+  GUTTER_X: 48,
+};
+
 type CompanyItem = {
   name: string;
   description: string;
@@ -67,7 +73,11 @@ const companies: CompanyItem[] = [
   }
 ];
 
-export const Page2Header = () => {
+export type AlBarhamHeaderProps = {
+  containerMode?: "standard" | "fullBleedContent";
+};
+
+export const AlBarhamHeader = ({ containerMode = "standard" }: AlBarhamHeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -80,8 +90,6 @@ export const Page2Header = () => {
   const navRef = useRef<HTMLElement>(null);
   const dropdownRefs = useRef<{ [key: string]: HTMLButtonElement | null }>({});
   const dropdownPanelRef = useRef<HTMLDivElement>(null);
-
-    // Scroll locking removed to prevent issues
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -146,8 +154,8 @@ export const Page2Header = () => {
     if (menu === "companies") width = 680;
     else if (menu === "services") width = 520;
 
-    const leftPosition = buttonRect.left - 35;
-    const arrowPosition = buttonRect.left + buttonRect.width / 2;
+    const leftPosition = buttonRect.left - navRect.left - 120;
+    const arrowPosition = buttonRect.left + buttonRect.width / 2 - navRect.left;
 
     const desiredGap = 5;
     const containerTop = buttonRect.bottom - navRect.top + desiredGap;
@@ -250,6 +258,21 @@ export const Page2Header = () => {
     setMobileActiveDropdown(null);
   };
 
+  // Helper to get container classes based on mode
+  const getContainerClasses = () => {
+    const baseClasses = "mx-auto";
+    const paddingClasses = `px-[${LAYOUT.GUTTER_X}px]`;
+
+    if (containerMode === "fullBleedContent") {
+      return `w-full ${paddingClasses}`;
+    }
+    
+    // standard
+    return `max-w-[${LAYOUT.CONTENT_WIDTH}px] ${baseClasses} ${paddingClasses}`;
+  };
+
+  const containerClasses = getContainerClasses();
+
   return (
     <>
       <style>{`
@@ -308,7 +331,7 @@ export const Page2Header = () => {
         } ${!isHeaderVisible ? "opacity-0 pointer-events-none" : "opacity-100"}`}
         style={{ transition: "opacity 200ms ease-out, background-color 200ms ease-out" }}
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className={containerClasses}>
           <div className="flex items-center justify-between h-auto py-4 min-h-[90px]">
             {/* Logo */}
             <div className="flex items-center">
@@ -430,43 +453,44 @@ export const Page2Header = () => {
             style={{ top: dropdownStyle.containerTop }}
             onMouseEnter={() => setIsHoveringNav(true)}
           >
-            <div
-              className="absolute pointer-events-none"
-              style={{
-                left: dropdownStyle.left,
-                width: dropdownStyle.width,
-                top: "0px",
-                height: dropdownStyle.gap ?? "10px",
-                backgroundColor: "transparent",
-                zIndex: 40
-              }}
-            />
+            <div className={`${containerClasses} relative`}>
+              <div
+                className="absolute pointer-events-none"
+                style={{
+                  left: dropdownStyle.left,
+                  width: dropdownStyle.width,
+                  top: "0px",
+                  height: dropdownStyle.gap ?? "10px",
+                  backgroundColor: "transparent",
+                  zIndex: 40
+                }}
+              />
 
-            <div
-              className="absolute z-50 pointer-events-none"
-              style={{
-                left: dropdownStyle.arrowPosition,
-                top: "6px",
-                transform: "translateX(-50%)",
-                transition: "left 350ms cubic-bezier(0.16, 1, 0.3, 1)"
-              }}
-            >
-              <div className="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[10px] border-b-white" />
-            </div>
+              <div
+                className="absolute z-50 pointer-events-none"
+                style={{
+                  left: `calc(${dropdownStyle.arrowPosition} - 40px)`,
+                  top: "6px",
+                  transform: "translateX(-50%)",
+                  transition: "left 350ms cubic-bezier(0.16, 1, 0.3, 1)"
+                }}
+              >
+                <div className="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[10px] border-b-white" />
+              </div>
 
-            <div
-              ref={dropdownPanelRef}
-              className="dropdown-enter absolute bg-white shadow-2xl rounded-lg overflow-hidden border border-gray-100 pointer-events-auto"
-              style={{
-                width: dropdownStyle.width,
-                left: dropdownStyle.left,
-                opacity: dropdownStyle.opacity,
-                transition: "all 350ms cubic-bezier(0.16, 1, 0.3, 1)",
-                top: dropdownStyle.gap ?? "10px",
-                zIndex: 50
-              }}
-            >
-              <div className="dropdown-content p-6">
+              <div
+                ref={dropdownPanelRef}
+                className="dropdown-enter absolute bg-white shadow-2xl rounded-lg overflow-hidden border border-gray-100 pointer-events-auto"
+                style={{
+                  width: dropdownStyle.width,
+                  left: dropdownStyle.left,
+                  opacity: dropdownStyle.opacity,
+                  transition: "all 350ms cubic-bezier(0.16, 1, 0.3, 1)",
+                  top: dropdownStyle.gap ?? "10px",
+                  zIndex: 50
+                }}
+              >
+                <div className="dropdown-content p-6">
                   {activeDropdown === "companies" && (
                     <div className="grid grid-cols-2 gap-6">
                       <div>
@@ -626,6 +650,7 @@ export const Page2Header = () => {
 
                 </div>
               </div>
+            </div>
           </div>
         )}
 

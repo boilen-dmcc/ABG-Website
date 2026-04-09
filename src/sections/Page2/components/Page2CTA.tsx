@@ -6,7 +6,7 @@ import { ChevronRight } from "lucide-react";
           <div className="relative text-white bg-gray-900 box-border caret-transparent flex justify-end overflow-hidden">
             <div className="absolute inset-0 z-0">
               <img 
-                src="./images/cta-join-team.jpeg" 
+                src="https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770306312581-0.jpeg" 
                 alt="Join Our Team" 
                 className="w-full h-full object-cover"
               />
@@ -34,7 +34,7 @@ import { ChevronRight } from "lucide-react";
     <div className="relative text-white bg-gray-900 box-border caret-transparent flex justify-start overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img 
-          src="./images/cta-collaborate.jpeg" 
+          src="https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770306699911-0.jpeg" 
           alt="Let's Collaborate" 
           className="w-full h-full object-cover"
         />

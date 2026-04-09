@@ -142,7 +142,7 @@ export const Page2Hero = () => {
             style={{ maxWidth: taglineWidth }}
             className="text-lg sm:text-xl md:text-2xl max-[1089px]:text-[clamp(1.125rem,2.5vw,1.75rem)] text-white leading-relaxed max-w-[52rem] max-[1265px]:max-w-[calc(52rem-20px)] max-[1235px]:max-w-[calc(52rem-40px)] transition-[max-width] duration-200 ease-out mt-[10px]"
           >
-            At Al Barham Group, we partner with clients across energy,
+            At Al-Barham Group, we partner with clients across energy,
             construction, real estate, and investment—delivering integrated
             solutions through eight specialized companies that turn ambition
             into lasting results.
