@@ -35,11 +35,11 @@ const projects = [
     image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=800&h=600&fit=crop"
   },
   {
-    location: "Erbil, Iraq",
-    title: "Erbil Solar Farm",
+    location: "Baghdad, Iraq",
+    title: "Baghdad Solar Farm",
     category: "Renewable Energy",
     value: "$900M",
-    description: "Large-scale solar installation providing clean energy to Kurdistan region.",
+    description: "Large-scale solar installation providing clean energy to the central Iraqi grid.",
     image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&h=600&fit=crop"
   },
   {

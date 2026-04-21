@@ -128,7 +128,7 @@ export const Page2FeaturedCarousel = () => {
       id: "5",
       image:
         "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&h=600&fit=crop",
-      title: "Erbil Solar Farm",
+      title: "Baghdad Solar Farm",
       url: "#",
     },
   ];

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 type CompanyItem = {
@@ -7,6 +8,7 @@ type CompanyItem = {
   category: string;
   color: string;
   logo?: string;
+  url?: string;
 };
 
 const companies: CompanyItem[] = [
@@ -15,55 +17,63 @@ const companies: CompanyItem[] = [
     description: "Gasoline production",
     category: "Energy & Downstream Operations",
     color: "#DC2626",
-    logo: "https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770297935851-1.jpeg"
+    logo: "https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770297935851-1.jpeg",
+    url: "/companies/taqat"
   },
   {
     name: "Northern Covenant",
     description: "Oil services",
     category: "Energy & Downstream Operations",
     color: "#EA580C",
-    logo: "https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770300126445-0.jpeg"
+    logo: "https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770300126445-0.jpeg",
+    url: "/companies/northern-covenant"
   },
   {
     name: "Bryar Transport",
     description: "Oil logistics & marketing",
     category: "Energy & Downstream Operations",
     color: "#D97706",
-    logo: "https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770299485008-1.jpeg"
+    logo: "https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770299485008-1.jpeg",
+    url: "/companies/bryar-transport"
   },
   {
     name: "Barham Black Gold",
     description: "Asphalt production",
     category: "Asphalt, Construction & Building Materials",
     color: "#65A30D",
-    logo: "https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770299485008-0.jpeg"
+    logo: "https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770299485008-0.jpeg",
+    url: "/companies/barham-black-gold"
   },
   {
     name: "Rahand Company",
     description: "Concrete blocks",
     category: "Asphalt, Construction & Building Materials",
     color: "#059669",
-    logo: "https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770297935854-2.jpeg"
+    logo: "https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770297935854-2.jpeg",
+    url: "/companies/rahand"
   },
   {
     name: "Binaa Al Sahraa",
     description: "General contracting",
     category: "Asphalt, Construction & Building Materials",
     color: "#0891B2",
-    logo: "https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770299485008-2.jpeg"
+    logo: "https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770299485008-2.jpeg",
+    url: "/companies/binaa-al-sahraa"
   },
   {
     name: "Gashbin GmbH",
     description: "Real estate investment",
     category: "Real Estate & Investment",
     color: "#0284C7",
-    logo: "https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770300126445-1.jpeg"
+    logo: "https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770300126445-1.jpeg",
+    url: "/companies/gashbin"
   },
   {
     name: "Al Barham DMCC",
     description: "Investment holding",
     category: "Real Estate & Investment",
-    color: "#7C3AED"
+    color: "#7C3AED",
+    url: "/companies/al-barham-dmcc"
   }
 ];
 
@@ -470,22 +480,20 @@ export const Page2Header = () => {
                   {activeDropdown === "companies" && (
                     <div className="grid grid-cols-2 gap-6">
                       <div>
-                        <div
-                          className="p-3 mb-2 hover:bg-gray-50 rounded cursor-pointer transition-all duration-200 hover:translate-x-1"
+                        <Link
+                          to="/companies"
+                          className="block p-3 mb-2 hover:bg-gray-50 rounded cursor-pointer transition-all duration-200 hover:translate-x-1"
                           onMouseEnter={() => setSelectedCompany(null)}
+                          onClick={closeDropdown}
                         >
                           <h4 className="font-bold text-sm text-gray-900 flex items-center">
                             <span className="w-2 h-2 bg-red-600 rounded-full mr-2"></span>
-                            All Companies
+                            Al Barham Group
                           </h4>
-                        </div>
+                        </Link>
                         <div className="border-t border-gray-200 mb-2"></div>
-                        {companies.map((company, index) => (
-                          <div
-                            key={index}
-                            className="p-3 hover:bg-[#001f3f] hover:text-white rounded cursor-pointer transition-all duration-200 hover:translate-x-1 group"
-                            onMouseEnter={() => setSelectedCompany(company)}
-                          >
+                        {companies.map((company, index) => {
+                          const rowInner = (
                             <div className="flex items-center">
                               {company.logo ? (
                                 <div className="w-8 h-8 rounded mr-3 flex items-center justify-center bg-white overflow-hidden border border-gray-100">
@@ -504,8 +512,29 @@ export const Page2Header = () => {
                               </div>
                               <span className="w-2 h-2 bg-gray-400 group-hover:bg-white rounded-full transition-colors"></span>
                             </div>
-                          </div>
-                        ))}
+                          );
+                          const rowClass =
+                            "block p-3 hover:bg-[#001f3f] hover:text-white rounded cursor-pointer transition-all duration-200 hover:translate-x-1 group";
+                          return company.url ? (
+                            <Link
+                              key={index}
+                              to={company.url}
+                              className={rowClass}
+                              onMouseEnter={() => setSelectedCompany(company)}
+                              onClick={closeDropdown}
+                            >
+                              {rowInner}
+                            </Link>
+                          ) : (
+                            <div
+                              key={index}
+                              className={rowClass}
+                              onMouseEnter={() => setSelectedCompany(company)}
+                            >
+                              {rowInner}
+                            </div>
+                          );
+                        })}
                       </div>
 
                       <div className="bg-gray-50 rounded-lg p-6">
@@ -528,9 +557,19 @@ export const Page2Header = () => {
                               {selectedCompany.category}
                             </p>
                             <p className="text-gray-600 mb-4">{selectedCompany.description}</p>
-                            <a href="#" className="text-red-600 text-sm font-semibold hover:text-red-800 transition-colors">
-                              Explore Company →
-                            </a>
+                            {selectedCompany.url ? (
+                              <Link
+                                to={selectedCompany.url}
+                                className="text-red-600 text-sm font-semibold hover:text-red-800 transition-colors"
+                                onClick={closeDropdown}
+                              >
+                                Explore Company →
+                              </Link>
+                            ) : (
+                              <span className="text-gray-400 text-sm font-semibold">
+                                Dedicated page coming soon
+                              </span>
+                            )}
                           </>
                         ) : (
                           <>
@@ -544,9 +583,13 @@ export const Page2Header = () => {
                             <p className="text-gray-600 mb-4">
                               A diversified holding group with operations spanning energy, construction, real estate, and investment sectors across Iraq and the region.
                             </p>
-                            <a href="/companies" className="text-red-600 text-sm font-semibold hover:text-red-800 transition-colors">
+                            <Link
+                              to="/companies"
+                              className="text-red-600 text-sm font-semibold hover:text-red-800 transition-colors"
+                              onClick={closeDropdown}
+                            >
                               View All Companies →
-                            </a>
+                            </Link>
                           </>
                         )}
                       </div>
@@ -675,14 +718,29 @@ export const Page2Header = () => {
                   style={{ maxHeight: mobileActiveDropdown === "companies" ? "1000px" : "0" }}
                 >
                   <div className="mt-2 pl-4 space-y-2">
-                    <a href="/companies" className="block text-sm text-gray-600 hover:text-red-600 py-1">
-                      View All Companies
-                    </a>
-                    {companies.slice(0, 3).map((company, index) => (
-                      <a key={index} href="#" className="block text-sm text-gray-600 hover:text-red-600 py-1">
-                        {company.name}
-                      </a>
-                    ))}
+                    <Link
+                      to="/companies"
+                      onClick={closeMobileMenu}
+                      className="block text-sm text-gray-600 hover:text-red-600 py-1"
+                    >
+                      Al Barham Group
+                    </Link>
+                    {companies.map((company, index) =>
+                      company.url ? (
+                        <Link
+                          key={index}
+                          to={company.url}
+                          onClick={closeMobileMenu}
+                          className="block text-sm text-gray-600 hover:text-red-600 py-1"
+                        >
+                          {company.name}
+                        </Link>
+                      ) : (
+                        <a key={index} href="#" className="block text-sm text-gray-400 py-1 cursor-default">
+                          {company.name}
+                        </a>
+                      ),
+                    )}
                   </div>
                 </div>
               </div>
