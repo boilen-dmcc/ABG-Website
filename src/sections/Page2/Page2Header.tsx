@@ -65,14 +65,17 @@ const solutions: SolutionItem[] = [
   {
     name: "Petrochemicals",
     description: "Integrated facilities",
+    url: "/solutions/petrochemicals",
   },
   {
     name: "Power Generation",
     description: "Renewable & conventional",
+    url: "/solutions/power-generation",
   },
   {
     name: "Infrastructure",
     description: "Industrial development",
+    url: "/solutions/infrastructure",
   },
 ];
 

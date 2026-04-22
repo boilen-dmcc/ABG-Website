@@ -16,6 +16,9 @@ import { ServiceCommissioning } from "@/pages/ServiceCommissioning";
 import { ServiceEpcc } from "@/pages/ServiceEpcc";
 import { ServiceTransportation } from "@/pages/ServiceTransportation";
 import { SolutionOilGas } from "@/pages/SolutionOilGas";
+import { SolutionPetrochemicals } from "@/pages/SolutionPetrochemicals";
+import { SolutionPowerGeneration } from "@/pages/SolutionPowerGeneration";
+import { SolutionInfrastructure } from "@/pages/SolutionInfrastructure";
 
 export const App = () => {
   return (
@@ -68,6 +71,18 @@ export const App = () => {
           element={<ServiceTransportation />}
         />
         <Route path="/solutions/oil-gas" element={<SolutionOilGas />} />
+        <Route
+          path="/solutions/petrochemicals"
+          element={<SolutionPetrochemicals />}
+        />
+        <Route
+          path="/solutions/power-generation"
+          element={<SolutionPowerGeneration />}
+        />
+        <Route
+          path="/solutions/infrastructure"
+          element={<SolutionInfrastructure />}
+        />
         <Route path="*" element={<Page2 />} />
       </Routes>
     </HashRouter>
