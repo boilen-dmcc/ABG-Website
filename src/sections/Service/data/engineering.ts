@@ -16,13 +16,6 @@ export const engineering: ServiceData = {
   scopeChip: "FEED · DETAILED DESIGN",
   stageChip: "CONCEPT TO HANDOVER",
   reachChip: "IRAQ · GULF · LEVANT",
-  overviewPortrait:
-    "https://images.unsplash.com/photo-1503387837-b154d5074bd2?w=1200&auto=format&q=80",
-  overviewPortraitAlt:
-    "Engineer's hands at a drafting desk working with a compass, ruler, and pencil over technical drawings",
-  overviewPortraitCaption:
-    "LOREM IPSUM — DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT.",
-  methodologyHeading: "Concept through commissioning, one engineering spine.",
   stats: [
     { value: "2008", label: "YEARS DELIVERING" },
     { value: "Lorem", label: "DISCIPLINES IN-HOUSE" },
@@ -32,10 +25,27 @@ export const engineering: ServiceData = {
   ],
   overview: {
     heading: "One design authority, from brief to handover.",
-    body: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.",
+    intro:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.",
+    pillars: [
+      {
+        label: "INTEGRATED",
+        title: "Six disciplines, one practice.",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+      },
+      {
+        label: "STANDARDS-ALIGNED",
+        title: "International codes baked in.",
+        description:
+          "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
+      },
+      {
+        label: "LIFECYCLE",
+        title: "Concept through commissioning.",
+        description:
+          "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      },
     ],
   },
   disciplinesHeading: "Six disciplines. One integrated design team.",
@@ -79,32 +89,43 @@ export const engineering: ServiceData = {
         "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est.",
     },
   ],
-  methodologyPhases: [
-    {
-      phase: "01",
-      title: "Brief",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
-    },
-    {
-      phase: "02",
-      title: "Design",
-      description:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
-    },
-    {
-      phase: "03",
-      title: "Review",
-      description:
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    },
-    {
-      phase: "04",
-      title: "Deliver",
-      description:
-        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id.",
-    },
-  ],
+  practice: {
+    heading: "Built for industrial delivery, not for consulting hours.",
+    intro:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    columns: [
+      {
+        label: "PEOPLE",
+        heading: "An in-house team across six disciplines.",
+        items: [
+          "LOREM IPSUM · DOLOR SIT AMET",
+          "CONSECTETUR ADIPISCING ELIT",
+          "SED DO EIUSMOD TEMPOR",
+          "INCIDIDUNT UT LABORE",
+        ],
+      },
+      {
+        label: "TOOLS & CODES",
+        heading: "Standards-first design environment.",
+        items: [
+          "ASME · API · ISO · IEC",
+          "LOREM IPSUM DOLOR",
+          "SIT AMET CONSECTETUR",
+          "ADIPISCING ELIT SED",
+        ],
+      },
+      {
+        label: "DELIVERY FOOTPRINT",
+        heading: "Inside Iraq's energy corridor.",
+        items: [
+          "IRAQ · GULF · LEVANT",
+          "LOREM IPSUM DOLOR",
+          "SIT AMET CONSECTETUR",
+          "ADIPISCING ELIT SED",
+        ],
+      },
+    ],
+  },
   standards: [
     { code: "ASME B31.3", name: "Lorem ipsum dolor sit amet" },
     { code: "API 650", name: "Consectetur adipiscing elit" },

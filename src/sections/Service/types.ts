@@ -3,16 +3,22 @@ export type Stat = {
   label: string;
 };
 
+export type OverviewPillar = {
+  label: string;
+  title: string;
+  description: string;
+};
+
 export type Discipline = {
   index: string;
   title: string;
   description: string;
 };
 
-export type MethodologyPhase = {
-  phase: string;
-  title: string;
-  description: string;
+export type PracticeColumn = {
+  label: string;
+  heading: string;
+  items: string[];
 };
 
 export type Standard = {
@@ -35,19 +41,20 @@ export type ServiceData = {
   scopeChip: string;
   stageChip: string;
   reachChip: string;
-  overviewPortrait: string;
-  overviewPortraitAlt: string;
-  overviewPortraitCaption: string;
-  methodologyHeading: string;
   stats: Stat[];
   overview: {
     heading: string;
-    body: string[];
+    intro: string;
+    pillars: OverviewPillar[];
   };
   disciplinesHeading: string;
   disciplinesSubhead: string;
   disciplines: Discipline[];
-  methodologyPhases: MethodologyPhase[];
+  practice: {
+    heading: string;
+    intro: string;
+    columns: PracticeColumn[];
+  };
   standards: Standard[];
   hseStat: string;
   contact: {

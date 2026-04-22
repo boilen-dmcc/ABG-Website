@@ -5,7 +5,7 @@ import { Hero } from "./Hero";
 import { Stats } from "./Stats";
 import { Overview } from "./Overview";
 import { Disciplines } from "./Disciplines";
-import { Methodology } from "./Methodology";
+import { Practice } from "./Practice";
 import { Standards } from "./Standards";
 import { ContactCTA } from "./ContactCTA";
 import type { ServiceData } from "./types";
@@ -29,7 +29,7 @@ export const ServiceTemplate = ({ data }: Props) => {
           subhead={data.disciplinesSubhead}
           disciplines={data.disciplines}
         />
-        <Methodology data={data} />
+        <Practice data={data} />
         <Standards standards={data.standards} hseStat={data.hseStat} />
         <ContactCTA data={data} />
       </main>
