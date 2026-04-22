@@ -9,6 +9,7 @@ import { CompanyBinaaAlSahraa } from "@/pages/CompanyBinaaAlSahraa";
 import { CompanyGashbin } from "@/pages/CompanyGashbin";
 import { CompanyAlBarhamDmcc } from "@/pages/CompanyAlBarhamDmcc";
 import { AlBarhamGroup } from "@/pages/AlBarhamGroup";
+import { ServiceEngineering } from "@/pages/ServiceEngineering";
 
 export const App = () => {
   return (
@@ -38,6 +39,10 @@ export const App = () => {
         <Route
           path="/companies/al-barham-dmcc"
           element={<CompanyAlBarhamDmcc />}
+        />
+        <Route
+          path="/services/engineering"
+          element={<ServiceEngineering />}
         />
         <Route path="*" element={<Page2 />} />
       </Routes>

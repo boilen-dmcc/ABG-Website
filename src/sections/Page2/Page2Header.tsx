@@ -11,6 +11,40 @@ type CompanyItem = {
   url?: string;
 };
 
+type ServiceItem = {
+  name: string;
+  description: string;
+  url?: string;
+};
+
+const services: ServiceItem[] = [
+  {
+    name: "Engineering",
+    description: "FEED and detailed design",
+    url: "/services/engineering",
+  },
+  {
+    name: "Procurement",
+    description: "Global vendor sourcing",
+  },
+  {
+    name: "Construction",
+    description: "Civil works & installation",
+  },
+  {
+    name: "Commissioning",
+    description: "Startup & verification",
+  },
+  {
+    name: "EPCC (Turnkey)",
+    description: "Single-window delivery",
+  },
+  {
+    name: "Transportation",
+    description: "Petroleum logistics",
+  },
+];
+
 const companies: CompanyItem[] = [
   {
     name: "TAQAT KIRKUK",
@@ -598,30 +632,37 @@ export const Page2Header = () => {
 
                   {activeDropdown === "services" && (
                     <div className="grid grid-cols-2 gap-4">
-                      <div className="p-3 hover:bg-gray-50 rounded transition-colors">
-                        <h4 className="font-bold text-sm text-gray-900 mb-1">Engineering</h4>
-                        <p className="text-xs text-gray-600">FEED and detailed design</p>
-                      </div>
-                      <div className="p-3 hover:bg-gray-50 rounded transition-colors">
-                        <h4 className="font-bold text-sm text-gray-900 mb-1">Procurement</h4>
-                        <p className="text-xs text-gray-600">Global vendor sourcing</p>
-                      </div>
-                      <div className="p-3 hover:bg-gray-50 rounded transition-colors">
-                        <h4 className="font-bold text-sm text-gray-900 mb-1">Construction</h4>
-                        <p className="text-xs text-gray-600">Civil works & installation</p>
-                      </div>
-                      <div className="p-3 hover:bg-gray-50 rounded transition-colors">
-                        <h4 className="font-bold text-sm text-gray-900 mb-1">Commissioning</h4>
-                        <p className="text-xs text-gray-600">Startup & verification</p>
-                      </div>
-                      <div className="p-3 hover:bg-gray-50 rounded transition-colors">
-                        <h4 className="font-bold text-sm text-gray-900 mb-1">EPCC (Turnkey)</h4>
-                        <p className="text-xs text-gray-600">Single-window delivery</p>
-                      </div>
-                      <div className="p-3 hover:bg-gray-50 rounded transition-colors">
-                        <h4 className="font-bold text-sm text-gray-900 mb-1">Transportation</h4>
-                        <p className="text-xs text-gray-600">Petroleum logistics</p>
-                      </div>
+                      {services.map((service) => {
+                        const inner = (
+                          <>
+                            <h4 className="font-bold text-sm text-gray-900 mb-1">{service.name}</h4>
+                            <p className="text-xs text-gray-600">{service.description}</p>
+                            {!service.url && (
+                              <p className="mt-1 text-[10px] font-necto_mono uppercase tracking-[0.18em] text-gray-400">
+                                Page coming soon
+                              </p>
+                            )}
+                          </>
+                        );
+                        return service.url ? (
+                          <Link
+                            key={service.name}
+                            to={service.url}
+                            onClick={closeDropdown}
+                            className="p-3 hover:bg-gray-50 rounded transition-colors block"
+                          >
+                            {inner}
+                          </Link>
+                        ) : (
+                          <div
+                            key={service.name}
+                            className="p-3 rounded opacity-60 cursor-not-allowed"
+                            aria-disabled="true"
+                          >
+                            {inner}
+                          </div>
+                        );
+                      })}
                     </div>
                   )}
 
@@ -760,15 +801,28 @@ export const Page2Header = () => {
                   style={{ maxHeight: mobileActiveDropdown === "services" ? "1000px" : "0" }}
                 >
                   <div className="mt-2 pl-4 space-y-2">
-                    <a href="#" className="block text-sm text-gray-600 hover:text-red-600 py-1">
-                      Engineering
-                    </a>
-                    <a href="#" className="block text-sm text-gray-600 hover:text-red-600 py-1">
-                      Procurement
-                    </a>
-                    <a href="#" className="block text-sm text-gray-600 hover:text-red-600 py-1">
-                      Construction
-                    </a>
+                    {services.map((service) =>
+                      service.url ? (
+                        <Link
+                          key={service.name}
+                          to={service.url}
+                          onClick={closeMobileMenu}
+                          className="block text-sm text-gray-600 hover:text-red-600 py-1"
+                        >
+                          {service.name}
+                        </Link>
+                      ) : (
+                        <a
+                          key={service.name}
+                          href="#"
+                          onClick={(e) => e.preventDefault()}
+                          className="block text-sm text-gray-400 py-1 cursor-default"
+                          aria-disabled="true"
+                        >
+                          {service.name}
+                        </a>
+                      ),
+                    )}
                   </div>
                 </div>
               </div>
