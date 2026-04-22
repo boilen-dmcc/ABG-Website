@@ -6,8 +6,8 @@ export const binaaAlSahraa: CompanyData = {
   legalName: "Binaa Al Sahraa General Contracting Ltd.",
   sector: "Construction — General Contracting",
   eyebrow: "BINAA AL SAHRAA · CONSTRUCTION",
-  taglinePrefix: "Eiusmod ",
-  taglineAccent: "tempor",
+  taglinePrefix: "Built to ",
+  taglineAccent: "finish",
   taglineSuffix: ".",
   heroSubhead:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ad minim veniam aliquip ex.",
@@ -27,7 +27,7 @@ export const binaaAlSahraa: CompanyData = {
   mandatePortraitCaption:
     "CONSECTETUR — ADIPISCING ELIT SED DO EIUSMOD TEMPOR INCIDIDUNT.",
   facilityCity: "Kirkuk",
-  facilityHeading: "Quis nostrud exercitation.",
+  facilityHeading: "On site, on time, on budget.",
   facilityImage:
     "https://images.unsplash.com/photo-1620140319756-0620fa5d1f3c?w=2200&auto=format&q=80",
   facilityImageAlt:
@@ -40,61 +40,61 @@ export const binaaAlSahraa: CompanyData = {
     { value: "Sit amet", label: "PRIMARY MARKET" },
   ],
   mandate: {
-    heading: "Totam rem aperiam eaque ipsa quae.",
+    heading: "General contracting, from ground-breaking to handover.",
     body: [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis architecto beatae.",
     ],
   },
-  capabilitiesHeading: "Ab illo inventore veritatis.",
+  capabilitiesHeading: "Six disciplines. One delivery team.",
   capabilitiesSubhead:
-    "Quasi architecto beatae vitae dicta sunt explicabo nemo.",
+    "Civil works, MEP, and finishes under one contract.",
   capabilities: [
     {
       index: "01",
-      title: "Lorem ipsum dolor",
+      title: "Civil works",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
     },
     {
       index: "02",
-      title: "Consectetur adipiscing",
+      title: "Structural concrete",
       description:
         "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
     },
     {
       index: "03",
-      title: "Sed do eiusmod",
+      title: "MEP installation",
       description:
         "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     },
     {
       index: "04",
-      title: "Tempor incididunt",
+      title: "Finishing works",
       description:
         "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id.",
     },
     {
       index: "05",
-      title: "Ut labore et dolore",
+      title: "Site management",
       description:
         "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam.",
     },
     {
       index: "06",
-      title: "Magna aliqua",
+      title: "HSE & compliance",
       description:
         "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.",
     },
   ],
   facilitySpecs: [
-    { label: "LOREM IPSUM", value: "Dolor sit amet, consectetur adipiscing" },
-    { label: "DOLOR SIT", value: "Eiusmod · Tempor · Incididunt · Labore" },
-    { label: "CONSECTETUR", value: "Ut labore et dolore magna aliqua" },
-    { label: "ADIPISCING", value: "Kirkuk · Baghdad · Erbil · Mosul" },
-    { label: "SED DO EIUSMOD", value: "Lorem ipsum dolor sit amet consectetur" },
-    { label: "TEMPOR INCIDIDUNT", value: "Ut enim ad minim veniam quis nostrud" },
+    { label: "DISCIPLINES", value: "Dolor sit amet, consectetur adipiscing" },
+    { label: "PROJECT TYPES", value: "Eiusmod · Tempor · Incididunt · Labore" },
+    { label: "GEOGRAPHIC REACH", value: "Ut labore et dolore magna aliqua" },
+    { label: "EQUIPMENT FLEET", value: "Kirkuk · Baghdad · Erbil · Mosul" },
+    { label: "WORKFORCE", value: "Lorem ipsum dolor sit amet consectetur" },
+    { label: "HSE RECORD", value: "Ut enim ad minim veniam quis nostrud" },
   ],
   certifications: [
     { code: "ISO 9001:2015", name: "Lorem ipsum dolor" },

@@ -6,8 +6,8 @@ export const gashbin: CompanyData = {
   legalName: "Gashbin GmbH",
   sector: "Real Estate & Investment — Germany",
   eyebrow: "GASHBIN GMBH · REAL ESTATE & INVESTMENT",
-  taglinePrefix: "Labore et ",
-  taglineAccent: "dolore",
+  taglinePrefix: "Anchored in ",
+  taglineAccent: "Hamburg",
   taglineSuffix: ".",
   heroSubhead:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ad minim veniam laboris nisi.",
@@ -27,7 +27,7 @@ export const gashbin: CompanyData = {
   mandatePortraitCaption:
     "DOLOR SIT — CONSECTETUR ADIPISCING ELIT EIUSMOD TEMPOR.",
   facilityCity: "Hamburg",
-  facilityHeading: "Nemo enim ipsam voluptatem.",
+  facilityHeading: "Positioned, long term.",
   facilityImage:
     "https://images.unsplash.com/photo-1639851097191-f13149bb05ae?w=2200&auto=format&q=80",
   facilityImageAlt:
@@ -40,61 +40,61 @@ export const gashbin: CompanyData = {
     { value: "Sit amet", label: "PRIMARY MARKET" },
   ],
   mandate: {
-    heading: "Quia voluptas sit aspernatur aut odit.",
+    heading: "European real estate, held for the long horizon.",
     body: [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis architecto beatae.",
     ],
   },
-  capabilitiesHeading: "Aut fugit sed quia consequuntur.",
+  capabilitiesHeading: "Six capabilities. One European anchor.",
   capabilitiesSubhead:
-    "Magni dolores eos qui ratione voluptatem sequi nesciunt.",
+    "Acquisition through disposal, under one roof in HafenCity.",
   capabilities: [
     {
       index: "01",
-      title: "Lorem ipsum dolor",
+      title: "Property acquisition",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
     },
     {
       index: "02",
-      title: "Consectetur adipiscing",
+      title: "Asset management",
       description:
         "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
     },
     {
       index: "03",
-      title: "Sed do eiusmod",
+      title: "Leasing & tenancy",
       description:
         "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     },
     {
       index: "04",
-      title: "Tempor incididunt",
+      title: "Portfolio strategy",
       description:
         "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id.",
     },
     {
       index: "05",
-      title: "Ut labore et dolore",
+      title: "Regulatory compliance",
       description:
         "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam.",
     },
     {
       index: "06",
-      title: "Magna aliqua",
+      title: "Cross-border investment",
       description:
         "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.",
     },
   ],
   facilitySpecs: [
-    { label: "LOREM IPSUM", value: "Dolor sit amet, consectetur adipiscing" },
-    { label: "DOLOR SIT", value: "Eiusmod · Tempor · Incididunt · Labore" },
-    { label: "CONSECTETUR", value: "Ut labore et dolore magna aliqua" },
-    { label: "ADIPISCING", value: "Hamburg · Berlin · Frankfurt · Munich" },
-    { label: "SED DO EIUSMOD", value: "Lorem ipsum dolor sit amet consectetur" },
-    { label: "TEMPOR INCIDIDUNT", value: "Ut enim ad minim veniam quis nostrud" },
+    { label: "PORTFOLIO SIZE", value: "Dolor sit amet, consectetur adipiscing" },
+    { label: "ASSET CLASSES", value: "Eiusmod · Tempor · Incididunt · Labore" },
+    { label: "GEOGRAPHIC FOCUS", value: "Ut labore et dolore magna aliqua" },
+    { label: "HOLDING PERIOD", value: "Hamburg · Berlin · Frankfurt · Munich" },
+    { label: "REGULATORY", value: "Lorem ipsum dolor sit amet consectetur" },
+    { label: "TEAM", value: "Ut enim ad minim veniam quis nostrud" },
   ],
   certifications: [
     { code: "ISO 9001:2015", name: "Lorem ipsum dolor" },

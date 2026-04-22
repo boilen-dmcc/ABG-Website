@@ -6,8 +6,8 @@ export const alBarhamDmcc: CompanyData = {
   legalName: "Al Barham DMCC",
   sector: "Real Estate & Investment — UAE",
   eyebrow: "AL BARHAM DMCC · REAL ESTATE & INVESTMENT",
-  taglinePrefix: "Magna ",
-  taglineAccent: "aliqua",
+  taglinePrefix: "Positioned in ",
+  taglineAccent: "Dubai",
   taglineSuffix: ".",
   heroSubhead:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ad minim veniam aliquip commodo.",
@@ -27,7 +27,7 @@ export const alBarhamDmcc: CompanyData = {
   mandatePortraitCaption:
     "SIT AMET CONSECTETUR — ADIPISCING ELIT SED DO EIUSMOD.",
   facilityCity: "Dubai",
-  facilityHeading: "Voluptatem sequi nesciunt.",
+  facilityHeading: "Deployed, across the Gulf.",
   facilityImage:
     "https://images.unsplash.com/photo-1641387573142-5e836cf9c4b4?w=2200&auto=format&q=80",
   facilityImageAlt:
@@ -40,61 +40,61 @@ export const alBarhamDmcc: CompanyData = {
     { value: "Sit amet", label: "PRIMARY MARKET" },
   ],
   mandate: {
-    heading: "Consequuntur magni dolores eos qui.",
+    heading: "The group's capital arm, licensed inside the DMCC free zone.",
     body: [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis architecto beatae.",
     ],
   },
-  capabilitiesHeading: "Neque porro quisquam est.",
+  capabilitiesHeading: "Six capabilities. One investment mandate.",
   capabilitiesSubhead:
-    "Qui dolorem ipsum quia dolor sit amet consectetur adipiscing velit.",
+    "Treasury, trade, and portfolio management from JLT.",
   capabilities: [
     {
       index: "01",
-      title: "Lorem ipsum dolor",
+      title: "Investment holding",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
     },
     {
       index: "02",
-      title: "Consectetur adipiscing",
+      title: "Trade finance",
       description:
         "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
     },
     {
       index: "03",
-      title: "Sed do eiusmod",
+      title: "Treasury & cash",
       description:
         "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     },
     {
       index: "04",
-      title: "Tempor incididunt",
+      title: "Regulatory & licensing",
       description:
         "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id.",
     },
     {
       index: "05",
-      title: "Ut labore et dolore",
+      title: "Cross-border structuring",
       description:
         "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam.",
     },
     {
       index: "06",
-      title: "Magna aliqua",
+      title: "Portfolio reporting",
       description:
         "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.",
     },
   ],
   facilitySpecs: [
-    { label: "LOREM IPSUM", value: "Dolor sit amet, consectetur adipiscing" },
-    { label: "DOLOR SIT", value: "Eiusmod · Tempor · Incididunt · Labore" },
-    { label: "CONSECTETUR", value: "Ut labore et dolore magna aliqua" },
-    { label: "ADIPISCING", value: "Dubai · Abu Dhabi · Sharjah · Doha" },
-    { label: "SED DO EIUSMOD", value: "Lorem ipsum dolor sit amet consectetur" },
-    { label: "TEMPOR INCIDIDUNT", value: "Ut enim ad minim veniam quis nostrud" },
+    { label: "MANDATE", value: "Dolor sit amet, consectetur adipiscing" },
+    { label: "LICENSE TYPE", value: "Eiusmod · Tempor · Incididunt · Labore" },
+    { label: "JURISDICTION", value: "Ut labore et dolore magna aliqua" },
+    { label: "PORTFOLIO SCOPE", value: "Dubai · Abu Dhabi · Sharjah · Doha" },
+    { label: "REGULATORY", value: "Lorem ipsum dolor sit amet consectetur" },
+    { label: "TEAM", value: "Ut enim ad minim veniam quis nostrud" },
   ],
   certifications: [
     { code: "ISO 9001:2015", name: "Lorem ipsum dolor" },

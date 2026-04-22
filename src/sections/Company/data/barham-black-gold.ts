@@ -6,8 +6,8 @@ export const barhamBlackGold: CompanyData = {
   legalName: "Barham Black Gold Asphalt & Bitumen Ltd.",
   sector: "Construction Materials — Asphalt & Bitumen",
   eyebrow: "BARHAM BLACK GOLD · CONSTRUCTION MATERIALS",
-  taglinePrefix: "Consectetur ",
-  taglineAccent: "adipiscing",
+  taglinePrefix: "Paving the ",
+  taglineAccent: "road",
   taglineSuffix: ".",
   heroSubhead:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ad minim veniam exercitation.",
@@ -27,7 +27,7 @@ export const barhamBlackGold: CompanyData = {
   mandatePortraitCaption:
     "SIT AMET — CONSECTETUR ADIPISCING ELIT SED DO EIUSMOD.",
   facilityCity: "Kirkuk",
-  facilityHeading: "Duis aute irure dolor.",
+  facilityHeading: "One plant, one line, one spec.",
   facilityImage:
     "https://images.unsplash.com/photo-1650355070660-8cbdf7b6581f?w=2200&auto=format&q=80",
   facilityImageAlt:
@@ -40,61 +40,61 @@ export const barhamBlackGold: CompanyData = {
     { value: "Sit amet", label: "PRIMARY MARKET" },
   ],
   mandate: {
-    heading: "Duis aute irure dolor reprehenderit voluptate.",
+    heading: "Hot-mix asphalt, to spec every batch.",
     body: [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.",
     ],
   },
-  capabilitiesHeading: "In reprehenderit voluptate velit.",
+  capabilitiesHeading: "Six capabilities. One continuous line.",
   capabilitiesSubhead:
-    "Excepteur sint occaecat cupidatat non proident sunt in culpa.",
+    "Aggregate at one end, certified mix at the other.",
   capabilities: [
     {
       index: "01",
-      title: "Lorem ipsum dolor",
+      title: "Bitumen blending",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
     },
     {
       index: "02",
-      title: "Consectetur adipiscing",
+      title: "Hot-mix production",
       description:
         "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
     },
     {
       index: "03",
-      title: "Sed do eiusmod",
+      title: "Aggregate handling",
       description:
         "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     },
     {
       index: "04",
-      title: "Tempor incididunt",
+      title: "Mix design & QA",
       description:
         "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id.",
     },
     {
       index: "05",
-      title: "Ut labore et dolore",
+      title: "Project supply",
       description:
         "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam.",
     },
     {
       index: "06",
-      title: "Magna aliqua",
+      title: "Plant maintenance",
       description:
         "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.",
     },
   ],
   facilitySpecs: [
-    { label: "LOREM IPSUM", value: "Dolor sit amet, consectetur adipiscing" },
-    { label: "DOLOR SIT", value: "Eiusmod · Tempor · Incididunt · Labore" },
-    { label: "CONSECTETUR", value: "Ut labore et dolore magna aliqua" },
-    { label: "ADIPISCING", value: "Kirkuk · Baghdad · Sulaymaniyah" },
-    { label: "SED DO EIUSMOD", value: "Lorem ipsum dolor sit amet consectetur" },
-    { label: "TEMPOR INCIDIDUNT", value: "Ut enim ad minim veniam quis nostrud" },
+    { label: "PLANT CAPACITY", value: "Dolor sit amet, consectetur adipiscing" },
+    { label: "MIX GRADES", value: "Eiusmod · Tempor · Incididunt · Labore" },
+    { label: "BINDER TYPES", value: "Ut labore et dolore magna aliqua" },
+    { label: "HAULAGE RADIUS", value: "Kirkuk · Baghdad · Sulaymaniyah" },
+    { label: "QUALITY LAB", value: "Lorem ipsum dolor sit amet consectetur" },
+    { label: "POWER DRAW", value: "Ut enim ad minim veniam quis nostrud" },
   ],
   certifications: [
     { code: "ISO 9001:2015", name: "Lorem ipsum dolor" },

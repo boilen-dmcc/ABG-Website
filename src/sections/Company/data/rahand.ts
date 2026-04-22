@@ -6,8 +6,8 @@ export const rahand: CompanyData = {
   legalName: "Rahand Company for Concrete Products Ltd.",
   sector: "Construction Materials — Concrete Blocks",
   eyebrow: "RAHAND COMPANY · CONSTRUCTION MATERIALS",
-  taglinePrefix: "Sed ",
-  taglineAccent: "elit",
+  taglinePrefix: "Block by ",
+  taglineAccent: "block",
   taglineSuffix: ".",
   heroSubhead:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ad minim veniam ullamco laboris.",
@@ -27,7 +27,7 @@ export const rahand: CompanyData = {
   mandatePortraitCaption:
     "AMET CONSECTETUR — ADIPISCING ELIT SED DO EIUSMOD TEMPOR.",
   facilityCity: "Kirkuk",
-  facilityHeading: "Excepteur sint occaecat.",
+  facilityHeading: "Cured, tested, dispatched.",
   facilityImage:
     "https://images.unsplash.com/photo-1620622255848-951bde32a950?w=2200&auto=format&q=80",
   facilityImageAlt:
@@ -40,61 +40,61 @@ export const rahand: CompanyData = {
     { value: "Sit amet", label: "PRIMARY MARKET" },
   ],
   mandate: {
-    heading: "Excepteur sint occaecat cupidatat non proident.",
+    heading: "Precast concrete, cured and certified on the yard.",
     body: [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.",
     ],
   },
-  capabilitiesHeading: "Sunt in culpa qui officia deserunt.",
+  capabilitiesHeading: "Six capabilities. One product line.",
   capabilitiesSubhead:
-    "Mollit anim id est laborum sed perspiciatis unde omnis.",
+    "Mix design through dispatch, nothing outsourced.",
   capabilities: [
     {
       index: "01",
-      title: "Lorem ipsum dolor",
+      title: "Concrete block production",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
     },
     {
       index: "02",
-      title: "Consectetur adipiscing",
+      title: "Precast elements",
       description:
         "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
     },
     {
       index: "03",
-      title: "Sed do eiusmod",
+      title: "Mix design",
       description:
         "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     },
     {
       index: "04",
-      title: "Tempor incididunt",
+      title: "Curing & testing",
       description:
         "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id.",
     },
     {
       index: "05",
-      title: "Ut labore et dolore",
+      title: "Logistics & delivery",
       description:
         "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam.",
     },
     {
       index: "06",
-      title: "Magna aliqua",
+      title: "Custom formwork",
       description:
         "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.",
     },
   ],
   facilitySpecs: [
-    { label: "LOREM IPSUM", value: "Dolor sit amet, consectetur adipiscing" },
-    { label: "DOLOR SIT", value: "Eiusmod · Tempor · Incididunt · Labore" },
-    { label: "CONSECTETUR", value: "Ut labore et dolore magna aliqua" },
-    { label: "ADIPISCING", value: "Kirkuk · Erbil · Sulaymaniyah" },
-    { label: "SED DO EIUSMOD", value: "Lorem ipsum dolor sit amet consectetur" },
-    { label: "TEMPOR INCIDIDUNT", value: "Ut enim ad minim veniam quis nostrud" },
+    { label: "DAILY OUTPUT", value: "Dolor sit amet, consectetur adipiscing" },
+    { label: "BLOCK TYPES", value: "Eiusmod · Tempor · Incididunt · Labore" },
+    { label: "CURING CAPACITY", value: "Ut labore et dolore magna aliqua" },
+    { label: "DELIVERY RADIUS", value: "Kirkuk · Erbil · Sulaymaniyah" },
+    { label: "TESTING LAB", value: "Lorem ipsum dolor sit amet consectetur" },
+    { label: "FLEET", value: "Ut enim ad minim veniam quis nostrud" },
   ],
   certifications: [
     { code: "ISO 9001:2015", name: "Lorem ipsum dolor" },

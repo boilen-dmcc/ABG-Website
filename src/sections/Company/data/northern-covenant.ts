@@ -6,9 +6,9 @@ export const northernCovenant: CompanyData = {
   legalName: "Northern Covenant Oilfield Services Ltd.",
   sector: "Energy & Downstream — Oilfield Services",
   eyebrow: "NORTHERN COVENANT · ENERGY & DOWNSTREAM",
-  taglinePrefix: "Lorem ",
-  taglineAccent: "ipsum",
-  taglineSuffix: " dolor.",
+  taglinePrefix: "Servicing the ",
+  taglineAccent: "field",
+  taglineSuffix: ".",
   heroSubhead:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ad minim veniam.",
   heroPrimaryCta: "Inside the operation",
@@ -27,7 +27,7 @@ export const northernCovenant: CompanyData = {
   mandatePortraitCaption:
     "LOREM IPSUM — DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT.",
   facilityCity: "Kirkuk",
-  facilityHeading: "Sed ut perspiciatis unde.",
+  facilityHeading: "Rigged up, twenty-four hours.",
   facilityImage:
     "https://images.unsplash.com/photo-1602056820935-316884c035f8?w=2200&auto=format&q=80",
   facilityImageAlt:
@@ -40,61 +40,61 @@ export const northernCovenant: CompanyData = {
     { value: "Sit amet", label: "PRIMARY MARKET" },
   ],
   mandate: {
-    heading: "Lorem ipsum dolor sit amet consectetur.",
+    heading: "Wellhead to wellhead, across the Kirkuk basin.",
     body: [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.",
     ],
   },
-  capabilitiesHeading: "Sed do eiusmod tempor incididunt.",
+  capabilitiesHeading: "Six service lines. One field response.",
   capabilitiesSubhead:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "Rigged up, rigged down, on call around the clock.",
   capabilities: [
     {
       index: "01",
-      title: "Lorem ipsum dolor",
+      title: "Wellhead services",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
     },
     {
       index: "02",
-      title: "Consectetur adipiscing",
+      title: "Workover & completions",
       description:
         "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
     },
     {
       index: "03",
-      title: "Sed do eiusmod",
+      title: "Coiled tubing",
       description:
         "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     },
     {
       index: "04",
-      title: "Tempor incididunt",
+      title: "Cementing & stimulation",
       description:
         "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id.",
     },
     {
       index: "05",
-      title: "Ut labore et dolore",
+      title: "Drilling fluids",
       description:
         "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam.",
     },
     {
       index: "06",
-      title: "Magna aliqua",
+      title: "Field instrumentation",
       description:
         "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.",
     },
   ],
   facilitySpecs: [
-    { label: "LOREM IPSUM", value: "Dolor sit amet, consectetur adipiscing" },
-    { label: "DOLOR SIT", value: "Eiusmod · Tempor · Incididunt · Labore" },
-    { label: "CONSECTETUR", value: "Ut labore et dolore magna aliqua" },
-    { label: "ADIPISCING", value: "Kirkuk · Erbil · Baghdad · Mosul" },
-    { label: "SED DO EIUSMOD", value: "Lorem ipsum dolor sit amet consectetur" },
-    { label: "TEMPOR INCIDIDUNT", value: "Ut enim ad minim veniam quis nostrud" },
+    { label: "SERVICE LINES", value: "Dolor sit amet, consectetur adipiscing" },
+    { label: "RIG COMPATIBILITY", value: "Eiusmod · Tempor · Incididunt · Labore" },
+    { label: "RESPONSE RADIUS", value: "Ut labore et dolore magna aliqua" },
+    { label: "FLEET", value: "Kirkuk · Erbil · Baghdad · Mosul" },
+    { label: "CERTIFIED CREWS", value: "Lorem ipsum dolor sit amet consectetur" },
+    { label: "SHIFT PATTERN", value: "Ut enim ad minim veniam quis nostrud" },
   ],
   certifications: [
     { code: "ISO 9001:2015", name: "Lorem ipsum dolor" },
