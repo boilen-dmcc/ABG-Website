@@ -20,6 +20,7 @@ import { SolutionPetrochemicals } from "@/pages/SolutionPetrochemicals";
 import { SolutionPowerGeneration } from "@/pages/SolutionPowerGeneration";
 import { SolutionInfrastructure } from "@/pages/SolutionInfrastructure";
 import { About } from "@/pages/About";
+import { Projects } from "@/pages/Projects";
 
 export const App = () => {
   return (
@@ -85,6 +86,8 @@ export const App = () => {
           element={<SolutionInfrastructure />}
         />
         <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/:slug" element={<Projects />} />
         <Route path="*" element={<Page2 />} />
       </Routes>
     </HashRouter>

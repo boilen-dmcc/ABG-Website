@@ -1,56 +1,7 @@
     import { useState } from "react";
+import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
-
-const projects = [
-  {
-    location: "Basra, Iraq",
-    title: "Basra Refinery Expansion",
-    category: "Oil & Gas",
-    value: "$2.1B",
-    description: "Expanding refining capacity by 140,000 bpd with state-of-the-art hydrocracking units.",
-    image: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=800&h=600&fit=crop"
-  },
-  {
-    location: "Baghdad, Iraq",
-    title: "Baghdad Power Station",
-    category: "Power Generation",
-    value: "$1.8B",
-    description: "Combined cycle gas turbine plant delivering 1,500 MW to the national grid.",
-    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=600&fit=crop"
-  },
-  {
-    location: "Karbala, Iraq",
-    title: "Karbala Petrochemical Complex",
-    category: "Petrochemicals",
-    value: "$3.5B",
-    description: "Integrated facility producing polyethylene and polypropylene for domestic market.",
-    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=600&fit=crop"
-  },
-  {
-    location: "Kirkuk, Iraq",
-    title: "Kirkuk Pipeline Network",
-    category: "Infrastructure",
-    value: "$1.2B",
-    description: "Modern pipeline infrastructure connecting northern oil fields to export terminals.",
-    image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=800&h=600&fit=crop"
-  },
-  {
-    location: "Baghdad, Iraq",
-    title: "Baghdad Solar Farm",
-    category: "Renewable Energy",
-    value: "$900M",
-    description: "Large-scale solar installation providing clean energy to the central Iraqi grid.",
-    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&h=600&fit=crop"
-  },
-  {
-    location: "Mosul, Iraq",
-    title: "Mosul Dam Rehabilitation",
-    category: "Infrastructure",
-    value: "$1.5B",
-    description: "Critical infrastructure project ensuring water security for millions of Iraqis.",
-    image: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=800&h=600&fit=crop"
-  }
-];
+import { projects } from "@/sections/Projects/data/projects";
 
 export const Page2Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -135,12 +86,15 @@ export const Page2Projects = () => {
                       <div className="flex items-center justify-between mt-5 pt-5 border-t">
                         <span className="text-2xl font-bold text-gray-900">{project.value}</span>
                         {isActive && (
-                          <button className="text-red-600 text-base font-semibold hover:text-red-800 flex items-center gap-2 transition-colors">
+                          <Link
+                            to={`/projects/${project.slug}`}
+                            className="text-red-600 text-base font-semibold hover:text-red-800 flex items-center gap-2 transition-colors"
+                          >
                             Learn More
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
-                          </button>
+                          </Link>
                         )}
                       </div>
                     </div>
@@ -221,15 +175,15 @@ export const Page2Projects = () => {
 
       <div className="box-border caret-transparent max-w-[1400px] mx-auto px-6 md:px-12">
         <div className="box-border caret-transparent mt-12 text-left">
-          <a
-            href="#"
+          <Link
+            to="/projects"
             className="group inline-flex items-center gap-4 w-fit"
           >
             <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-red-600 text-white transition-transform duration-300 group-hover:scale-110">
               <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
             </div>
             <span className="text-base md:text-xl font-semibold text-red-600">View All Projects</span>
-          </a>
+          </Link>
         </div>
       </div>
 

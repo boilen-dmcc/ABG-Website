@@ -746,10 +746,14 @@ export const Page2Header = () => {
                         <h4 className="font-bold text-sm text-gray-900 mb-1">About Us</h4>
                         <p className="text-xs text-gray-600">Our story and mission</p>
                       </Link>
-                      <a href="/projects" className="block p-3 hover:bg-gray-50 rounded transition-colors">
+                      <Link
+                        to="/projects"
+                        onClick={closeDropdown}
+                        className="block p-3 hover:bg-gray-50 rounded transition-colors"
+                      >
                         <h4 className="font-bold text-sm text-gray-900 mb-1">Projects</h4>
                         <p className="text-xs text-gray-600">Our portfolio of work</p>
-                      </a>
+                      </Link>
                       <a href="/careers" className="block p-3 hover:bg-gray-50 rounded transition-colors">
                         <h4 className="font-bold text-sm text-gray-900 mb-1">Careers</h4>
                         <p className="text-xs text-gray-600">Join our team</p>
@@ -943,9 +947,13 @@ export const Page2Header = () => {
                     >
                       About Us
                     </Link>
-                    <a href="/projects" className="block text-sm text-gray-600 hover:text-red-600 py-1">
+                    <Link
+                      to="/projects"
+                      onClick={closeMobileMenu}
+                      className="block text-sm text-gray-600 hover:text-red-600 py-1"
+                    >
                       Projects
-                    </a>
+                    </Link>
                     <a href="/careers" className="block text-sm text-gray-600 hover:text-red-600 py-1">
                       Careers
                     </a>
