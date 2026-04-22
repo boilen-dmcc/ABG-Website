@@ -1,4 +1,4 @@
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { SolutionData } from "./types";
 
 type Props = { data: SolutionData };
@@ -16,22 +16,35 @@ export const Hero = ({ data }: Props) => {
         aria-hidden
       />
 
-      <div className="relative z-10 max-w-[1400px] mx-auto w-full px-4 sm:px-6 md:px-8 lg:px-12 min-h-screen flex flex-col justify-between pt-36 sm:pt-40 lg:pt-44 pb-12 sm:pb-16 lg:pb-20">
-        <div className="grid grid-cols-12 gap-6 lg:gap-10">
-          <div className="col-span-12 lg:col-span-8 order-2 lg:order-1">
-            <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-white/60 mb-6 lg:mb-10">
+      <div className="relative z-10 max-w-[1400px] mx-auto w-full px-4 sm:px-6 md:px-8 lg:px-12 min-h-screen flex flex-col pt-36 sm:pt-40 lg:pt-44 pb-10 sm:pb-14 lg:pb-16">
+        <div className="grid grid-cols-12 gap-4 lg:gap-8 mb-14 sm:mb-20 lg:mb-24 pb-6 border-b border-white/10">
+          <div className="col-span-12 lg:col-span-5">
+            <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-white/60">
               {data.eyebrow}
             </p>
-            <h1 className="font-apfel_grotezk font-bold text-6xl sm:text-7xl lg:text-8xl bp1090:text-9xl leading-[0.95] tracking-tight">
-              {data.taglinePrefix}
-              <span className="text-red-600">{data.taglineAccent}</span>
-              {data.taglineSuffix}
-            </h1>
-            <p className="mt-8 lg:mt-10 max-w-[46rem] text-lg lg:text-xl text-white/70 leading-relaxed">
+          </div>
+          <div className="col-span-12 lg:col-span-7 lg:text-right flex flex-col lg:items-end gap-1.5">
+            <p className="font-necto_mono text-[10px] lg:text-[11px] uppercase tracking-[0.22em] text-white/40">
+              Industry Coverage
+            </p>
+            <p className="font-necto_mono text-[11px] lg:text-xs font-semibold uppercase tracking-[0.18em] text-red-500">
+              {data.industryCategory}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex-1 flex flex-col justify-center">
+          <h1 className="font-apfel_grotezk font-bold text-6xl sm:text-7xl lg:text-8xl bp1090:text-9xl leading-[0.9] tracking-tight max-w-[18ch]">
+            {data.taglinePrefix}
+            <span className="text-red-600">{data.taglineAccent}</span>
+            {data.taglineSuffix}
+          </h1>
+
+          <div className="mt-12 lg:mt-16 grid grid-cols-12 gap-6 lg:gap-12 items-end">
+            <p className="col-span-12 lg:col-span-7 text-lg lg:text-xl text-white/70 leading-relaxed">
               {data.heroSubhead}
             </p>
-
-            <div className="mt-10 lg:mt-12 flex flex-wrap items-center gap-4 sm:gap-6">
+            <div className="col-span-12 lg:col-span-5 flex flex-wrap items-center gap-4 sm:gap-6 lg:justify-end">
               <a
                 href="#glance"
                 className="group inline-flex items-center gap-4"
@@ -52,55 +65,41 @@ export const Hero = ({ data }: Props) => {
               </a>
             </div>
           </div>
-
-          <aside className="col-span-12 lg:col-span-4 order-1 lg:order-2 lg:mt-2">
-            <div className="border border-white/20 bg-white/[0.04] backdrop-blur-sm p-6 sm:p-7 flex flex-col gap-6">
-              <div>
-                <p className="font-necto_mono text-[10px] font-semibold uppercase tracking-[0.22em] text-red-500 mb-3">
-                  INDUSTRY SOLUTION
-                </p>
-                <h2 className="font-apfel_grotezk font-semibold text-3xl sm:text-[32px] tracking-tight leading-[1.05]">
-                  {data.name}
-                </h2>
-                <p className="mt-3 font-necto_mono text-[11px] font-semibold uppercase tracking-[0.2em] text-white/70">
-                  {data.industryCategory}
-                </p>
-              </div>
-              <div className="pt-5 border-t border-white/10 flex flex-col gap-5">
-                <div>
-                  <p className="font-necto_mono text-[10px] uppercase tracking-[0.22em] text-white/40 mb-1.5">
-                    Demand
-                  </p>
-                  <p className="font-necto_mono text-[11px] uppercase tracking-[0.18em] text-white/85 leading-snug">
-                    {data.demandChip}
-                  </p>
-                </div>
-                <div>
-                  <p className="font-necto_mono text-[10px] uppercase tracking-[0.22em] text-white/40 mb-1.5">
-                    Scale
-                  </p>
-                  <p className="font-necto_mono text-[11px] uppercase tracking-[0.18em] text-white/85 leading-snug">
-                    {data.scaleChip}
-                  </p>
-                </div>
-                <div>
-                  <p className="font-necto_mono text-[10px] uppercase tracking-[0.22em] text-white/40 mb-1.5">
-                    Footprint
-                  </p>
-                  <p className="font-necto_mono text-[11px] uppercase tracking-[0.18em] text-white/85 leading-snug">
-                    {data.footprintChip}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </aside>
         </div>
 
-        <div className="hidden sm:flex flex-col items-center gap-2 text-white/40 self-end">
-          <span className="font-necto_mono text-[10px] uppercase tracking-[0.2em]">
-            Scroll
-          </span>
-          <ChevronDown className="w-4 h-4 animate-bounce" />
+        <div className="mt-14 sm:mt-20 lg:mt-24 pt-7 lg:pt-9 border-t border-white/15 grid grid-cols-1 sm:grid-cols-[auto_1fr_1fr_1fr] gap-8 sm:gap-10 lg:gap-16 items-start">
+          <div className="sm:pr-8 lg:pr-12 sm:border-r sm:border-white/10">
+            <p className="font-necto_mono text-[10px] lg:text-[11px] uppercase tracking-[0.22em] text-white/40 mb-3">
+              Solution
+            </p>
+            <p className="font-apfel_grotezk text-xl lg:text-[22px] font-semibold tracking-tight leading-snug">
+              {data.name}
+            </p>
+          </div>
+          <div>
+            <p className="font-necto_mono text-[10px] lg:text-[11px] uppercase tracking-[0.22em] text-white/40 mb-3">
+              Demand
+            </p>
+            <p className="font-apfel_grotezk text-base lg:text-lg font-semibold tracking-tight leading-snug">
+              {data.demandChip}
+            </p>
+          </div>
+          <div>
+            <p className="font-necto_mono text-[10px] lg:text-[11px] uppercase tracking-[0.22em] text-white/40 mb-3">
+              Scale
+            </p>
+            <p className="font-apfel_grotezk text-base lg:text-lg font-semibold tracking-tight leading-snug">
+              {data.scaleChip}
+            </p>
+          </div>
+          <div>
+            <p className="font-necto_mono text-[10px] lg:text-[11px] uppercase tracking-[0.22em] text-white/40 mb-3">
+              Footprint
+            </p>
+            <p className="font-apfel_grotezk text-base lg:text-lg font-semibold tracking-tight leading-snug">
+              {data.footprintChip}
+            </p>
+          </div>
         </div>
       </div>
     </section>
