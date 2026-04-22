@@ -1,4 +1,5 @@
 import { ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
     export const Page2CTA = () => {
       return (
@@ -20,15 +21,15 @@ import { ChevronRight } from "lucide-react";
                 We are always looking for passionate, talented, and creative people to join our team
               </p>
               
-              <a
-                href="#"
+              <Link
+                to="/careers"
                 className="group inline-flex items-center gap-4 w-fit"
               >
                 <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-red-600 text-white transition-transform duration-300 group-hover:scale-110">
                   <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <span className="text-base md:text-xl font-semibold">View Careers</span>
-              </a>
+              </Link>
             </div>
           </div>
     <div className="relative text-white bg-gray-900 box-border caret-transparent flex justify-start overflow-hidden">

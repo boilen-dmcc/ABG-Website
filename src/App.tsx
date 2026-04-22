@@ -21,6 +21,7 @@ import { SolutionPowerGeneration } from "@/pages/SolutionPowerGeneration";
 import { SolutionInfrastructure } from "@/pages/SolutionInfrastructure";
 import { About } from "@/pages/About";
 import { Projects } from "@/pages/Projects";
+import { Careers } from "@/pages/Careers";
 
 export const App = () => {
   return (
@@ -88,6 +89,7 @@ export const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:slug" element={<Projects />} />
+        <Route path="/careers" element={<Careers />} />
         <Route path="*" element={<Page2 />} />
       </Routes>
     </HashRouter>
