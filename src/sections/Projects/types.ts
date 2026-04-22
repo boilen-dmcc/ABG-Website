@@ -1,10 +1,18 @@
+export type ProjectHighlight = {
+  label: string;
+  value: string;
+};
+
 export type Project = {
   slug: string;
   title: string;
   category: string;
   location: string;
   value: string;
+  year: string;
   description: string;
+  overview: string;
+  highlights: ProjectHighlight[];
   image: string;
 };
 
@@ -23,9 +31,9 @@ export type ProjectsPageData = {
   heroSubhead: string;
   heroSecondaryCta: string;
   heroMetaRows: { label: string; value: string }[];
-  indexEyebrow: string;
-  indexHeading: string;
-  indexIntro: string;
+  spreadsEyebrow: string;
+  spreadsHeading: string;
+  spreadsIntro: string;
   contact: ProjectsContact;
   documentTitle: string;
 };
