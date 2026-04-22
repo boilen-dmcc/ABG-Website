@@ -762,10 +762,14 @@ export const Page2Header = () => {
                         <h4 className="font-bold text-sm text-gray-900 mb-1">Careers</h4>
                         <p className="text-xs text-gray-600">Join our team</p>
                       </Link>
-                      <a href="mailto:info@albarhamgroup.com" className="block p-3 hover:bg-gray-50 rounded transition-colors">
+                      <Link
+                        to="/contact"
+                        onClick={closeDropdown}
+                        className="block p-3 hover:bg-gray-50 rounded transition-colors"
+                      >
                         <h4 className="font-bold text-sm text-gray-900 mb-1">Contact</h4>
                         <p className="text-xs text-gray-600">Get in touch</p>
-                      </a>
+                      </Link>
                     </div>
                   )}
 
@@ -964,6 +968,13 @@ export const Page2Header = () => {
                       className="block text-sm text-gray-600 hover:text-red-600 py-1"
                     >
                       Careers
+                    </Link>
+                    <Link
+                      to="/contact"
+                      onClick={closeMobileMenu}
+                      className="block text-sm text-gray-600 hover:text-red-600 py-1"
+                    >
+                      Contact
                     </Link>
                   </div>
                 </div>

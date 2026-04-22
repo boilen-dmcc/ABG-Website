@@ -49,15 +49,15 @@ import { Link } from "react-router-dom";
                 Let us assist you in determining the best solution for your project. Start the conversation today!
               </p>
               
-              <a
-                href="mailto:info@albarhamgroup.com"
+              <Link
+                to="/contact"
                 className="group inline-flex items-center gap-4 w-fit"
               >
                 <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-white text-red-600 transition-transform duration-300 group-hover:scale-110">
                   <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <span className="text-base md:text-xl font-semibold">Contact Us</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
