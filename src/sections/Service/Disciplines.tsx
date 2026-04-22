@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Plus } from "lucide-react";
 import type { Discipline } from "./types";
 
 type Props = {
@@ -8,6 +9,7 @@ type Props = {
 };
 
 export const Disciplines = ({ heading, subhead, disciplines }: Props) => {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -47,30 +49,67 @@ export const Disciplines = ({ heading, subhead, disciplines }: Props) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200 border border-gray-200">
-          {disciplines.map((d, i) => (
-            <article
-              key={d.index}
-              className="group relative bg-white p-8 lg:p-10 min-h-[280px] flex flex-col justify-between transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-gray-50 motion-reduce:transition-none"
-              style={{
-                opacity: visible ? 1 : 0,
-                transform: visible ? "translateY(0)" : "translateY(14px)",
-                transitionDelay: `${i * 70}ms`,
-              }}
-            >
-              <p className="font-apfel_grotezk font-bold text-5xl lg:text-6xl text-gray-200 leading-none transition-colors duration-500 group-hover:text-red-600">
-                {d.index}
-              </p>
-              <div className="mt-8">
-                <h3 className="font-apfel_grotezk text-2xl lg:text-[26px] font-semibold leading-tight mb-3 tracking-tight">
-                  {d.title}
-                </h3>
-                <p className="text-sm lg:text-base text-gray-600 leading-relaxed max-w-[32ch]">
-                  {d.description}
-                </p>
+        <div className="border-t border-gray-200">
+          {disciplines.map((d, i) => {
+            const isOpen = openIndex === i;
+            return (
+              <div
+                key={d.index}
+                className="border-b border-gray-200 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none"
+                style={{
+                  opacity: visible ? 1 : 0,
+                  transform: visible ? "translateY(0)" : "translateY(14px)",
+                  transitionDelay: `${i * 70}ms`,
+                }}
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                  className="w-full grid grid-cols-[56px_1fr_auto] lg:grid-cols-[96px_1fr_auto] items-center gap-4 sm:gap-6 lg:gap-10 py-7 lg:py-9 group text-left focus:outline-none"
+                  aria-expanded={isOpen}
+                >
+                  <p
+                    className={`font-apfel_grotezk font-bold text-4xl lg:text-5xl leading-none transition-colors duration-500 ${
+                      isOpen
+                        ? "text-red-600"
+                        : "text-gray-300 group-hover:text-red-600"
+                    }`}
+                  >
+                    {d.index}
+                  </p>
+                  <h3 className="font-apfel_grotezk text-2xl lg:text-3xl font-semibold leading-tight tracking-tight">
+                    {d.title}
+                  </h3>
+                  <span
+                    className={`relative w-9 h-9 lg:w-10 lg:h-10 rounded-full border flex items-center justify-center transition-all duration-500 ${
+                      isOpen
+                        ? "bg-red-600 border-red-600 rotate-45"
+                        : "border-gray-300 group-hover:border-gray-800"
+                    }`}
+                    aria-hidden
+                  >
+                    <Plus
+                      className={`w-4 h-4 transition-colors duration-500 ${
+                        isOpen ? "text-white" : "text-gray-700"
+                      }`}
+                    />
+                  </span>
+                </button>
+                <div
+                  className="grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none"
+                  style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+                >
+                  <div className="overflow-hidden">
+                    <div className="pl-[72px] sm:pl-20 lg:pl-[136px] pr-10 pb-8 lg:pb-10 max-w-[64ch]">
+                      <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
+                        {d.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

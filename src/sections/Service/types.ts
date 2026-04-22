@@ -9,9 +9,10 @@ export type Discipline = {
   description: string;
 };
 
-export type MethodologySpec = {
-  label: string;
-  value: string;
+export type MethodologyPhase = {
+  phase: string;
+  title: string;
+  description: string;
 };
 
 export type Standard = {
@@ -22,6 +23,7 @@ export type Standard = {
 export type ServiceData = {
   slug: string;
   name: string;
+  serviceIndex: string;
   serviceCategory: string;
   eyebrow: string;
   taglinePrefix: string;
@@ -33,13 +35,9 @@ export type ServiceData = {
   scopeChip: string;
   stageChip: string;
   reachChip: string;
-  heroImage: string;
-  heroImageAlt: string;
   overviewPortrait: string;
   overviewPortraitAlt: string;
   overviewPortraitCaption: string;
-  methodologyImage: string;
-  methodologyImageAlt: string;
   methodologyHeading: string;
   stats: Stat[];
   overview: {
@@ -49,7 +47,7 @@ export type ServiceData = {
   disciplinesHeading: string;
   disciplinesSubhead: string;
   disciplines: Discipline[];
-  methodologySpecs: MethodologySpec[];
+  methodologyPhases: MethodologyPhase[];
   standards: Standard[];
   hseStat: string;
   contact: {
