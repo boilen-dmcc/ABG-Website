@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const SLIDE_DURATION = 5000;
 
@@ -101,35 +102,35 @@ export const Page2FeaturedCarousel = () => {
       image:
         "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=600&fit=crop",
       title: "Pennsylvania Chemicals Project Milestone",
-      url: "#",
+      url: "/projects",
     },
     {
       id: "2",
       image:
         "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=800&h=600&fit=crop",
       title: "Basra Refinery Expansion",
-      url: "#",
+      url: "/projects/basra-refinery-expansion",
     },
     {
       id: "3",
       image:
         "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=600&fit=crop",
       title: "Baghdad Power Station",
-      url: "#",
+      url: "/projects/baghdad-power-station",
     },
     {
       id: "4",
       image:
         "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=800&h=600&fit=crop",
       title: "Kirkuk Pipeline Network",
-      url: "#",
+      url: "/projects/kirkuk-pipeline-network",
     },
     {
       id: "5",
       image:
         "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&h=600&fit=crop",
       title: "Baghdad Solar Farm",
-      url: "#",
+      url: "/projects/baghdad-solar-farm",
     },
   ];
 
@@ -289,8 +290,8 @@ export const Page2FeaturedCarousel = () => {
                     isAnimating ? "opacity-0" : "opacity-100"
                   }`}
                 >
-                  <a
-                    href={posts[currentIndex].url}
+                  <Link
+                    to={posts[currentIndex].url}
                     className="group inline-flex items-center gap-1.5 sm:gap-2 text-white text-xs sm:text-sm font-semibold hover:text-red-400 transition-colors"
                   >
                     <span>Read More</span>
@@ -307,7 +308,7 @@ export const Page2FeaturedCarousel = () => {
                         d="M17 8l4 4m0 0l-4 4m4-4H3"
                       />
                     </svg>
-                  </a>
+                  </Link>
                 </div>
 
                 {/* Navigation Arrows */}

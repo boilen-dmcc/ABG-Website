@@ -126,7 +126,6 @@ export const projectsPageData: ProjectsPageData = {
   heroSecondaryCta: "Browse the portfolio",
   heroMetaRows: [
     { label: "PROJECTS", value: "6" },
-    { label: "COMBINED VALUE", value: "$11.0B" },
     { label: "SECTORS", value: "5" },
   ],
   spreadsEyebrow: "THE PORTFOLIO",
