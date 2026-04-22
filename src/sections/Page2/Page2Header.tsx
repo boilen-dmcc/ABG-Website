@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 
-type CompanyItem = {
+export type CompanyItem = {
   name: string;
   description: string;
   category: string;
@@ -79,7 +79,7 @@ const solutions: SolutionItem[] = [
   },
 ];
 
-const companies: CompanyItem[] = [
+export const companies: CompanyItem[] = [
   {
     name: "TAQAT KIRKUK",
     description: "Gasoline production",
@@ -738,10 +738,14 @@ export const Page2Header = () => {
 
                   {activeDropdown === "company" && (
                     <div className="space-y-3">
-                      <a href="/#about" className="block p-3 hover:bg-gray-50 rounded transition-colors">
+                      <Link
+                        to="/about"
+                        onClick={closeDropdown}
+                        className="block p-3 hover:bg-gray-50 rounded transition-colors"
+                      >
                         <h4 className="font-bold text-sm text-gray-900 mb-1">About Us</h4>
                         <p className="text-xs text-gray-600">Our story and mission</p>
-                      </a>
+                      </Link>
                       <a href="/projects" className="block p-3 hover:bg-gray-50 rounded transition-colors">
                         <h4 className="font-bold text-sm text-gray-900 mb-1">Projects</h4>
                         <p className="text-xs text-gray-600">Our portfolio of work</p>
@@ -932,9 +936,13 @@ export const Page2Header = () => {
                   style={{ maxHeight: mobileActiveDropdown === "company" ? "1000px" : "0" }}
                 >
                   <div className="mt-2 pl-4 space-y-2">
-                    <a href="/#about" className="block text-sm text-gray-600 hover:text-red-600 py-1">
+                    <Link
+                      to="/about"
+                      onClick={closeMobileMenu}
+                      className="block text-sm text-gray-600 hover:text-red-600 py-1"
+                    >
                       About Us
-                    </a>
+                    </Link>
                     <a href="/projects" className="block text-sm text-gray-600 hover:text-red-600 py-1">
                       Projects
                     </a>
