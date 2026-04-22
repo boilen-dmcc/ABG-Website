@@ -10,6 +10,11 @@ import { CompanyGashbin } from "@/pages/CompanyGashbin";
 import { CompanyAlBarhamDmcc } from "@/pages/CompanyAlBarhamDmcc";
 import { AlBarhamGroup } from "@/pages/AlBarhamGroup";
 import { ServiceEngineering } from "@/pages/ServiceEngineering";
+import { ServiceProcurement } from "@/pages/ServiceProcurement";
+import { ServiceConstruction } from "@/pages/ServiceConstruction";
+import { ServiceCommissioning } from "@/pages/ServiceCommissioning";
+import { ServiceEpcc } from "@/pages/ServiceEpcc";
+import { ServiceTransportation } from "@/pages/ServiceTransportation";
 
 export const App = () => {
   return (
@@ -43,6 +48,23 @@ export const App = () => {
         <Route
           path="/services/engineering"
           element={<ServiceEngineering />}
+        />
+        <Route
+          path="/services/procurement"
+          element={<ServiceProcurement />}
+        />
+        <Route
+          path="/services/construction"
+          element={<ServiceConstruction />}
+        />
+        <Route
+          path="/services/commissioning"
+          element={<ServiceCommissioning />}
+        />
+        <Route path="/services/epcc" element={<ServiceEpcc />} />
+        <Route
+          path="/services/transportation"
+          element={<ServiceTransportation />}
         />
         <Route path="*" element={<Page2 />} />
       </Routes>

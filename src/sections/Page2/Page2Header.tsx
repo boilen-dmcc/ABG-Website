@@ -26,22 +26,27 @@ const services: ServiceItem[] = [
   {
     name: "Procurement",
     description: "Global vendor sourcing",
+    url: "/services/procurement",
   },
   {
     name: "Construction",
     description: "Civil works & installation",
+    url: "/services/construction",
   },
   {
     name: "Commissioning",
     description: "Startup & verification",
+    url: "/services/commissioning",
   },
   {
     name: "EPCC (Turnkey)",
     description: "Single-window delivery",
+    url: "/services/epcc",
   },
   {
     name: "Transportation",
     description: "Petroleum logistics",
+    url: "/services/transportation",
   },
 ];
 
