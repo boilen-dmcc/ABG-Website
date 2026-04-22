@@ -15,6 +15,7 @@ import { ServiceConstruction } from "@/pages/ServiceConstruction";
 import { ServiceCommissioning } from "@/pages/ServiceCommissioning";
 import { ServiceEpcc } from "@/pages/ServiceEpcc";
 import { ServiceTransportation } from "@/pages/ServiceTransportation";
+import { SolutionOilGas } from "@/pages/SolutionOilGas";
 
 export const App = () => {
   return (
@@ -66,6 +67,7 @@ export const App = () => {
           path="/services/transportation"
           element={<ServiceTransportation />}
         />
+        <Route path="/solutions/oil-gas" element={<SolutionOilGas />} />
         <Route path="*" element={<Page2 />} />
       </Routes>
     </HashRouter>

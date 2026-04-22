@@ -17,6 +17,12 @@ type ServiceItem = {
   url?: string;
 };
 
+type SolutionItem = {
+  name: string;
+  description: string;
+  url?: string;
+};
+
 const services: ServiceItem[] = [
   {
     name: "Engineering",
@@ -47,6 +53,26 @@ const services: ServiceItem[] = [
     name: "Transportation",
     description: "Petroleum logistics",
     url: "/services/transportation",
+  },
+];
+
+const solutions: SolutionItem[] = [
+  {
+    name: "Oil & Gas",
+    description: "Upstream to downstream",
+    url: "/solutions/oil-gas",
+  },
+  {
+    name: "Petrochemicals",
+    description: "Integrated facilities",
+  },
+  {
+    name: "Power Generation",
+    description: "Renewable & conventional",
+  },
+  {
+    name: "Infrastructure",
+    description: "Industrial development",
   },
 ];
 
@@ -673,22 +699,37 @@ export const Page2Header = () => {
 
                   {activeDropdown === "solutions" && (
                     <div className="grid grid-cols-2 gap-4">
-                      <div className="p-3 hover:bg-gray-50 rounded transition-colors">
-                        <h4 className="font-bold text-sm text-gray-900 mb-1">Oil & Gas</h4>
-                        <p className="text-xs text-gray-600">Upstream to downstream</p>
-                      </div>
-                      <div className="p-3 hover:bg-gray-50 rounded transition-colors">
-                        <h4 className="font-bold text-sm text-gray-900 mb-1">Petrochemicals</h4>
-                        <p className="text-xs text-gray-600">Integrated facilities</p>
-                      </div>
-                      <div className="p-3 hover:bg-gray-50 rounded transition-colors">
-                        <h4 className="font-bold text-sm text-gray-900 mb-1">Power Generation</h4>
-                        <p className="text-xs text-gray-600">Renewable & conventional</p>
-                      </div>
-                      <div className="p-3 hover:bg-gray-50 rounded transition-colors">
-                        <h4 className="font-bold text-sm text-gray-900 mb-1">Infrastructure</h4>
-                        <p className="text-xs text-gray-600">Industrial development</p>
-                      </div>
+                      {solutions.map((solution) => {
+                        const inner = (
+                          <>
+                            <h4 className="font-bold text-sm text-gray-900 mb-1">{solution.name}</h4>
+                            <p className="text-xs text-gray-600">{solution.description}</p>
+                            {!solution.url && (
+                              <p className="mt-1 text-[10px] font-necto_mono uppercase tracking-[0.18em] text-gray-400">
+                                Page coming soon
+                              </p>
+                            )}
+                          </>
+                        );
+                        return solution.url ? (
+                          <Link
+                            key={solution.name}
+                            to={solution.url}
+                            onClick={closeDropdown}
+                            className="p-3 hover:bg-gray-50 rounded transition-colors block"
+                          >
+                            {inner}
+                          </Link>
+                        ) : (
+                          <div
+                            key={solution.name}
+                            className="p-3 rounded opacity-60 cursor-not-allowed"
+                            aria-disabled="true"
+                          >
+                            {inner}
+                          </div>
+                        );
+                      })}
                     </div>
                   )}
 
@@ -847,15 +888,28 @@ export const Page2Header = () => {
                   style={{ maxHeight: mobileActiveDropdown === "solutions" ? "1000px" : "0" }}
                 >
                   <div className="mt-2 pl-4 space-y-2">
-                    <a href="#" className="block text-sm text-gray-600 hover:text-red-600 py-1">
-                      Oil & Gas
-                    </a>
-                    <a href="#" className="block text-sm text-gray-600 hover:text-red-600 py-1">
-                      Petrochemicals
-                    </a>
-                    <a href="#" className="block text-sm text-gray-600 hover:text-red-600 py-1">
-                      Power Generation
-                    </a>
+                    {solutions.map((solution) =>
+                      solution.url ? (
+                        <Link
+                          key={solution.name}
+                          to={solution.url}
+                          onClick={closeMobileMenu}
+                          className="block text-sm text-gray-600 hover:text-red-600 py-1"
+                        >
+                          {solution.name}
+                        </Link>
+                      ) : (
+                        <a
+                          key={solution.name}
+                          href="#"
+                          onClick={(e) => e.preventDefault()}
+                          className="block text-sm text-gray-400 py-1 cursor-default"
+                          aria-disabled="true"
+                        >
+                          {solution.name}
+                        </a>
+                      ),
+                    )}
                   </div>
                 </div>
               </div>
