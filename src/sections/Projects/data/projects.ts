@@ -1,147 +1,211 @@
 import type { Project, ProjectsPageData } from "../types";
 
+export type ProjectNavItem = {
+  name: string;
+  description: string;
+  category: string;
+  color: string;
+  logo?: string;
+  url?: string;
+};
+
 export const projects: Project[] = [
   {
-    slug: "basra-refinery-expansion",
-    location: "Basra, Iraq",
-    title: "Basra Refinery Expansion",
-    category: "Oil & Gas",
-    value: "$2.1B",
-    year: "2022",
-    description:
-      "Expanding refining capacity by 140,000 bpd with state-of-the-art hydrocracking units.",
-    overview:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    highlights: [
-      { label: "SCOPE", value: "Lorem ipsum consectetur adipiscing" },
-      { label: "TIMELINE", value: "Lorem 2020 — 2023" },
-      { label: "ROLE", value: "Lorem ipsum dolor sit amet" },
-    ],
-    image:
-      "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=1400&h=1050&fit=crop",
-  },
-  {
-    slug: "baghdad-power-station",
-    location: "Baghdad, Iraq",
-    title: "Baghdad Power Station",
-    category: "Power Generation",
-    value: "$1.8B",
-    year: "2021",
-    description:
-      "Combined cycle gas turbine plant delivering 1,500 MW to the national grid.",
-    overview:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    highlights: [
-      { label: "SCOPE", value: "Lorem ipsum adipiscing elit" },
-      { label: "TIMELINE", value: "Lorem 2019 — 2022" },
-      { label: "ROLE", value: "Lorem consectetur adipiscing" },
-    ],
-    image:
-      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1400&h=1050&fit=crop",
-  },
-  {
-    slug: "karbala-petrochemical-complex",
-    location: "Karbala, Iraq",
-    title: "Karbala Petrochemical Complex",
-    category: "Petrochemicals",
-    value: "$3.5B",
-    year: "2023",
-    description:
-      "Integrated facility producing polyethylene and polypropylene for domestic market.",
-    overview:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    highlights: [
-      { label: "SCOPE", value: "Lorem ipsum tempor incididunt" },
-      { label: "TIMELINE", value: "Lorem 2021 — 2024" },
-      { label: "ROLE", value: "Lorem ipsum sed do eiusmod" },
-    ],
-    image:
-      "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1400&h=1050&fit=crop",
-  },
-  {
-    slug: "kirkuk-pipeline-network",
+    slug: "gasoline-production-complex",
+    title: "GASOLINE PRODUCTION COMPLEX",
+    category: "Refining & Production",
     location: "Kirkuk, Iraq",
-    title: "Kirkuk Pipeline Network",
-    category: "Infrastructure",
-    value: "$1.2B",
-    year: "2020",
+    year: "Operational",
     description:
-      "Modern pipeline infrastructure connecting northern oil fields to export terminals.",
-    overview:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
+      "12,000 BPD EURO V gasoline complex — self-financed downstream refining asset in Kirkuk, Iraq.",
+    overview: "",
     highlights: [
-      { label: "SCOPE", value: "Lorem consectetur ullamco laboris" },
-      { label: "TIMELINE", value: "Lorem 2018 — 2020" },
-      { label: "ROLE", value: "Lorem ipsum ut aliquip" },
+      { label: "LOCATION", value: "Kirkuk, Iraq" },
+      { label: "PROJECT OWNER", value: "ABG" },
+      {
+        label: "PROJECT TYPE",
+        value: "Self-financed downstream refining asset",
+      },
+      { label: "CAPACITY", value: "12,000 Barrels Per Day (BPD)" },
+      { label: "MAIN PRODUCT", value: "EURO V compliant Motor Gasoline" },
+      { label: "LICENSOR", value: "Honeywell UOP" },
+      {
+        label: "QUALITY STANDARD",
+        value:
+          "EURO V specifications (low sulphur, controlled aromatics, high octane)",
+      },
     ],
-    image:
-      "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=1400&h=1050&fit=crop",
+    image: "/projects/01/about.webp",
+    heroImage: "/projects/01/hero.webp",
+    color: "#DC2626",
+    processPackage: {
+      heading: "Main Process Package:",
+      items: [
+        "Naphtha Hydrotreater (NHT) — Feed desulphurisation",
+        "Isomerization Unit — Light naphtha upgrading for high-octane isomerate",
+        "Fixed Bed Platforming Unit — Heavy naphtha catalytic reforming for high-octane reformate",
+      ],
+      closing:
+        "By acting as developer, owner, and EPCC contractor, ABG carried single-point responsibility from concept through to operation, reinforcing its position as an integrated developer-contractor in Iraq's refining and clean-fuels sector.",
+    },
   },
   {
-    slug: "baghdad-solar-farm",
-    location: "Baghdad, Iraq",
-    title: "Baghdad Solar Farm",
-    category: "Renewable Energy",
-    value: "$900M",
-    year: "2024",
+    slug: "petroleum-solvent-production-plant",
+    title: "PETROLEUM SOLVENT PRODUCTION PLANT",
+    category: "Petrochemicals",
+    location: "Iraq",
+    year: "Operational",
     description:
-      "Large-scale solar installation providing clean energy to the central Iraqi grid.",
+      "Hydrocarbon processing system producing light solvent and special spirit grades at 600 m³/day.",
     overview:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+      "The Petroleum Solvent Production Plant is an EPCC-delivered hydrocarbon processing facility owned by ABG. Designed for petroleum solvent production, the plant manufactures light solvent and special spirit grades for industrial applications at a capacity of 600 m³/day — supporting petrochemical supply chains and downstream manufacturing across the region.",
     highlights: [
-      { label: "SCOPE", value: "Lorem ipsum perspiciatis unde" },
-      { label: "TIMELINE", value: "Lorem 2022 — 2024" },
-      { label: "ROLE", value: "Lorem ipsum dolor laudantium" },
+      { label: "PROJECT OWNER", value: "ABG" },
+      {
+        label: "PROJECT SCOPE",
+        value: "Hydrocarbon Processing system for petroleum solvent production",
+      },
+      { label: "CAPACITY", value: "600 m³/day" },
+      {
+        label: "PROJECT TYPE",
+        value: "EPCC (Engineering, Procurement, Construction & Commissioning)",
+      },
+      {
+        label: "MAIN PRODUCT",
+        value:
+          "Light Solvent and Special Spirit Grades (for industrial applications)",
+      },
     ],
-    image:
-      "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1400&h=1050&fit=crop",
+    image: "/projects/02/about.webp",
+    heroImage: "/projects/02/hero.webp",
+    color: "#EA580C",
   },
   {
-    slug: "mosul-dam-rehabilitation",
-    location: "Mosul, Iraq",
-    title: "Mosul Dam Rehabilitation",
-    category: "Infrastructure",
-    value: "$1.5B",
-    year: "2019",
+    slug: "oxidized-asphalt-production",
+    title: "OXIDIZED ASPHALT PRODUCTION",
+    category: "Asphalt & Materials",
+    location: "Iraq",
+    year: "2010",
     description:
-      "Critical infrastructure project ensuring water security for millions of Iraqis.",
+      "Oxidized asphalt production facility established in 2010, approved by Iraq's Ministry of Industry and Minerals.",
     overview:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
+      "Established in 2010, the Oxidized Asphalt Production facility manufactures oxidized asphalt under approval from the Directorate of Industrial Development, Ministry of Industry and Minerals. The plant integrates asphalt oxidation with light and heavy gasoline processing to deliver high-quality bitumen for infrastructure and industrial applications across Iraq.",
     highlights: [
-      { label: "SCOPE", value: "Lorem ipsum aspernatur fugit" },
-      { label: "TIMELINE", value: "Lorem 2017 — 2019" },
-      { label: "ROLE", value: "Lorem ipsum voluptas quia" },
+      { label: "ESTABLISHMENT YEAR", value: "2010" },
+      { label: "PROJECT", value: "Production of oxidized asphalt" },
+      {
+        label: "APPROVAL AUTHORITY",
+        value:
+          "Directorate of industrial development Ministry of Industry and Minerals",
+      },
     ],
-    image:
-      "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=1400&h=1050&fit=crop",
+    image: "/projects/03/about.webp",
+    heroImage: "/projects/03/hero.webp",
+    color: "#D97706",
+    processPackage: {
+      heading: "Main Process Package:",
+      items: [
+        "Asphalt Oxidation",
+        "Light Gasoline Processing",
+        "Heavy Gasoline Processing",
+      ],
+    },
+  },
+  {
+    slug: "al-barham-depot",
+    title: "AL-BARHAM DEPOT",
+    category: "Logistics & Storage",
+    location: "Iraq",
+    year: "Operational",
+    description:
+      "30,000 m³ petroleum products storage and distribution depot with integrated fuel filling station.",
+    overview:
+      "Al-Barham Depot is a storage and distribution facility for petroleum products, operating under the Ministry of Oil in accordance with Law No. 9 of 2006 — Import & Sale of Petroleum Products. The depot provides strategic capacity for petroleum product handling and distribution, with a modern fuel filling station integrated within the facility.",
+    highlights: [
+      {
+        label: "PROJECT OWNER",
+        value:
+          "Ministry of Oil (under Law No. 9 of 2006 – Import & Sale of Petroleum Products)",
+      },
+      {
+        label: "PROJECT",
+        value: "Storage and Distribution Depot for Petroleum Products",
+      },
+      { label: "CAPACITY", value: "Total: 30,000 cubic meters" },
+      { label: "CAPACITY PER TANK", value: "5,000 cubic meters" },
+      { label: "CONFIGURATION", value: "6 storage tanks" },
+      {
+        label: "ADDITIONAL FACILITY",
+        value: "Modern fuel filling station integrated within the depot",
+      },
+    ],
+    image: "/projects/04/about.webp",
+    heroImage: "/projects/04/hero.webp",
+    color: "#0891B2",
+  },
+  {
+    slug: "diwanaya-refinery-expansion",
+    title: "DIWANAYA REFINERY EXPANSION PROJECT",
+    category: "Oil & Gas Refining",
+    location: "Diwaniya, Iraq",
+    year: "Ongoing",
+    description:
+      "70,000 BPD CDU plus 18,000 BPD EURO V gasoline complex — EPCC delivery for Midland Refineries.",
+    overview:
+      "The Diwanaya Refinery Expansion Project is an EPCC programme for Midland Refineries Companies (MRC) and the Ministry of Oil, Iraq. The project converts crude oil into LPG, kerosene, LGO, HGO, atmospheric residue, and EURO V compliant clean motor gasoline — producing high-quality, low-sulphur products that meet international standards.",
+    highlights: [
+      {
+        label: "PROJECT OWNER",
+        value: "Midland Refineries Companies (MRC) / Ministry of Oil (MOO), Iraq",
+      },
+      {
+        label: "CAPACITY",
+        value: "70,000 BPD CDU + 18,000 BPD Gasoline Complex",
+      },
+      {
+        label: "PROJECT TYPE",
+        value: "EPCC (Engineering, Procurement, Construction & Commissioning)",
+      },
+      {
+        label: "MAIN PRODUCT",
+        value: "EURO V compliant clean motor gasoline",
+      },
+      {
+        label: "OBJECTIVE",
+        value:
+          "Conversion of CRUDE OIL into LPG, Kerosene, LGO, HGO, Atmospheric Residue, and Gasoline, producing high-quality, low-sulphur products that meet international standards.",
+      },
+    ],
+    image: "/projects/05/about.webp",
+    heroImage: "/projects/05/hero.webp",
+    color: "#0284C7",
+    processPackage: {
+      heading: "Project Scope:",
+      items: [
+        "Phases 1: Crude Distillation Unit (CDU), LPG Complex, Utilities, Offsites & Gantry Systems",
+        "Phases 2: Naphtha Hydrotreater (NHT), Isomerization Unit, and Fixed Bed Platforming (FBP) Unit under license from Honeywell UOP.",
+      ],
+    },
   },
 ];
 
+export const projectNavItems: ProjectNavItem[] = projects.map((project) => ({
+  name: project.title,
+  description: project.description,
+  category: project.category,
+  color: project.color ?? "#DC2626",
+  logo: project.image,
+  url: `/projects/${project.slug}`,
+}));
+
 export const projectsPageData: ProjectsPageData = {
-  heroEyebrow: "PORTFOLIO · 2008 — PRESENT",
-  heroHeadingLine1: "The work, on the ground.",
-  heroHeadingLine2: "Six projects, in detail.",
-  heroSubhead:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  heroSecondaryCta: "Browse the portfolio",
-  heroMetaRows: [
-    { label: "PROJECTS", value: "6" },
-    { label: "SECTORS", value: "5" },
-  ],
-  spreadsEyebrow: "THE PORTFOLIO",
-  spreadsHeading: "Every build, up close.",
+  heroEyebrow: "PROJECTS · AL BARHAM GROUP",
+  heroTitle: "Projects",
+  heroBackgroundImage:
+    "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1920&q=80&fit=crop",
+  spreadsEyebrow: "KEY PROJECTS",
+  spreadsHeading: "Industrial assets built to perform.",
   spreadsIntro:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.",
-  contact: {
-    heading: "Start a project with Al Barham Group.",
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.",
-    email: "projects@albarhamgroup.iq",
-    phone: "+964 750 000 0000",
-    addressLines: [
-      "Al Barham Group — Head Office",
-      "Kirkuk Industrial District",
-      "Kirkuk, Iraq",
-    ],
-  },
+    "ABG delivers complex programmes across refining, petrochemicals, asphalt manufacturing, strategic depots, and infrastructure expansion — with integrated engineering, procurement, construction, and commissioning from first concept through to operation.",
   documentTitle: "Projects — Al Barham Group",
 };

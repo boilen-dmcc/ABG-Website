@@ -31,13 +31,13 @@ export const Leadership = () => {
   }, []);
 
   return (
-    <section className="relative w-full bg-white text-[#1a1a1a] py-20 sm:py-28 lg:py-36 border-t border-gray-200">
+    <section className="relative w-full bg-white text-foreground py-20 sm:py-28 lg:py-36 border-t border-gray-200">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-[48rem] mb-14 lg:mb-20">
           <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-red-600 mb-5">
             LEADERSHIP
           </p>
-          <h2 className="font-apfel_grotezk font-semibold text-4xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-tight max-w-[22ch]">
+          <h2 className="heading-section max-w-[22ch]">
             Lorem ipsum dolor sit amet.
           </h2>
         </div>
@@ -69,7 +69,7 @@ export const Leadership = () => {
                 <p className="font-necto_mono text-[10px] lg:text-[11px] uppercase tracking-[0.2em] text-red-600 font-semibold">
                   {l.title}
                 </p>
-                <blockquote className="mt-2 font-apfel_grotezk text-base lg:text-lg text-gray-700 leading-snug max-w-[32ch]">
+                <blockquote className="mt-2 font-apfel_grotezk text-base lg:text-lg text-foreground leading-snug max-w-[32ch]">
                   &ldquo;{l.quote}&rdquo;
                 </blockquote>
               </figcaption>

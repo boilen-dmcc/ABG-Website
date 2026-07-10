@@ -3,6 +3,8 @@ import type { SolutionData } from "../types";
 export const infrastructure: SolutionData = {
   slug: "infrastructure",
   name: "Infrastructure",
+  heroBackgroundImage:
+    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80&fit=crop",
   industryCategory: "CIVIL · UTILITIES · FACILITIES",
   eyebrow: "INFRASTRUCTURE · AL BARHAM GROUP",
   taglinePrefix: "Building the ",

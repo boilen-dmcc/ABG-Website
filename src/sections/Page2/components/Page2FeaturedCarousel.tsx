@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { projects } from "@/sections/Projects/data/projects";
 
 const SLIDE_DURATION = 5000;
 
-// layout breakpoint where the carousel drops under the text
-const DROP_BP = 1020;
+// layout breakpoint where the carousel drops under the text (lg: 992px)
+const DROP_BP = 992;
 
 // ====== VARIABLES YOU TUNE ======
 const CARD_DESKTOP_MAX_W = 320; // px (right-side desktop)
@@ -95,44 +96,14 @@ export const Page2FeaturedCarousel = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Hardcoded posts data
-  const posts = [
-    {
-      id: "1",
-      image:
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=600&fit=crop",
-      title: "Pennsylvania Chemicals Project Milestone",
-      url: "/projects",
-    },
-    {
-      id: "2",
-      image:
-        "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=800&h=600&fit=crop",
-      title: "Basra Refinery Expansion",
-      url: "/projects/basra-refinery-expansion",
-    },
-    {
-      id: "3",
-      image:
-        "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=600&fit=crop",
-      title: "Baghdad Power Station",
-      url: "/projects/baghdad-power-station",
-    },
-    {
-      id: "4",
-      image:
-        "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=800&h=600&fit=crop",
-      title: "Kirkuk Pipeline Network",
-      url: "/projects/kirkuk-pipeline-network",
-    },
-    {
-      id: "5",
-      image:
-        "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&h=600&fit=crop",
-      title: "Baghdad Solar Farm",
-      url: "/projects/baghdad-solar-farm",
-    },
-  ];
+  const posts = projects.map((project) => ({
+    id: project.slug,
+    image: project.image,
+    title: project.title
+      .toLowerCase()
+      .replace(/\b\w/g, (char) => char.toUpperCase()),
+    url: `/projects/${project.slug}`,
+  }));
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -232,7 +203,10 @@ export const Page2FeaturedCarousel = () => {
                   alt={posts[currentIndex].title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div
+                  data-media-overlay
+                  className="absolute inset-0 bg-gradient-to-t from-[#121e37]/80 via-[#121e37]/20 to-transparent"
+                />
               </div>
             </div>
 

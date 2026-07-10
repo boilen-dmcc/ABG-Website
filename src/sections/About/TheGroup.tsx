@@ -29,22 +29,22 @@ export const TheGroup = ({ data }: Props) => {
   const byName = new Map(companies.map((c) => [c.name, c]));
 
   return (
-    <section className="relative w-full bg-white text-[#1a1a1a] py-20 sm:py-28 lg:py-36 border-t border-gray-200">
+    <section className="relative w-full bg-white text-foreground py-16 md:py-20 border-t border-gray-200">
       <div
         ref={ref}
-        className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12"
+        className="max-w-[1400px] mx-auto px-6 md:px-12"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-14 lg:mb-20">
           <div className="lg:col-span-7">
             <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-red-600 mb-5">
               {data.groupEyebrow}
             </p>
-            <h2 className="font-apfel_grotezk font-semibold text-4xl sm:text-5xl lg:text-[56px] leading-[1.05] tracking-tight max-w-[20ch]">
+            <h2 className="font-extrabold uppercase break-words max-w-[20ch]">
               {data.groupHeading}
             </h2>
           </div>
           <div className="lg:col-span-5 lg:pt-4">
-            <p className="text-base lg:text-lg text-gray-600 leading-relaxed max-w-[44ch]">
+            <p className="text-base lg:text-lg text-foreground leading-relaxed max-w-[44ch]">
               {data.groupIntro}
             </p>
           </div>
@@ -66,7 +66,7 @@ export const TheGroup = ({ data }: Props) => {
                     <p className="font-necto_mono text-[10px] lg:text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-400">
                       {String(catIndex + 1).padStart(2, "0")} / {String(data.rosterCategories.length).padStart(2, "0")}
                     </p>
-                    <p className="mt-3 font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.18em] text-[#1a1a1a] leading-snug max-w-[18ch]">
+                    <p className="mt-3 font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.18em] text-foreground leading-snug max-w-[18ch]">
                       {cat.label}
                     </p>
                   </div>
@@ -100,7 +100,7 @@ export const TheGroup = ({ data }: Props) => {
                             <h3 className="font-apfel_grotezk text-lg lg:text-xl font-semibold tracking-tight leading-tight mb-2">
                               {c.name}
                             </h3>
-                            <p className="text-sm text-gray-600 leading-snug">
+                            <p className="text-sm text-foreground leading-snug">
                               {c.description}
                             </p>
                           </>

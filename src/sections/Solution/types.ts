@@ -27,9 +27,41 @@ export type Standard = {
   name: string;
 };
 
+export type ExecutionModelItem = {
+  acronym: string;
+  description: string;
+};
+
+export type ExecutionModelsContent = {
+  image: string;
+  imageAlt: string;
+  models: ExecutionModelItem[];
+  approachLabel: string;
+  benefits: string[];
+};
+
+export type LifecyclePhase = {
+  title: string;
+  description: string;
+};
+
+export type TurnkeyLifecycleContent = {
+  introParagraphs: string[];
+  phases: LifecyclePhase[];
+};
+
+export type RefiningUnitsContent = {
+  image: string;
+  imageAlt: string;
+  introParagraphs?: string[];
+  units: string[];
+};
+
 export type SolutionData = {
   slug: string;
   name: string;
+  heroTitle?: string;
+  heroBackgroundImage: string;
   industryCategory: string;
   eyebrow: string;
   taglinePrefix: string;
@@ -69,4 +101,7 @@ export type SolutionData = {
     addressLines: string[];
   };
   documentTitle: string;
+  executionModels?: ExecutionModelsContent;
+  turnkeyLifecycle?: TurnkeyLifecycleContent;
+  refiningUnits?: RefiningUnitsContent;
 };

@@ -1,14 +1,25 @@
 import React from "react";
 import { Page2FeaturedCarousel } from "@/sections/Page2/components/Page2FeaturedCarousel";
+import { HeroTitle } from "@/components/HeroTitle";
+import {
+  revealMotionStyle,
+  revealTransitionClass,
+  useRevealOnMount,
+} from "@/hooks/useRevealOnScroll";
+
+const HERO_TOP_PADDING =
+  "pt-[calc(7rem+env(safe-area-inset-top,0px))] xs:pt-[calc(7.25rem+env(safe-area-inset-top,0px))] sm:pt-[calc(7.5rem+env(safe-area-inset-top,0px))] md:pt-[calc(8rem+env(safe-area-inset-top,0px))] lg:pt-[calc(8.5rem+env(safe-area-inset-top,0px))] xl:pt-[calc(9rem+env(safe-area-inset-top,0px))] 2xl:pt-[calc(9.5rem+env(safe-area-inset-top,0px))]";
 
 export const Page2Hero = () => {
+  const visible = useRevealOnMount();
   const [videoOpacity, setVideoOpacity] = React.useState(1);
   const [carouselRight, setCarouselRight] = React.useState(10);
   const [isDesktop, setIsDesktop] = React.useState(true);
   const [taglineWidth, setTaglineWidth] = React.useState<string | undefined>(undefined);
 
-  // Single knob: 0 = no darkening, 1 = fully black
   const overlayDarkness = 0.4;
+  const brandBlue = "18, 30, 55";
+  const showFeaturedCarousel = false;
 
   const videoRef = React.useRef<HTMLElement>(null);
   const taglineRef = React.useRef<HTMLParagraphElement>(null);
@@ -23,8 +34,7 @@ export const Page2Hero = () => {
 
       if (scrollProgress >= 0.5) {
         const fadeProgress = (scrollProgress - 0.5) * 2;
-        const newOpacity = Math.max(0, 1 - fadeProgress);
-        setVideoOpacity(newOpacity);
+        setVideoOpacity(Math.max(0, 1 - fadeProgress));
       } else {
         setVideoOpacity(1);
       }
@@ -35,26 +45,14 @@ export const Page2Hero = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Desktop/right positioning interpolation
   React.useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
+      setIsDesktop(width >= 992);
 
-      const lgBreakpoint = 1020;
-      const maxWidth = 1920;
-      const minRight = 3;
-      const maxRight = 7;
-
-      setIsDesktop(width >= lgBreakpoint);
-
-      if (width >= lgBreakpoint) {
-        // Calculate margin right to match menu margin (32px / 2rem)
-        // Convert px to % based on viewport width
+      if (width >= 992) {
         const menuMarginPx = 32;
-        const menuMarginPercent = (menuMarginPx / width) * 100;
-
-        // Use the calculated menu margin percentage instead of interpolation
-        setCarouselRight(menuMarginPercent);
+        setCarouselRight((menuMarginPx / width) * 100);
       }
     };
 
@@ -63,8 +61,12 @@ export const Page2Hero = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Collision detection to prevent carousel from overlapping tagline
   React.useEffect(() => {
+    if (!showFeaturedCarousel) {
+      setTaglineWidth(undefined);
+      return;
+    }
+
     const handleCollision = () => {
       if (!isDesktop) {
         setTaglineWidth(undefined);
@@ -74,94 +76,90 @@ export const Page2Hero = () => {
       if (taglineRef.current && carouselRef.current) {
         const taglineRect = taglineRef.current.getBoundingClientRect();
         const carouselRect = carouselRef.current.getBoundingClientRect();
-
-        // Calculate available width relative to the tagline's starting position
-        // We want a 30px buffer from the carousel
         const availableWidth = carouselRect.left - taglineRect.left - 30;
-
-        // 52rem is approx 832px (assuming 16px root font)
-        // We cap at 832px to respect the original design intent
         const maxDesignWidth = 832;
-
-        // Ensure we don't set negative width
-        const newWidth = Math.max(0, Math.min(availableWidth, maxDesignWidth));
-
-        setTaglineWidth(`${newWidth}px`);
+        setTaglineWidth(`${Math.max(0, Math.min(availableWidth, maxDesignWidth))}px`);
       }
     };
 
-    // Run on mount, resize, and when layout dependencies change
     handleCollision();
     window.addEventListener("resize", handleCollision);
-
     return () => window.removeEventListener("resize", handleCollision);
-  }, [isDesktop, carouselRight]);
+  }, [isDesktop, carouselRight, showFeaturedCarousel]);
 
-  // Derived alpha for the 2nd gradient layer (keeps the "deeper bottom" feel)
   const overlayDarkness2 = Math.min(1, overlayDarkness * 0.75);
 
   return (
     <section
       ref={videoRef}
-      className="relative bg-gray-900 box-border caret-transparent flex flex-col isolate min-h-screen w-full overflow-hidden"
+      className="relative isolate flex min-h-[100svh] w-full flex-col overflow-hidden bg-[#121e37]"
     >
-      {/* Background Video with Overlay */}
       <figure
-        className="absolute items-center box-border caret-transparent flex justify-center pointer-events-none overflow-hidden inset-0 transition-opacity duration-500"
+        className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden transition-opacity duration-500"
         style={{ opacity: videoOpacity }}
       >
         <div
           className="absolute inset-0 z-10"
           style={{
-            backgroundImage: `linear-gradient(0deg, rgba(0,0,0,${overlayDarkness}) 0%, rgba(0,0,0,${overlayDarkness}) 100%),
-              linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,${overlayDarkness2}) 88.98%)`,
+            backgroundImage: `linear-gradient(0deg, rgba(${brandBlue},${overlayDarkness}) 0%, rgba(${brandBlue},${overlayDarkness}) 100%),
+              linear-gradient(0deg, rgba(${brandBlue},0) 0%, rgba(${brandBlue},${overlayDarkness2}) 88.98%)`,
           }}
         />
 
         <video
-          src="https://cdn.jsdelivr.net/gh/SaintFredMax/abg-assets@main/ABG%20Website%20Landing%20Video.mp4"
+          src="/videos/hero.mp4"
           autoPlay
           loop
           muted
           playsInline
           preload="auto"
-          className="absolute box-border caret-transparent h-full object-cover w-full z-0"
+          className="absolute z-0 h-full w-full object-cover"
         />
       </figure>
 
-      {/* Content Container */}
-      <div className="relative z-20 max-w-[1400px] mx-auto w-full px-4 sm:px-6 md:px-8 lg:px-12 pt-24 pb-16 max-[1019px]:pt-32 max-[1019px]:pb-12 bp1020:h-screen bp1020:flex bp1020:items-center bp1020:pt-0 bp1020:pb-20">
-        {/* Left: Tagline */}
-        <div className="text-white space-y-4 sm:space-y-6 max-w-[52rem]">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl bp1090:text-9xl font-bold leading-[1.1] font-apfel_grotezk max-w-[58rem]">
-            Built for Industrial <span className="text-red-600">Excellence</span>
-          </h1>
+      <div
+        className={`home-container relative z-20 flex w-full flex-1 flex-col justify-end pb-10 xs:pb-12 sm:pb-14 md:pb-16 lg:pb-20 ${HERO_TOP_PADDING}`}
+      >
+        <div className="max-w-[58rem] space-y-4 text-white xs:space-y-5 sm:space-y-6">
+          <div style={revealMotionStyle(visible, 120, "up")}>
+            <HeroTitle
+              className={`max-w-[58rem] ${revealTransitionClass}`}
+              lines={[
+                { text: "Built for Industrial" },
+                { text: "Excellence", accent: true },
+              ]}
+            />
+          </div>
 
           <p
             ref={taglineRef}
-            style={{ maxWidth: taglineWidth }}
-            className="text-lg sm:text-xl md:text-2xl max-[1089px]:text-[clamp(1.125rem,2.5vw,1.75rem)] text-white leading-relaxed max-w-[52rem] max-[1265px]:max-w-[calc(52rem-20px)] max-[1235px]:max-w-[calc(52rem-40px)] transition-[max-width] duration-200 ease-out mt-[10px]"
+            style={{ maxWidth: taglineWidth, ...revealMotionStyle(visible, 220, "up") }}
+            className={`mt-2 max-w-[52rem] text-base font-light leading-relaxed text-white xs:text-[1.05rem] sm:text-lg md:text-xl lg:leading-[1.65] ${revealTransitionClass}`}
           >
-            <span className="block font-necto_mono text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-white/90 mb-4 sm:mb-5">
-              Engineering.{" "}
-              <span className="text-red-600">Integrity.</span> Innovation.
+            <span
+              className={`mb-4 inline-block bg-gradient-to-r from-[#0039a6] to-[#002b7f] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white xs:mb-5 xs:px-4 xs:py-2 xs:text-xs xs:tracking-[0.2em] ${revealTransitionClass}`}
+              style={revealMotionStyle(visible, 180, "left")}
+            >
+              Engineering. Integrity. Innovation.
             </span>
-            We deliver world-class engineering, electrical, instrumentation,
-            automation, and maintenance solutions for oil refineries, gas
-            processing plants, petrochemical facilities, and industrial
-            infrastructure. With a commitment to quality, safety, and
-            innovation, we help industries operate efficiently and reliably.
+            <br />
+            We deliver integrated EPC, engineering, project development, investment, and
+            financing solutions across the energy, industrial, and infrastructure sectors.
+            By combining technical expertise, strategic partnerships, and innovative
+            execution, we help clients successfully develop, finance, and deliver complex
+            projects with the highest standards of quality, safety, and sustainability.
           </p>
         </div>
 
-        {/* Carousel */}
-        <div
-          ref={carouselRef}
-          className="mt-8 sm:mt-12 flex justify-center bp1020:absolute bp1020:top-[45%] bp1020:mt-0"
-          style={{ right: isDesktop ? `${carouselRight}%` : undefined }}
-        >
-          <Page2FeaturedCarousel />
-        </div>
+        {showFeaturedCarousel ? (
+          <div
+            ref={carouselRef}
+            className="mt-8 flex justify-center sm:mt-12 lg:absolute lg:top-[45%] lg:mt-0"
+            style={{ right: isDesktop ? `${carouselRight}%` : undefined }}
+          >
+            <Page2FeaturedCarousel />
+          </div>
+        ) : null}
       </div>
     </section>
   );

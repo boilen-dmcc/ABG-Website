@@ -22,7 +22,7 @@ export const Hero = () => {
           <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-white/80 mb-6 lg:mb-8">
             {group.eyebrow}
           </p>
-          <h1 className="font-apfel_grotezk font-bold text-6xl sm:text-7xl lg:text-8xl bp1090:text-9xl leading-[1.02] tracking-tight">
+          <h1 className="font-apfel_grotezk font-bold text-6xl sm:text-7xl lg:text-8xl 2xl:text-9xl leading-[1.02] tracking-tight">
             {group.taglinePrefix}
             <span className="text-red-600">{group.taglineAccent}</span>
             {group.taglineSuffix}

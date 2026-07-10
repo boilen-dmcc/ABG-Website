@@ -1,104 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 @tailwind components;
 @tailwind utilities;
-
-@font-face {
-  font-family: 'garamond-premier-pro-display';
-  font-weight: 300;
-  font-style: normal;
-  src: local('EB Garamond'), local('Garamond');
-}
-
-@font-face {
-  font-family: 'garamond-premier-pro-display';
-  font-weight: 500;
-  font-style: normal;
-  src: local('EB Garamond'), local('Garamond');
-}
-
-@font-face {
-  font-family: 'garamond-premier-pro-display';
-  font-weight: 600;
-  font-style: normal;
-  src: local('EB Garamond'), local('Garamond');
-}
-
-@font-face {
-  /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
-  font-family: 'neue-haas-grotesk-display';
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
-  font-family: 'neue-haas-grotesk-display';
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
-  font-family: 'neue-haas-grotesk-display';
-  font-weight: 500;
-  font-style: italic;
-}
-
-@font-face {
-  /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
-  font-family: 'neue-haas-grotesk-display';
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
-  font-family: 'neue-haas-grotesk-display';
-  font-weight: 600;
-  font-style: italic;
-}
-
-@font-face {
-  /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
-  font-family: 'neue-haas-grotesk-display';
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
-  font-family: 'Apfel Grotezk';
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
-  font-family: 'Apfel Grotezk';
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
-  font-family: 'Apfel Grotezk';
-  font-weight: 800;
-  font-style: normal;
-}
-
-@font-face {
-  /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
-  font-family: 'Necto Mono';
-  font-weight: 400;
-  font-style: normal;
-}
 
 @keyframes lineIn {
   from {
     width: 0;
     opacity: 0;
   }
+
   to {
     width: 14px;
     opacity: 1;
@@ -110,6 +20,7 @@
     width: 14px;
     opacity: 1;
   }
+
   to {
     width: 0;
     opacity: 0;
@@ -121,35 +32,35 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
+    --foreground: 212 73% 16%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
+    --popover-foreground: 212 73% 16%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
 
     --card: transparent;
-    --card-foreground: 222.2 47.4% 11.2%;
+    --card-foreground: 212 73% 16%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 212 73% 16%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary-foreground: 212 73% 16%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 0 73% 51%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 100% 50%;
     --destructive-foreground: 210 40% 98%;
 
     --ring: 215 20.2% 65.1%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
   }
 
   .dark {
@@ -159,8 +70,8 @@
     --muted: 223 47% 11%;
     --muted-foreground: 215.4 16.3% 56.9%;
 
-    --accent: 216 34% 17%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 0 73% 51%;
+    --accent-foreground: 0 0% 100%;
 
     --popover: 224 71% 4%;
     --popover-foreground: 215 20.2% 65.1%;
@@ -192,7 +103,47 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans font-normal;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-foreground;
+  }
+
+  h2 {
+    @apply text-[32px] sm:text-[36px] md:text-[40px] lg:text-[44px] xl:text-[48px] leading-[1.1];
+  }
+
+  h3 {
+    @apply text-xl sm:text-2xl lg:text-[28px] leading-snug;
+  }
+}
+
+/* Headings: Inter 700 (overrides font-semibold on heading utility) */
+.font-apfel_grotezk {
+  font-weight: 700;
+}
+
+@layer components {
+  .home-container {
+    @apply mx-auto w-full max-w-[1400px] px-4 xs:px-5 sm:px-6 md:px-8 lg:px-10 xl:px-12;
+  }
+
+  .home-section-y {
+    @apply py-12 xs:py-14 sm:py-16 md:py-16 lg:py-20 xl:py-24;
+  }
+
+  .heading-section {
+    @apply font-apfel_grotezk font-semibold leading-[1.08] tracking-tight;
+  }
+
+  .hero-title {
+    @apply font-apfel_grotezk text-[clamp(1.75rem,5.5vw,4.5rem)] font-bold uppercase leading-[1.05] tracking-tight lg:text-[clamp(2.25rem,4.5vw,4.5rem)] xl:text-[clamp(2.5rem,4vw,5rem)] 2xl:text-[clamp(2.75rem,3.8vw,5.75rem)];
   }
 }

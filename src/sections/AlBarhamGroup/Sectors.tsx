@@ -31,13 +31,13 @@ export const Sectors = () => {
   }, []);
 
   return (
-    <section className="relative w-full bg-white text-[#1a1a1a] pt-4 pb-20 sm:pb-28 lg:pb-36">
+    <section className="relative w-full bg-white text-foreground pt-4 pb-20 sm:pb-28 lg:pb-36">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-[48rem] mb-14 lg:mb-20">
           <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-red-600 mb-5">
             SECTORS
           </p>
-          <h2 className="font-apfel_grotezk font-semibold text-4xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-tight max-w-[22ch]">
+          <h2 className="heading-section max-w-[22ch]">
             Lorem ipsum dolor sit amet consectetur.
           </h2>
         </div>
@@ -62,7 +62,7 @@ export const Sectors = () => {
                 <h3 className="font-apfel_grotezk text-2xl sm:text-3xl lg:text-[34px] font-semibold tracking-tight leading-[1.15] mb-4 max-w-[22ch]">
                   {s.name}
                 </h3>
-                <p className="text-base lg:text-lg text-gray-600 leading-relaxed max-w-[40ch]">
+                <p className="text-base lg:text-lg text-foreground leading-relaxed max-w-[40ch]">
                   {s.line}
                 </p>
               </div>

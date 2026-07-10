@@ -50,7 +50,7 @@ export const Footprint = () => {
           <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-red-500 mb-5">
             {footprint.eyebrow}
           </p>
-          <h2 className="font-apfel_grotezk font-semibold text-4xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-tight">
+          <h2 className="heading-section">
             {footprint.heading}
           </h2>
         </div>

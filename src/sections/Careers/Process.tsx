@@ -43,7 +43,7 @@ export const Process = ({ data }: Props) => {
           <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-red-600 mb-5">
             {data.processEyebrow}
           </p>
-          <h2 className="font-apfel_grotezk font-semibold text-4xl sm:text-5xl lg:text-[56px] leading-[1.05] tracking-tight max-w-[22ch]">
+          <h2 className="heading-section leading-[1.05] max-w-[22ch]">
             {data.processHeading}
           </h2>
         </div>

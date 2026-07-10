@@ -24,17 +24,17 @@ export const Origin = ({ data }: Props) => {
   }, []);
 
   return (
-    <section className="relative w-full bg-gray-50 text-[#1a1a1a] py-20 sm:py-28 lg:py-36 border-t border-gray-200">
+    <section className="relative w-full bg-gray-50 text-foreground py-16 md:py-20 border-t border-gray-200">
       <div
         ref={ref}
-        className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12"
+        className="max-w-[1400px] mx-auto px-6 md:px-12"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20">
           <div className="lg:col-span-5 lg:sticky lg:top-32 self-start">
             <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-red-600 mb-6">
               {data.originEyebrow}
             </p>
-            <h2 className="font-apfel_grotezk font-semibold text-5xl sm:text-6xl lg:text-7xl bp1090:text-8xl leading-[0.95] tracking-tight">
+            <h2 className="font-extrabold uppercase break-words">
               {data.originHeading}
             </h2>
           </div>
@@ -48,7 +48,7 @@ export const Origin = ({ data }: Props) => {
               {data.originParagraphs.map((para, i) => (
                 <p
                   key={i}
-                  className="text-base lg:text-lg text-gray-700 leading-relaxed max-w-[58ch] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none"
+                  className="text-base lg:text-lg text-foreground leading-relaxed max-w-[58ch] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none"
                   style={{
                     opacity: visible ? 1 : 0,
                     transform: visible ? "translateY(0)" : "translateY(12px)",

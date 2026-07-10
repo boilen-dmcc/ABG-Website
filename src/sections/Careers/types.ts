@@ -39,12 +39,8 @@ export type WhyPrinciple = {
 
 export type CareersData = {
   heroEyebrow: string;
-  heroHeadingLine1: string;
-  heroHeadingLine2Prefix: string;
-  heroHeadingLine2Accent: string;
-  heroHeadingLine2Suffix: string;
-  heroSubhead: string;
-  heroPrimaryCta: string;
+  heroTitle: string;
+  heroBackgroundImage: string;
   whyEyebrow: string;
   whyHeading: string;
   whyPrinciples: WhyPrinciple[];

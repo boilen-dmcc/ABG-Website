@@ -26,7 +26,7 @@ export const Timeline = ({ data }: Props) => {
   const count = data.timelineMilestones.length;
 
   return (
-    <section className="relative w-full bg-gray-900 text-white py-20 sm:py-28 lg:py-36 border-y border-white/5 overflow-hidden">
+    <section className="relative w-full bg-gray-900 text-white py-16 md:py-20 border-y border-white/5 overflow-hidden">
       <div
         className="absolute inset-0 opacity-[0.06] pointer-events-none"
         style={{
@@ -38,13 +38,13 @@ export const Timeline = ({ data }: Props) => {
       />
       <div
         ref={ref}
-        className="relative max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12"
+        className="relative max-w-[1400px] mx-auto px-6 md:px-12"
       >
         <div className="max-w-[62rem] mb-14 lg:mb-20">
           <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-red-500 mb-5">
             {data.timelineEyebrow}
           </p>
-          <h2 className="font-apfel_grotezk font-semibold text-4xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-tight max-w-[22ch]">
+          <h2 className="font-extrabold uppercase break-words text-white max-w-[22ch]">
             {data.timelineHeading}
           </h2>
         </div>

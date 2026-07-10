@@ -22,7 +22,7 @@ export const Capabilities = () => {
   }, []);
 
   return (
-    <section className="relative w-full bg-white text-[#1a1a1a] pb-20 sm:pb-28 lg:pb-36">
+    <section className="relative w-full bg-white text-foreground pb-20 sm:pb-28 lg:pb-36">
       <div
         ref={ref}
         className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12"
@@ -32,11 +32,11 @@ export const Capabilities = () => {
             <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-red-600 mb-5">
               CAPABILITIES
             </p>
-            <h2 className="font-apfel_grotezk font-semibold text-4xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-tight max-w-[20ch]">
+            <h2 className="heading-section max-w-[20ch]">
               Six units. One continuous process.
             </h2>
           </div>
-          <p className="text-base lg:text-lg text-gray-600 leading-relaxed max-w-[36ch]">
+          <p className="text-base lg:text-lg text-foreground leading-relaxed max-w-[36ch]">
             Crude in at the east gate. Certified product out by rail and tanker.
           </p>
         </div>
@@ -59,7 +59,7 @@ export const Capabilities = () => {
                 <h3 className="font-apfel_grotezk text-2xl lg:text-[26px] font-semibold leading-tight mb-3 tracking-tight">
                   {c.title}
                 </h3>
-                <p className="text-sm lg:text-base text-gray-600 leading-relaxed max-w-[32ch]">
+                <p className="text-sm lg:text-base text-foreground leading-relaxed max-w-[32ch]">
                   {c.description}
                 </p>
               </div>

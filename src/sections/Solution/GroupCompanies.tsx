@@ -26,21 +26,18 @@ export const GroupCompanies = ({ data }: Props) => {
   }, []);
 
   return (
-    <section className="relative w-full bg-gray-50 text-[#1a1a1a] py-20 sm:py-28 lg:py-36 border-t border-gray-200">
-      <div
-        ref={ref}
-        className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12"
-      >
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14 lg:mb-20">
+    <section className="home-section-y relative w-full border-t border-gray-200 bg-gray-50 text-foreground">
+      <div ref={ref} className="home-container">
+        <div className="mb-10 flex flex-col gap-6 lg:mb-20 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-red-600 mb-5">
               GROUP COMPANIES IN ACTION
             </p>
-            <h2 className="font-apfel_grotezk font-semibold text-4xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-tight max-w-[20ch]">
+            <h2 className="heading-section max-w-[20ch]">
               {data.groupCompaniesHeading}
             </h2>
           </div>
-          <p className="text-base lg:text-lg text-gray-600 leading-relaxed max-w-[36ch]">
+          <p className="text-base lg:text-lg text-foreground leading-relaxed max-w-[36ch]">
             {data.groupCompaniesIntro}
           </p>
         </div>

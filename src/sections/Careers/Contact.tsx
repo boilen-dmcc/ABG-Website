@@ -9,7 +9,7 @@ export const Contact = ({ data }: Props) => {
   return (
     <section
       id="contact"
-      className="relative w-full bg-white text-[#1a1a1a] py-20 sm:py-28 lg:py-36 border-t border-[#1a1a1a]/10"
+      className="relative w-full bg-white text-foreground py-20 sm:py-28 lg:py-36 border-t border-[#1a1a1a]/10"
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
         <div className="lg:col-span-7">
@@ -19,7 +19,7 @@ export const Contact = ({ data }: Props) => {
           <h2 className="font-apfel_grotezk font-semibold text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
             {contact.heading}
           </h2>
-          <p className="mt-6 lg:mt-8 max-w-[54ch] text-base lg:text-lg text-[#1a1a1a]/70 leading-relaxed">
+          <p className="mt-6 lg:mt-8 max-w-[54ch] text-base lg:text-lg text-foreground/70 leading-relaxed">
             {contact.body}
           </p>
 
@@ -40,7 +40,7 @@ export const Contact = ({ data }: Props) => {
 
         <div className="lg:col-span-5 lg:border-l lg:border-[#1a1a1a]/10 lg:pl-12 flex flex-col gap-8">
           <div>
-            <p className="font-necto_mono text-[10px] lg:text-[11px] uppercase tracking-[0.2em] text-[#1a1a1a]/50 mb-3">
+            <p className="font-necto_mono text-[10px] lg:text-[11px] uppercase tracking-[0.2em] text-foreground/50 mb-3">
               EMAIL
             </p>
             <a
@@ -51,7 +51,7 @@ export const Contact = ({ data }: Props) => {
             </a>
           </div>
           <div>
-            <p className="font-necto_mono text-[10px] lg:text-[11px] uppercase tracking-[0.2em] text-[#1a1a1a]/50 mb-3">
+            <p className="font-necto_mono text-[10px] lg:text-[11px] uppercase tracking-[0.2em] text-foreground/50 mb-3">
               PHONE
             </p>
             <a
@@ -62,10 +62,10 @@ export const Contact = ({ data }: Props) => {
             </a>
           </div>
           <div>
-            <p className="font-necto_mono text-[10px] lg:text-[11px] uppercase tracking-[0.2em] text-[#1a1a1a]/50 mb-3">
+            <p className="font-necto_mono text-[10px] lg:text-[11px] uppercase tracking-[0.2em] text-foreground/50 mb-3">
               ADDRESS
             </p>
-            <p className="text-sm lg:text-base text-[#1a1a1a]/80 leading-relaxed">
+            <p className="text-sm lg:text-base text-foreground/80 leading-relaxed">
               {contact.addressLines.map((line, i) => (
                 <span key={line}>
                   {line}
@@ -78,14 +78,14 @@ export const Contact = ({ data }: Props) => {
           <div className="mt-4 pt-8 border-t border-[#1a1a1a]/10 flex flex-col gap-4">
             <Link
               to="/"
-              className="group inline-flex items-center gap-2 text-[#1a1a1a]/70 hover:text-[#1a1a1a] transition-colors font-necto_mono text-[11px] lg:text-xs font-semibold uppercase tracking-widest"
+              className="group inline-flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors font-necto_mono text-[11px] lg:text-xs font-semibold uppercase tracking-widest"
             >
               <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               <span>Return to Al Barham Group</span>
             </Link>
             <Link
               to="/companies"
-              className="group inline-flex items-center gap-2 text-[#1a1a1a]/70 hover:text-[#1a1a1a] transition-colors font-necto_mono text-[11px] lg:text-xs font-semibold uppercase tracking-widest"
+              className="group inline-flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors font-necto_mono text-[11px] lg:text-xs font-semibold uppercase tracking-widest"
             >
               <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               <span>All group companies</span>

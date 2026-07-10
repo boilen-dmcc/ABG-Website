@@ -42,7 +42,7 @@ export const CrossLinks = ({ data }: Props) => {
         className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12"
       >
         <div className="text-center mb-14 lg:mb-18">
-          <h2 className="font-apfel_grotezk font-semibold text-4xl sm:text-5xl lg:text-[56px] leading-[1.05] tracking-tight">
+          <h2 className="heading-section leading-[1.05]">
             {data.crossLinksHeading}
           </h2>
         </div>

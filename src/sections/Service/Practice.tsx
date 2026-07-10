@@ -33,7 +33,7 @@ export const Practice = ({ data }: Props) => {
           <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-red-500 mb-5">
             THE PRACTICE · AL BARHAM GROUP {data.name.toUpperCase()}
           </p>
-          <h2 className="font-apfel_grotezk font-semibold text-4xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-tight max-w-[22ch]">
+          <h2 className="heading-section max-w-[22ch]">
             {data.practice.heading}
           </h2>
           <p className="mt-8 lg:mt-10 max-w-[60ch] text-base lg:text-lg text-white/65 leading-relaxed">

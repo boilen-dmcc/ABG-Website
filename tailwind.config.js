@@ -2,23 +2,21 @@ module.exports = {
   content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      sm: "640px",
+      xs: "480px",
+      sm: "575px",
       md: "768px",
-      lg: "1024px",
-      bp1020: "1020px",
-      bp1190: "1190px",
-      bp1200: "1065px",
-      xl: "1280px",
-      "2xl": "1536px",
+      lg: "992px",
+      xl: "1200px",
+      "2xl": "1400px",
     },
     extend: {
       maxWidth: {
-        'layout': '1304px',        // Default Content Container
-        'layout-wide': '1440px',   // Alternate Wide
-        'layout-narrow': '800px',  // Alternate Narrow
+        layout: "1304px",
+        "layout-wide": "1440px",
+        "layout-narrow": "800px",
       },
       spacing: {
-        'layout-gutter': '48px',   // Default Side Gutter
+        "layout-gutter": "48px",
       },
       colors: {
         border: "hsl(var(--border))",
@@ -62,6 +60,7 @@ module.exports = {
       },
       fontFamily: {
         sans: [
+          "Inter",
           "ui-sans-serif",
           "system-ui",
           "sans-serif",
@@ -70,10 +69,20 @@ module.exports = {
           '"Segoe UI Symbol"',
           '"Noto Color Emoji"',
         ],
-        "garamond_premier_pro_display": ["garamond-premier-pro-display", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
-        "neue_haas_grotesk_display": ["neue-haas-grotesk-display", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
-        "apfel_grotezk": ["Apfel Grotezk", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
-        "necto_mono": ["Necto Mono", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"]
+        garamond_premier_pro_display: [
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+        ],
+        neue_haas_grotesk_display: [
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+        ],
+        apfel_grotezk: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        necto_mono: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {

@@ -3,37 +3,33 @@ export type ProjectHighlight = {
   value: string;
 };
 
+export type ProjectProcessPackage = {
+  heading: string;
+  items: string[];
+  closing?: string;
+};
+
 export type Project = {
   slug: string;
   title: string;
   category: string;
   location: string;
-  value: string;
   year: string;
   description: string;
   overview: string;
   highlights: ProjectHighlight[];
   image: string;
-};
-
-export type ProjectsContact = {
-  heading: string;
-  body: string;
-  email: string;
-  phone: string;
-  addressLines: string[];
+  heroImage?: string;
+  color?: string;
+  processPackage?: ProjectProcessPackage;
 };
 
 export type ProjectsPageData = {
   heroEyebrow: string;
-  heroHeadingLine1: string;
-  heroHeadingLine2: string;
-  heroSubhead: string;
-  heroSecondaryCta: string;
-  heroMetaRows: { label: string; value: string }[];
+  heroTitle: string;
+  heroBackgroundImage: string;
   spreadsEyebrow: string;
   spreadsHeading: string;
   spreadsIntro: string;
-  contact: ProjectsContact;
   documentTitle: string;
 };

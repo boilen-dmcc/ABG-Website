@@ -1,65 +1,74 @@
-import { ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Button } from "@/components/Button";
+import {
+  revealMotionStyle,
+  revealTransitionClass,
+  useRevealOnScroll,
+} from "@/hooks/useRevealOnScroll";
 
-    export const Page2CTA = () => {
-      return (
-        <div className="box-border caret-transparent gap-x-0 grid grid-cols-1 gap-y-0 w-full md:grid-cols-2">
-          <div className="relative text-white bg-gray-900 box-border caret-transparent flex justify-end overflow-hidden">
-            <div className="absolute inset-0 z-0">
-              <img 
-                src="https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770306312581-0.jpeg" 
-                alt="Join Our Team" 
-                className="w-full h-full object-cover"
+const ctaItems = [
+  {
+    eyebrow: "Careers",
+    title: "Join Our Team",
+    description:
+      "We are always looking for passionate, talented, and creative people to join our team.",
+    href: "/careers",
+    cta: "View Careers",
+    image: "/join-our-tem.webp",
+  },
+  {
+    eyebrow: "Contact",
+    title: "Let's Collaborate",
+    description:
+      "Let us assist you in determining the best solution for your project. Start the conversation today.",
+    href: "/contact",
+    cta: "Contact Us",
+    image:
+      "https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770306699911-0.jpeg",
+  },
+];
+
+export const Page2CTA = () => {
+  const { ref, visible } = useRevealOnScroll();
+
+  return (
+    <section className="home-section-y bg-gray-50">
+      <div ref={ref} className="home-container">
+        <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 md:gap-6 xl:gap-8">
+          {ctaItems.map((item, index) => (
+            <div
+              key={item.href}
+              className={`group relative flex min-h-[340px] overflow-hidden rounded-2xl bg-[#121e37] shadow-lg ring-1 ring-black/5 transition-shadow duration-300 hover:shadow-xl xs:min-h-[380px] sm:min-h-[400px] md:min-h-[420px] ${revealTransitionClass}`}
+              style={revealMotionStyle(visible, index * 120, index === 0 ? "left" : "right")}
+            >
+              <img
+                src={item.image}
+                alt={item.title}
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gray-900/80"></div>
+
+              <div className="absolute inset-0 bg-gradient-to-t from-[#121e37] via-[#121e37]/55 to-[#121e37]/20" />
+
+              <div className="relative z-10 mt-auto flex w-full flex-col p-6 xs:p-7 md:p-8 xl:p-10">
+                <span className="mb-3 w-fit bg-red-600 px-1.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-white">
+                  {item.eyebrow}
+                </span>
+
+                <h2 className="mb-3 font-apfel_grotezk text-2xl font-bold leading-tight text-white xs:mb-4 xs:text-3xl md:text-4xl">
+                  {item.title}
+                </h2>
+
+                <p className="mb-6 max-w-md text-sm leading-relaxed text-white/75 xs:mb-8 xs:text-base">
+                  {item.description}
+                </p>
+
+                <Button to={item.href} variant="secondary" className="w-fit text-white">
+                  {item.cta}
+                </Button>
+              </div>
             </div>
-            <div className="box-border caret-transparent flex flex-col justify-center max-w-[700px] w-full min-h-[400px] p-12 relative z-10">
-              <h2 className="text-4xl font-bold box-border caret-transparent mb-4 font-apfel_grotezk md:text-5xl">
-                Join Our Team
-              </h2>
-              <p className="text-xl box-border caret-transparent tracking-[0.4px] leading-8 mb-8">
-                We are always looking for passionate, talented, and creative people to join our team
-              </p>
-              
-              <Link
-                to="/careers"
-                className="group inline-flex items-center gap-4 w-fit"
-              >
-                <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-red-600 text-white transition-transform duration-300 group-hover:scale-110">
-                  <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
-                </div>
-                <span className="text-base md:text-xl font-semibold">View Careers</span>
-              </Link>
-            </div>
-          </div>
-    <div className="relative text-white bg-gray-900 box-border caret-transparent flex justify-start overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770306699911-0.jpeg" 
-          alt="Let's Collaborate" 
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gray-900/80"></div>
-      </div>
-      <div className="box-border caret-transparent flex flex-col justify-center max-w-[700px] w-full min-h-[400px] p-12 relative z-10">
-        <h2 className="text-4xl font-bold box-border caret-transparent mb-4 font-apfel_grotezk md:text-5xl">
-          Let's Collaborate
-        </h2>
-              <p className="text-xl box-border caret-transparent tracking-[0.4px] leading-8 mb-8">
-                Let us assist you in determining the best solution for your project. Start the conversation today!
-              </p>
-              
-              <Link
-                to="/contact"
-                className="group inline-flex items-center gap-4 w-fit"
-              >
-                <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-white text-red-600 transition-transform duration-300 group-hover:scale-110">
-                  <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
-                </div>
-                <span className="text-base md:text-xl font-semibold">Contact Us</span>
-              </Link>
-            </div>
-          </div>
+          ))}
         </div>
-      );
-    };
+      </div>
+    </section>
+  );
+};

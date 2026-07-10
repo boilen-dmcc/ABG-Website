@@ -9,14 +9,14 @@ export const Contact = ({ data }: Props) => {
   return (
     <section
       id="contact"
-      className="relative w-full bg-gray-900 text-white py-20 sm:py-28 lg:py-36 border-t border-white/5"
+      className="relative w-full bg-gray-900 text-white py-16 md:py-20 border-t border-white/5"
     >
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
         <div className="lg:col-span-7">
           <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-red-500 mb-6">
             CONTACT · AL BARHAM GROUP
           </p>
-          <h2 className="font-apfel_grotezk font-semibold text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
+          <h2 className="font-extrabold uppercase break-words text-white">
             {contact.heading}
           </h2>
           <p className="mt-6 lg:mt-8 max-w-[54ch] text-base lg:text-lg text-white/70 leading-relaxed">

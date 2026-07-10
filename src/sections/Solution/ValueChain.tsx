@@ -24,16 +24,13 @@ export const ValueChain = ({ data }: Props) => {
   }, []);
 
   return (
-    <section className="relative w-full bg-gray-900 text-white py-20 sm:py-28 lg:py-36 border-y border-white/5">
-      <div
-        ref={ref}
-        className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12"
-      >
-        <div className="max-w-[62rem] mb-14 lg:mb-20">
+    <section className="home-section-y relative w-full border-y border-white/5 bg-gray-900 text-white">
+      <div ref={ref} className="home-container">
+        <div className="mb-10 max-w-[62rem] lg:mb-20">
           <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-red-500 mb-5">
             ACROSS THE VALUE CHAIN
           </p>
-          <h2 className="font-apfel_grotezk font-semibold text-4xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-tight max-w-[22ch]">
+          <h2 className="heading-section max-w-[22ch]">
             {data.valueChain.heading}
           </h2>
           <p className="mt-8 lg:mt-10 max-w-[60ch] text-base lg:text-lg text-white/65 leading-relaxed">
@@ -45,7 +42,7 @@ export const ValueChain = ({ data }: Props) => {
           {data.valueChain.panels.map((p, i) => (
             <div
               key={p.stage}
-              className="bg-gray-900 p-7 lg:p-9 flex flex-col min-h-[420px] lg:min-h-[520px] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none"
+              className="flex min-h-0 flex-col bg-gray-900 p-5 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none xs:p-6 sm:p-7 lg:min-h-[520px] lg:p-9"
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? "translateY(0)" : "translateY(14px)",

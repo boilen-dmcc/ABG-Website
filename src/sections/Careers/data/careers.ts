@@ -1,14 +1,10 @@
 import type { CareersData } from "../types";
 
 export const careers: CareersData = {
-  heroEyebrow: "CAREERS · 2026",
-  heroHeadingLine1: "Build with the group.",
-  heroHeadingLine2Prefix: "We are ",
-  heroHeadingLine2Accent: "hiring",
-  heroHeadingLine2Suffix: ".",
-  heroSubhead:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  heroPrimaryCta: "See open roles",
+  heroEyebrow: "CAREERS · AL BARHAM GROUP",
+  heroTitle: "Careers",
+  heroBackgroundImage:
+    "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=80&fit=crop",
   whyEyebrow: "WHY AL BARHAM GROUP",
   whyHeading: "We hire for the long haul.",
   whyPrinciples: [
@@ -36,284 +32,136 @@ export const careers: CareersData = {
   teamsEyebrow: "TEAMS",
   teamsHeading: "Six functions. One group.",
   teamsIntro:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.",
+    "Our teams span engineering, operations, HSE, logistics, commercial, and corporate functions across Iraq and the wider region.",
   teams: [
     {
       label: "ENGINEERING",
       name: "Engineering",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+        "Design, technical assurance, and project engineering for refining and energy assets.",
     },
     {
       label: "OPERATIONS",
       name: "Operations",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+        "Day-to-day plant operations, maintenance coordination, and site leadership.",
     },
     {
       label: "COMMERCIAL",
       name: "Commercial",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+        "Procurement, contracts, and commercial support for project delivery.",
     },
     {
       label: "HSE",
       name: "HSE",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+        "Health, safety, and environmental compliance across all project sites.",
     },
     {
       label: "LOGISTICS",
       name: "Logistics",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+        "Supply chain, fleet, and materials movement for field operations.",
     },
     {
       label: "CORPORATE",
       name: "Corporate",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+        "HR, finance, and group administration supporting all business units.",
     },
   ],
   rolesEyebrow: "OPEN ROLES",
-  rolesHeading: "What we are hiring for.",
+  rolesHeading: "Current opportunities.",
   rolesIntro:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "Join Al Barham Group and contribute to refining, energy infrastructure, and industrial projects across Iraq. We are looking for committed professionals ready to work on site and deliver results.",
   roles: [
     {
-      slug: "senior-mechanical-engineer",
-      title: "Senior Mechanical Engineer",
-      team: "Engineering",
-      location: "Kirkuk, Iraq",
-      type: "Full-time",
-      summary:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
-      responsibilities: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-        "Duis aute irure dolor in reprehenderit in voluptate velit.",
-      ],
-      requirements: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore.",
-        "Ut enim ad minim veniam, quis nostrud exercitation.",
-        "Excepteur sint occaecat cupidatat non proident.",
-      ],
-    },
-    {
-      slug: "pipeline-foreman",
-      title: "Pipeline Foreman",
+      slug: "refinery-operations-manager",
+      title: "Refinery Operations Manager",
       team: "Operations",
-      location: "Basra, Iraq",
+      location: "Iraq",
       type: "Full-time",
       summary:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+        "Lead refinery operations across ABG downstream assets in Iraq — ensuring safe production, plant reliability, and compliance with international operating standards.",
       responsibilities: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+        "Oversee daily refinery operations, shift coordination, and production planning.",
+        "Monitor process performance, product quality, and equipment availability.",
+        "Enforce HSE standards, permit-to-work systems, and operational procedures.",
+        "Coordinate maintenance, engineering, and commercial teams on site priorities.",
+        "Report operational KPIs, downtime events, and improvement initiatives to senior management.",
       ],
       requirements: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore.",
-        "Ut enim ad minim veniam, quis nostrud exercitation.",
+        "Bachelor's degree in Chemical, Mechanical, or Petroleum Engineering.",
+        "10+ years of refinery operations experience, including supervisory or management roles.",
+        "Strong knowledge of downstream processes, HSE, and plant turnaround planning.",
+        "Arabic fluency required; English technical literacy preferred.",
       ],
     },
     {
-      slug: "hse-officer",
-      title: "HSE Officer",
-      team: "HSE",
-      location: "Kirkuk, Iraq",
-      type: "Full-time",
-      summary:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
-      responsibilities: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-        "Duis aute irure dolor in reprehenderit in voluptate velit.",
-      ],
-      requirements: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore.",
-        "Ut enim ad minim veniam, quis nostrud exercitation.",
-      ],
-    },
-    {
-      slug: "logistics-coordinator",
-      title: "Logistics Coordinator",
-      team: "Logistics",
-      location: "Erbil, Iraq",
-      type: "Full-time",
-      summary:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
-      responsibilities: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-      ],
-      requirements: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore.",
-        "Ut enim ad minim veniam, quis nostrud exercitation.",
-      ],
-    },
-    {
-      slug: "commercial-analyst",
-      title: "Commercial Analyst",
-      team: "Commercial",
-      location: "Baghdad, Iraq",
-      type: "Full-time",
-      summary:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
-      responsibilities: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-        "Duis aute irure dolor in reprehenderit in voluptate velit.",
-      ],
-      requirements: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore.",
-        "Ut enim ad minim veniam, quis nostrud exercitation.",
-        "Excepteur sint occaecat cupidatat non proident.",
-      ],
-    },
-    {
-      slug: "electrical-engineer",
-      title: "Electrical Engineer",
-      team: "Engineering",
-      location: "Erbil, Iraq",
-      type: "Full-time",
-      summary:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
-      responsibilities: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-      ],
-      requirements: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore.",
-        "Ut enim ad minim veniam, quis nostrud exercitation.",
-      ],
-    },
-    {
-      slug: "site-operations-manager",
-      title: "Site Operations Manager",
+      slug: "operations-manager",
+      title: "Operations Manager",
       team: "Operations",
-      location: "Kirkuk, Iraq",
+      location: "Dubai, UAE",
       type: "Full-time",
       summary:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+        "Manage regional operations support from ABG's UAE office — coordinating project delivery, site readiness, and operational performance across group assets.",
       responsibilities: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-        "Duis aute irure dolor in reprehenderit in voluptate velit.",
+        "Lead operations planning and coordination for refining and energy projects in the region.",
+        "Support site teams with operational procedures, reporting, and performance tracking.",
+        "Work with engineering, HSE, and commercial functions to resolve field issues.",
+        "Prepare operational reviews, budgets, and resource plans for management.",
+        "Ensure alignment with group standards, client requirements, and regulatory expectations.",
       ],
       requirements: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore.",
-        "Ut enim ad minim veniam, quis nostrud exercitation.",
+        "Bachelor's degree in Engineering or Operations Management.",
+        "8+ years of operations experience in oil, gas, refining, or industrial EPC environments.",
+        "Demonstrated leadership experience managing multi-disciplinary teams.",
+        "Fluent English required; Arabic is an advantage.",
       ],
     },
     {
-      slug: "procurement-specialist",
-      title: "Procurement Specialist",
-      team: "Commercial",
-      location: "Erbil, Iraq",
-      type: "Contract",
-      summary:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
-      responsibilities: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-      ],
-      requirements: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore.",
-        "Ut enim ad minim veniam, quis nostrud exercitation.",
-      ],
-    },
-    {
-      slug: "fleet-supervisor",
-      title: "Fleet Supervisor",
-      team: "Logistics",
-      location: "Basra, Iraq",
-      type: "Full-time",
-      summary:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
-      responsibilities: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-      ],
-      requirements: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore.",
-        "Ut enim ad minim veniam, quis nostrud exercitation.",
-      ],
-    },
-    {
-      slug: "finance-controller",
-      title: "Finance Controller",
-      team: "Corporate",
-      location: "Baghdad, Iraq",
-      type: "Full-time",
-      summary:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
-      responsibilities: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-        "Duis aute irure dolor in reprehenderit in voluptate velit.",
-      ],
-      requirements: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore.",
-        "Ut enim ad minim veniam, quis nostrud exercitation.",
-        "Excepteur sint occaecat cupidatat non proident.",
-      ],
-    },
-    {
-      slug: "hse-inspector",
-      title: "HSE Inspector",
-      team: "HSE",
-      location: "Basra, Iraq",
-      type: "Contract",
-      summary:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
-      responsibilities: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-      ],
-      requirements: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore.",
-        "Ut enim ad minim veniam, quis nostrud exercitation.",
-      ],
-    },
-    {
-      slug: "engineering-intern",
-      title: "Engineering Intern",
+      slug: "project-manager",
+      title: "Project Manager",
       team: "Engineering",
-      location: "Erbil, Iraq",
-      type: "Internship",
+      location: "Dubai, UAE",
+      type: "Full-time",
       summary:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+        "Deliver EPCC and refining programmes from ABG's Dubai office — managing scope, schedule, cost, and stakeholder coordination across complex industrial projects.",
       responsibilities: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+        "Lead end-to-end project planning, scheduling, and execution for assigned programmes.",
+        "Coordinate engineering, procurement, construction, and commissioning interfaces.",
+        "Monitor progress, manage risks, and report to clients and group leadership.",
+        "Ensure contractual, quality, and HSE requirements are met throughout delivery.",
+        "Support proposal development, cost control, and close-out documentation.",
       ],
       requirements: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Sed do eiusmod tempor incididunt ut labore et dolore.",
-        "Ut enim ad minim veniam, quis nostrud exercitation.",
+        "Bachelor's degree in Engineering or Project Management; PMP or equivalent preferred.",
+        "10+ years of project management experience in oil, gas, or refining EPC/EPCC projects.",
+        "Strong stakeholder management and commercial awareness.",
+        "Fluent English required; experience working across Iraq and the Gulf region is an advantage.",
+      ],
+    },
+    {
+      slug: "lead-process-engineer",
+      title: "Lead Process Engineer",
+      team: "Engineering",
+      location: "Dubai, UAE",
+      type: "Full-time",
+      summary:
+        "Provide process engineering leadership for refining and gas processing projects — from FEED and detailed design through commissioning and operational support.",
+      responsibilities: [
+        "Lead process design, simulations, heat and material balances, and equipment sizing.",
+        "Review P&IDs, datasheets, vendor packages, and technical submissions.",
+        "Support commissioning, start-up, and performance testing activities.",
+        "Guide junior engineers and coordinate with multidisciplinary design teams.",
+        "Ensure designs comply with client specifications, licensor requirements, and international codes.",
+      ],
+      requirements: [
+        "Bachelor's degree in Chemical or Petroleum Engineering; Master's degree preferred.",
+        "8+ years of process engineering experience in refining, gas processing, or petrochemicals.",
+        "Proficiency with process simulation tools and international design standards.",
+        "Fluent English required; willingness to travel to project sites as needed.",
       ],
     },
   ],
@@ -324,35 +172,35 @@ export const careers: CareersData = {
       number: "01",
       title: "Apply",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+        "Send your CV and cover letter to our careers team with the role title in the subject line.",
     },
     {
       number: "02",
       title: "First call",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+        "A short introductory conversation with HR to review your background and interest in the role.",
     },
     {
       number: "03",
       title: "Site visit",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+        "Technical interview and, where relevant, a site visit to meet the team and see our operations.",
     },
     {
       number: "04",
       title: "Offer",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+        "Successful candidates receive a formal offer with clear terms, start date, and onboarding plan.",
     },
   ],
   contact: {
     heading: "Work with Al Barham Group.",
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.",
+    body: "Interested in a role or want to send a general application? Contact our HR team directly. We review every submission and respond to shortlisted candidates within two weeks.",
     email: "careers@albarhamgroup.iq",
-    phone: "+964 750 000 0000",
+    phone: "+964 770 159 9397",
     addressLines: [
       "Al Barham Group — Head Office",
-      "Kirkuk Industrial District",
+      "Tisin Plot 39m285/10, Baghdad Road",
       "Kirkuk, Iraq",
     ],
   },

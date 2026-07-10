@@ -28,7 +28,7 @@ export const Overview = ({ data }: Props) => {
   return (
     <section
       id="overview"
-      className="relative w-full bg-white text-[#1a1a1a] py-20 sm:py-28 lg:py-36"
+      className="relative w-full bg-white text-foreground py-20 sm:py-28 lg:py-36"
     >
       <div
         ref={ref}
@@ -38,10 +38,10 @@ export const Overview = ({ data }: Props) => {
           <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-red-600 mb-5">
             SERVICE OVERVIEW
           </p>
-          <h2 className="font-apfel_grotezk font-semibold text-4xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-tight max-w-[22ch]">
+          <h2 className="heading-section max-w-[22ch]">
             {data.overview.heading}
           </h2>
-          <p className="mt-8 lg:mt-10 max-w-[60ch] text-base lg:text-lg text-gray-600 leading-relaxed">
+          <p className="mt-8 lg:mt-10 max-w-[60ch] text-base lg:text-lg text-foreground leading-relaxed">
             {data.overview.intro}
           </p>
         </div>
@@ -67,7 +67,7 @@ export const Overview = ({ data }: Props) => {
                 <h3 className="font-apfel_grotezk text-2xl lg:text-[28px] font-semibold tracking-tight leading-tight mb-4">
                   {p.title}
                 </h3>
-                <p className="text-sm lg:text-base text-gray-600 leading-relaxed max-w-[34ch]">
+                <p className="text-sm lg:text-base text-foreground leading-relaxed max-w-[34ch]">
                   {p.description}
                 </p>
               </article>

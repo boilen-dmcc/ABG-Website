@@ -24,7 +24,7 @@ export const Reach = ({ data }: Props) => {
   }, []);
 
   return (
-    <section className="relative w-full bg-gray-900 text-white py-20 sm:py-28 lg:py-36 overflow-hidden">
+    <section className="relative w-full bg-gray-900 text-white py-16 md:py-20 overflow-hidden">
       <div
         className="absolute inset-0 opacity-[0.08] pointer-events-none"
         style={{
@@ -36,12 +36,12 @@ export const Reach = ({ data }: Props) => {
       />
       <div
         ref={ref}
-        className="relative max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12"
+        className="relative max-w-[1400px] mx-auto px-6 md:px-12"
       >
         <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-red-500 mb-8 lg:mb-10">
           {data.reachEyebrow}
         </p>
-        <h2 className="font-apfel_grotezk font-semibold text-4xl sm:text-5xl lg:text-6xl bp1090:text-7xl leading-[1.05] tracking-tight max-w-[24ch]">
+        <h2 className="font-extrabold uppercase break-words text-white max-w-[24ch]">
           {data.reachHeading}
         </h2>
 

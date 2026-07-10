@@ -22,7 +22,7 @@ export const Hero = () => {
           <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-white/80 mb-6 lg:mb-8">
             {taqat.eyebrow}
           </p>
-          <h1 className="font-apfel_grotezk font-bold text-6xl sm:text-7xl lg:text-8xl bp1090:text-9xl leading-[1.02] tracking-tight">
+          <h1 className="font-apfel_grotezk font-bold text-6xl sm:text-7xl lg:text-8xl 2xl:text-9xl leading-[1.02] tracking-tight">
             Refining the <span className="text-red-600">{taqat.taglineAccent}</span>.
           </h1>
           <p className="mt-6 sm:mt-8 max-w-[42rem] text-lg lg:text-xl text-white/85 leading-relaxed">

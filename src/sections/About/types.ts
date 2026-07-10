@@ -22,14 +22,37 @@ export type AboutContact = {
   addressLines: string[];
 };
 
+export type ValuePropositionItem = {
+  title: string;
+  description: string;
+};
+
+export type VisionMissionItem = {
+  title: string;
+  description: string;
+};
+
+export type HistoryFact = {
+  label: string;
+  value: string;
+};
+
 export type AboutData = {
   slug: string;
   heroEyebrow: string;
-  heroStatementLine1: string;
-  heroStatementLine2: string;
-  heroSubhead: string;
-  heroSecondaryCta: string;
-  heroFooterLabels: string[];
+  heroTitle: string;
+  heroBackgroundImage: string;
+  introHeading: string;
+  introParagraphs: string[];
+  introQuote: string;
+  introImage: string;
+  introImageAlt: string;
+  visionMissionItems: VisionMissionItem[];
+  valuePropositionHeading: string;
+  valuePropositionItems: ValuePropositionItem[];
+  historyHeading: string;
+  historyParagraph: string;
+  historyFacts: HistoryFact[];
   manifestEyebrow: string;
   manifestHeading: string;
   manifestPrinciples: ManifestPrinciple[];

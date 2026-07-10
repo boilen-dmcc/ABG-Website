@@ -2,13 +2,67 @@ import type { AboutData } from "../types";
 
 export const about: AboutData = {
   slug: "about",
-  heroEyebrow: "SINCE 2008 · ERBIL",
-  heroStatementLine1: "An Iraqi industrial group.",
-  heroStatementLine2: "Built from the ground up.",
-  heroSubhead:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.",
-  heroSecondaryCta: "Get in touch",
-  heroFooterLabels: ["FOUNDED 2008", "HQ ERBIL", "8 COMPANIES"],
+  heroEyebrow: "ABOUT US · AL BARHAM GROUP",
+  heroTitle: "About Us",
+  heroBackgroundImage: "/about-hero.webp",
+  introHeading: "AL-BARHAM GROUP",
+  introParagraphs: [
+    "Al-Barham Group is a dynamic and forward-looking oil, gas, and energy solutions company, providing comprehensive industrial expertise across global markets. With a strong foundation in technical expertise and operational excellence, and with a successful track record of delivering projects across EPCC, EPCF, EPCOM, BOO, BOT and BOOT execution models, ABG supports complex projects across oil, gas, and energy infrastructure sectors — from concept to completion.",
+    "Backed by a team of experienced professionals and a culture driven by innovation, ABG continuously adapts to the evolving needs of modern industries. Our goal is not only to meet expectations but to exceed them through reliable delivery and long-term value creation.",
+  ],
+  introQuote: "Precision in every project. Excellence in every delivery.",
+  introImage:
+    "/about.webp",
+  introImageAlt:
+    "Aerial view of an industrial refinery complex with stacks and pipe racks",
+  visionMissionItems: [
+    {
+      title: "Vision",
+      description:
+        "To become an integrated energy leader, driving the development of the refining, gas processing, and energy sectors in Iraq, Middle East and globally, while achieving economic and environmental sustainability.",
+    },
+    {
+      title: "Mission",
+      description:
+        "To execute strategic projects according to the highest international standards, maximizing the value of energy resources for the benefit of all stakeholders.",
+    },
+  ],
+  valuePropositionHeading: "VALUE PROPOSITION",
+  valuePropositionItems: [
+    {
+      title: "Import Substitution",
+      description:
+        "Reducing dependence on imported petroleum products through local refining and production capabilities.",
+    },
+    {
+      title: "Downstream Support",
+      description:
+        "Strengthening downstream industries by supplying high-quality feedstocks and refined products.",
+    },
+    {
+      title: "Energy Security",
+      description:
+        "Enhancing energy security through reliable refining infrastructure and sustainable fuel production.",
+    },
+    {
+      title: "Product Upgrading",
+      description:
+        "Converting crude oil into light products with conversion efficiency of up to 85%.",
+    },
+    {
+      title: "Job Creation",
+      description:
+        "Creating jobs and developing local talent to support local industrial growth.",
+    },
+  ],
+  historyHeading: "OUR HISTORY",
+  historyParagraph:
+    "Founded in 2007 and headquartered in Iraq, with regional offices in the UAE, Germany and Turkiye, the company has established a strong presence in the oil, gas, and energy sectors. Over the years, we have contributed to numerous industrial and infrastructure projects, earning a reputation for reliability, quality, and professional excellence. Our continued growth reflects our commitment to delivering effective solutions and building lasting partnerships across the region.",
+  historyFacts: [
+    { label: "Established:", value: "2007" },
+    { label: "Industrial Sectors:", value: "Oil, Gas, & Energy Infrastructure" },
+    { label: "Offices:", value: "Iraq, UAE, Germany & Turkiye" },
+  ],
   manifestEyebrow: "HOW WE WORK",
   manifestHeading: "Six principles. One group.",
   manifestPrinciples: [

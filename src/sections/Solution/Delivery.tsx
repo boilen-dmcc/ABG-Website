@@ -24,22 +24,19 @@ export const Delivery = ({ data }: Props) => {
   }, []);
 
   return (
-    <section className="relative w-full bg-white text-[#1a1a1a] py-20 sm:py-28 lg:py-36">
-      <div
-        ref={ref}
-        className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12"
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-14 lg:mb-20">
+    <section className="home-section-y relative w-full bg-white text-foreground">
+      <div ref={ref} className="home-container">
+        <div className="mb-10 grid grid-cols-1 gap-8 xs:gap-10 lg:mb-20 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
             <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-red-600 mb-5">
               HOW AL BARHAM DELIVERS
             </p>
-            <h2 className="font-apfel_grotezk font-semibold text-4xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-tight max-w-[20ch]">
+            <h2 className="heading-section max-w-[20ch]">
               {data.delivery.heading}
             </h2>
           </div>
           <div className="lg:col-span-5 lg:pt-4">
-            <p className="text-base lg:text-lg text-gray-600 leading-relaxed max-w-[40ch]">
+            <p className="text-base lg:text-lg text-foreground leading-relaxed max-w-[40ch]">
               {data.delivery.intro}
             </p>
           </div>
@@ -73,7 +70,7 @@ export const Delivery = ({ data }: Props) => {
                   {r.service}
                 </h3>
               </div>
-              <p className="text-base lg:text-lg text-gray-700 leading-relaxed max-w-[52ch]">
+              <p className="text-base lg:text-lg text-foreground leading-relaxed max-w-[52ch]">
                 {r.application}
               </p>
             </div>

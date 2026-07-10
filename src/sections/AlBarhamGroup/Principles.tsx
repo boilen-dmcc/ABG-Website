@@ -33,16 +33,16 @@ export const Principles = () => {
   }, []);
 
   return (
-    <section className="relative w-full bg-white text-[#1a1a1a] py-20 sm:py-28 lg:py-36 border-t border-gray-200">
+    <section className="relative w-full bg-white text-foreground py-20 sm:py-28 lg:py-36 border-t border-gray-200">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
         <div className="lg:col-span-4">
           <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-gray-500 mb-5">
             HOW WE WORK
           </p>
-          <h2 className="font-apfel_grotezk font-semibold text-4xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-tight max-w-[14ch]">
+          <h2 className="heading-section max-w-[14ch]">
             Lorem ipsum.
           </h2>
-          <p className="mt-6 lg:mt-8 text-base lg:text-lg text-gray-600 leading-relaxed max-w-[32ch]">
+          <p className="mt-6 lg:mt-8 text-base lg:text-lg text-foreground leading-relaxed max-w-[32ch]">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
           </p>
         </div>

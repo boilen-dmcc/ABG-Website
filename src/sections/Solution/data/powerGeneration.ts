@@ -3,6 +3,8 @@ import type { SolutionData } from "../types";
 export const powerGeneration: SolutionData = {
   slug: "power-generation",
   name: "Power Generation",
+  heroBackgroundImage:
+    "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1920&q=80&fit=crop",
   industryCategory: "GENERATION · TRANSMISSION · DISTRIBUTION",
   eyebrow: "POWER · AL BARHAM GROUP",
   taglinePrefix: "Behind the ",

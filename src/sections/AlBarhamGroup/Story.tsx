@@ -22,7 +22,7 @@ export const Story = () => {
   }, []);
 
   return (
-    <section className="relative w-full bg-white text-[#1a1a1a] py-20 sm:py-28 lg:py-36">
+    <section className="relative w-full bg-white text-foreground py-20 sm:py-28 lg:py-36">
       <div
         ref={ref}
         className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16"
@@ -37,10 +37,10 @@ export const Story = () => {
           <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-red-600 mb-5">
             {story.eyebrow}
           </p>
-          <h2 className="font-apfel_grotezk font-semibold text-4xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-tight max-w-[22ch]">
+          <h2 className="heading-section max-w-[22ch]">
             {story.heading}
           </h2>
-          <div className="mt-8 lg:mt-10 space-y-5 max-w-[62ch] text-base lg:text-lg text-gray-700 leading-[1.7]">
+          <div className="mt-8 lg:mt-10 space-y-5 max-w-[62ch] text-base lg:text-lg text-foreground leading-[1.7]">
             {story.body.map((p) => (
               <p key={p}>{p}</p>
             ))}

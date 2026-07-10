@@ -1,5 +1,11 @@
 import { useState, useRef, useEffect } from "react";
+import { Button } from "@/components/Button";
 import { services } from "@/sections/Page2/data/servicesData";
+import {
+  revealMotionStyle,
+  revealTransitionClass,
+  useRevealOnScroll,
+} from "@/hooks/useRevealOnScroll";
 
 // ===========================================
 // TYPOGRAPHY - Responsive Font Sizes
@@ -13,14 +19,14 @@ const DESCRIPTION_FONT_SIZE = "clamp(13px, 1.1vw, 15px)";
 const LINK_FONT_SIZE = "clamp(11px, 1vw, 13px)";
 
 // Sidebar Typography (Left Column)
-const SIDEBAR_TITLE_SIZE = "clamp(14px, 1.3vw, 18px)";
-const SIDEBAR_NUMBER_SIZE = "clamp(12px, 1.1vw, 16px)";
+const SIDEBAR_TITLE_SIZE = "clamp(14px, 1.3vw, 16px)";
+const SIDEBAR_NUMBER_SIZE = "clamp(12px, 1.1vw, 14px)";
 
 // ===========================================
 // ANIMATION
 // ===========================================
 
-const SLIDE_DURATION = 400;
+const FADE_DURATION = 400;
 
 // ===========================================
 // LAYOUT DIMENSIONS - All Three Columns
@@ -95,12 +101,12 @@ const IMAGE_MARGIN_RIGHT = "0";
 // ===========================================
 
 export const Page2Services = () => {
+  const { ref: revealRef, visible } = useRevealOnScroll();
   const [activeIndex, setActiveIndex] = useState(0);
   const [previousIndex, setPreviousIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [direction, setDirection] = useState<"forward" | "backward" | null>(null);
 
-  // Collapsible sidebar state (for mobile < 669px)
+  // Collapsible sidebar state (for mobile / tablet < 992px)
   const [isExpanded, setIsExpanded] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const expandedContentRef = useRef<HTMLDivElement>(null);
@@ -163,9 +169,6 @@ export const Page2Services = () => {
       return;
     }
 
-    const navDirection = toIndex > activeIndex ? "forward" : "backward";
-    
-    setDirection(navDirection);
     setPreviousIndex(activeIndex);
     setActiveIndex(toIndex);
     setIsAnimating(true);
@@ -173,79 +176,54 @@ export const Page2Services = () => {
 
     setTimeout(() => {
       setIsAnimating(false);
-      setDirection(null);
-    }, SLIDE_DURATION);
+    }, FADE_DURATION);
   };
 
   const toggleExpanded = () => {
     setIsExpanded(!isExpanded);
   };
 
-  const getOutgoingClass = () => {
-    if (!isAnimating) return "";
-    return direction === "forward" ? "slide-out-left" : "slide-out-right";
-  };
+  const getOutgoingClass = () => (isAnimating ? "fade-out" : "");
 
-  const getIncomingClass = () => {
-    if (!isAnimating) return "";
-    return direction === "forward" ? "slide-in-from-right" : "slide-in-from-left";
-  };
+  const getIncomingClass = () => (isAnimating ? "fade-in" : "");
 
   const renderContent = (index: number) => (
     <div className="services-inner">
-      {/* Middle Column - Text Content */}
-      <div className="services-text">
-        <div className="text-wrapper">
-          <span className="text-subtitle">
-            {services[index].subtitle}
-          </span>
-
-          <h2 className="text-title">
-            {services[index].title}
-          </h2>
-
-          <p className="text-description">
-            {services[index].description}
-          </p>
-
-          <a
-            href={services[index].link}
-            className="text-link"
-          >
-            LEARN MORE
-            <svg width="24" height="12" viewBox="0 0 24 12" fill="none">
-              <path
-                d="M0 6H20"
-                stroke="#E65100"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-              />
-              <path
-                d="M15 1L21 6L15 11"
-                stroke="#E65100"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      {/* Right Column - Image */}
+      {/* Left Column - Image */}
       <div className="services-image">
         <img
           src={services[index].image}
           alt={services[index].title}
-          className="w-full h-full object-cover"
+          className="services-image-media w-full h-full object-cover"
         />
+      </div>
+
+      {/* Right Column - Text Content */}
+      <div className="services-text bg-gray-100">
+        <div className="text-wrapper">
+          {/* <span className="text-subtitle">
+            {services[index].subtitle}
+          </span> */}
+
+          <h2 className="text-title font-extrabold uppercase text-2xl">
+            {services[index].title}
+          </h2>
+
+          <p className="text-description text-base">
+            {services[index].description}
+          </p>
+
+          <Button to={services[index].link} variant="secondary" className="self-start w-auto">
+            Learn More
+          </Button>
+        </div>
       </div>
     </div>
   );
 
   return (
-    <div 
-      className="services-container-outer box-border caret-transparent py-8 px-4 sm:py-12 sm:px-6 lg:py-16 lg:px-0"
+    <div
+      className="services-container-outer home-section-y"
       style={{
         // Typography
         "--subtitle-size": SUBTITLE_FONT_SIZE,
@@ -297,43 +275,31 @@ export const Page2Services = () => {
       } as React.CSSProperties}
     >
       <style>{`
-        @keyframes slideOutLeft {
-          from { transform: translateX(0); }
-          to { transform: translateX(-100%); }
+        @keyframes fadeOut {
+          from { opacity: 1; }
+          to { opacity: 0; }
         }
-        @keyframes slideInFromRight {
-          from { transform: translateX(100%); }
-          to { transform: translateX(0); }
-        }
-        @keyframes slideOutRight {
-          from { transform: translateX(0); }
-          to { transform: translateX(100%); }
-        }
-        @keyframes slideInFromLeft {
-          from { transform: translateX(-100%); }
-          to { transform: translateX(0); }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
         }
         
-        .slide-out-left {
-          animation: slideOutLeft ${SLIDE_DURATION}ms ease-in-out forwards;
+        .fade-out {
+          animation: fadeOut ${FADE_DURATION}ms ease-in-out forwards;
+          z-index: 1;
         }
-        .slide-in-from-right {
-          animation: slideInFromRight ${SLIDE_DURATION}ms ease-in-out forwards;
-        }
-        .slide-out-right {
-          animation: slideOutRight ${SLIDE_DURATION}ms ease-in-out forwards;
-        }
-        .slide-in-from-left {
-          animation: slideInFromLeft ${SLIDE_DURATION}ms ease-in-out forwards;
+        .fade-in {
+          animation: fadeIn ${FADE_DURATION}ms ease-in-out forwards;
+          z-index: 2;
         }
 
         /* ===========================================
-           SCREENS 1065px AND BELOW: 40px margins and gap
+           BELOW xl (<1200px): 40px margins and gap
            =========================================== */
-        @media (max-width: 1065px) {
+        @media (max-width: 1199px) {
           .services-container-outer {
-            padding-left: 40px !important;
-            padding-right: 40px !important;
+            padding-left: clamp(1rem, 4vw, 2.5rem) !important;
+            padding-right: clamp(1rem, 4vw, 2.5rem) !important;
           }
           .services-container-inner {
             padding-left: 0 !important;
@@ -346,14 +312,111 @@ export const Page2Services = () => {
           .sidebar-number {
             font-size: clamp(14px, 2.2vw, 18px) !important;
           }
-          /* Add border radius to right column */
+          /* Border radius handled per layout below */
           .services-content {
+            overflow: hidden;
+          }
+        }
+
+        /* Desktop: image left, text right */
+        @media (min-width: 1200px) {
+          .services-image-media {
+            border-radius: 0.5rem 0 0 0.5rem;
+          }
+
+          .services-text {
+            border-radius: 0 0.5rem 0.5rem 0;
+          }
+        }
+
+        /* Stacked: sidebar full width, image top, text bottom */
+        @media (max-width: 1199px) {
+          .services-main {
+            flex-direction: column !important;
+            gap: 1.25rem !important;
+            aspect-ratio: auto !important;
+            min-height: auto !important;
+            height: auto !important;
+          }
+
+          .services-sidebar {
+            width: 100% !important;
+            max-width: 100% !important;
+            flex: none !important;
+            height: auto !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+          }
+
+          .services-content {
+            width: 100% !important;
+            flex: none !important;
+            height: auto !important;
+            min-height: auto !important;
             border-radius: 0.5rem;
             overflow: hidden;
           }
-          .services-image {
-            border-radius: 0.5rem !important;
+
+          .services-content > div {
+            position: relative !important;
+            inset: auto !important;
           }
+
+          .services-content > div.fade-out {
+            display: none !important;
+          }
+
+          .services-inner {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 0 !important;
+            height: auto !important;
+          }
+
+          .services-image {
+            width: 100% !important;
+            height: clamp(220px, 42vw, 380px) !important;
+            flex-shrink: 0;
+            padding-left: 0 !important;
+            overflow: hidden;
+          }
+
+          .services-image-media {
+            border-radius: 0.5rem 0.5rem 0 0;
+          }
+
+          .services-text {
+            width: 100% !important;
+            height: auto !important;
+            flex: none !important;
+            padding: clamp(1.25rem, 4vw, 2rem) !important;
+            border-radius: 0 0 0.5rem 0.5rem;
+          }
+        }
+
+        .services-main {
+          gap: 0;
+        }
+
+        .services-content {
+          min-width: 0;
+        }
+
+        .services-content > div {
+          width: 100%;
+          height: 100%;
+        }
+
+        .services-inner {
+          gap: 0;
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          padding: 0;
+        }
+
+        .services-image {
+          margin: 0;
         }
 
         /* ===========================================
@@ -363,8 +426,13 @@ export const Page2Services = () => {
         .services-sidebar {
           width: 100%;
           flex-shrink: 0;
-          padding-top: var(--sidebar-padding-y);
-          padding-bottom: var(--sidebar-padding-y);
+        }
+
+        @media (min-width: 1200px) {
+          .services-sidebar {
+            padding-top: var(--sidebar-padding-y);
+            padding-bottom: var(--sidebar-padding-y);
+          }
         }
 
         .services-content {
@@ -377,7 +445,7 @@ export const Page2Services = () => {
         .services-inner {
           display: flex;
           flex-direction: column;
-          gap: 1.25rem;
+          gap: 0;
           width: 100%;
           height: 100%;
         }
@@ -408,24 +476,7 @@ export const Page2Services = () => {
           font-size: var(--subtitle-size);
         }
 
-        .text-title {
-          font-weight: 400;
-          font-style: italic;
-          color: #1a1a1a;
-          line-height: 1.1;
-          margin: 0;
-          font-size: var(--title-size);
-          font-family: Georgia, Times New Roman, serif;
-        }
-
-        .text-description {
-          color: #5a5a5a;
-          line-height: 1.8;
-          margin: 0;
-          font-size: var(--desc-size);
-          margin-left: var(--desc-margin-left);
-          max-width: var(--desc-max-width);
-        }
+      
 
         .text-link {
           display: inline-flex;
@@ -448,11 +499,15 @@ export const Page2Services = () => {
           width: 100%;
           height: var(--img-h-mobile);
           overflow: hidden;
-          border-radius: 0.5rem;
           flex-shrink: 0;
         }
 
-        /* Sidebar item styling - responsive gaps */
+        /* sm/md height tweaks only apply below xl (stacked layout) */
+        @media (min-width: 575px) and (max-width: 1199px) {
+          .services-image {
+            height: clamp(240px, 40vw, 380px);
+          }
+        }
         .sidebar-item {
           position: relative;
           display: flex;
@@ -461,6 +516,7 @@ export const Page2Services = () => {
           padding: var(--sidebar-item-gap-y) var(--sidebar-item-gap-x);
           cursor: pointer;
           user-select: none;
+          align-items: start;
         }
 
         .sidebar-number {
@@ -477,246 +533,8 @@ export const Page2Services = () => {
         }
 
         /* ===========================================
-           SMALL TABLETS (640px+)
-           =========================================== */
-        @media (min-width: 640px) {
-          .services-main {
-            aspect-ratio: var(--content-aspect-sm);
-          }
-          
-          .services-image {
-            height: var(--img-h-sm);
-          }
-        }
-
-        /* ===========================================
-           TABLETS (768px+)
-           =========================================== */
-        @media (min-width: 768px) {
-          .services-main {
-            aspect-ratio: var(--content-aspect-md);
-          }
-          
-          .services-image {
-            height: var(--img-h-md);
-          }
-        }
-
-        /* ===========================================
-           TABLET / SMALL DESKTOP / MOBILE (1065px and below)
-           2-Column Layout: Sidebar | [Image / Text]
-           
-           - 40px gap between sidebar and content
-           - 40px left/right margins handled by container
-           =========================================== */
-        @media (max-width: 1065px) {
-          /* Parent container - flex with 40px gap */
-          .services-main {
-            display: flex;
-            flex-direction: row;
-            max-width: 100%;
-            box-sizing: border-box;
-            aspect-ratio: auto;
-            height: auto;
-            min-height: 500px;
-            gap: 40px;
-          }
-
-          /* Sidebar - Fluid percentage width
-             Adjusted calc to account for 40px gap */
-          .services-sidebar {
-            width: calc(50% - 20px);
-            box-sizing: border-box;
-            vertical-align: top;
-            height: 345px;
-            padding-top: 1.5rem;
-            padding-bottom: 1.5rem;
-            padding-right: 0;
-            flex-shrink: 0;
-          }
-
-          /* Content Wrapper - takes remaining 50% minus half the gap */
-          .services-content {
-            width: calc(50% - 20px);
-            box-sizing: border-box;
-            flex: 1 1 auto;
-            height: auto;
-            display: flex;
-            flex-direction: column;
-          }
-
-          /* Inner Content (Text + Image) */
-          .services-inner {
-            display: flex;
-            flex-direction: column-reverse; /* Image Top, Text Bottom */
-            height: 100%;
-            gap: 0;
-            padding-right: 0;
-          }
-
-          /* Image */
-          .services-image {
-            width: 100%;
-            height: 260px;
-            flex: 0 0 auto;
-          }
-
-          /* Text */
-          .services-text {
-            width: 100%;
-            flex: 1;
-            padding: 1.5rem 1.5rem 1.5rem 0;
-            max-width: none;
-            justify-content: flex-start;
-          }
-          
-          .text-description {
-            margin-left: 20px;
-            max-width: 100%;
-          }
-          
-          /* Sidebar items - scale proportionally with sidebar width */
-          .sidebar-item {
-            padding: clamp(0.25rem, 0.75vw, 0.375rem) clamp(1rem, 2.5vw, 1.5rem);
-          }
-        }
-
-        /* ===========================================
-           DESKTOP: Side-by-Side Layout (1066px+)
-           =========================================== */
-        @media (min-width: 1066px) {
-          .services-main {
-            display: flex;
-            flex-direction: row;
-            aspect-ratio: var(--content-aspect-lg);
-          }
-
-          /* LEFT COLUMN - Sidebar: scales equally with others (flex-shrink: 1) */
-          .services-sidebar {
-            flex: var(--sidebar-flex) 1 var(--sidebar-width);
-            max-width: var(--sidebar-max);
-            height: 100%;
-          }
-
-          .services-content {
-            flex: 1 1 auto;
-            height: 100%;
-          }
-
-          /* Inner container with fixed right margin and gap */
-          .services-inner {
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            gap: var(--middle-right-gap);
-            height: 100%;
-            padding-right: var(--image-margin-right);
-          }
-
-          /* MIDDLE COLUMN - Text: scales equally with others (flex-shrink: 1) */
-          .services-text {
-            flex: var(--text-flex) 1 var(--text-width);
-            max-width: var(--text-max);
-            height: 100%;
-          }
-
-          /* RIGHT COLUMN - Image: shrinks with others (flex-shrink: 1) */
-          .services-image {
-            flex: var(--image-flex) 1 var(--image-width);
-            max-width: var(--image-max);
-            height: 100%;
-          }
-        }
-
-        /* ===========================================
-           BETWEEN 1120px - 1200px: Reduce gap only
-           =========================================== */
-        @media (min-width: 1066px) and (max-width: 1200px) {
-          .services-inner {
-            gap: var(--middle-right-gap-small);
-          }
-        }
-
-        /* ===========================================
-           FIRST DECREASE (1220px): Partial reduction
-           =========================================== */
-        @media (min-width: 1066px) and (max-width: 1220px) {
-          /* Partial reduction - sidebar */
-          .sidebar-number {
-            font-size: 13px !important;
-          }
-          .sidebar-title {
-            font-size: 15px !important;
-          }
-          .sidebar-item {
-            gap: 0.5rem !important;
-            padding: 0.5rem 1.2rem !important;
-          }
-
-          /* Partial reduction - middle column */
-          .services-text {
-            padding: 2rem !important;
-          }
-          .text-wrapper {
-            gap: 0.8rem !important;
-          }
-          .text-subtitle {
-            font-size: 12px !important;
-          }
-          .text-title {
-            font-size: 30px !important;
-          }
-          .text-description {
-            font-size: 13px !important;
-            margin-left: 1.2rem !important;
-          }
-          .text-link {
-            font-size: 11px !important;
-          }
-        }
-
-        /* ===========================================
-           SECOND DECREASE (1120px): Slight reduction
-           =========================================== */
-        @media (min-width: 1066px) and (max-width: 1120px) {
-          /* Slight reduction - sidebar */
-          .sidebar-number {
-            font-size: 12px !important;
-          }
-          .sidebar-title {
-            font-size: 14px !important;
-          }
-          .sidebar-item {
-            gap: 0.45rem !important;
-            padding: 0.45rem 1.1rem !important;
-          }
-
-          /* Slight reduction - middle column */
-          .services-text {
-            padding: 1.75rem !important;
-          }
-          .text-wrapper {
-            gap: 0.7rem !important;
-          }
-          .text-subtitle {
-            font-size: 11px !important;
-          }
-          .text-title {
-            font-size: 28px !important;
-          }
-          .text-description {
-            font-size: 12.5px !important;
-            margin-left: 1rem !important;
-          }
-          .text-link {
-            font-size: 10.5px !important;
-          }
-        }
-
-        /* ===========================================
-           MOBILE COLLAPSIBLE SIDEBAR (< 669px)
-           Stacked layout: Sidebar on top, Content below
-           Sidebar becomes collapsible
+           RESPONSIVE STACKED LAYOUT (< xl)
+           Full-width sidebar on top, image + text below
            =========================================== */
         
         /* Hide collapsible by default, show desktop version */
@@ -726,86 +544,17 @@ export const Page2Services = () => {
         .sidebar-desktop-content {
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          justify-content: flex-start;
           height: 100%;
         }
 
-        @media (max-width: 668px) {
-          /* Show collapsible, hide desktop */
+        @media (max-width: 1199px) {
+          /* Show collapsible, hide desktop list */
           .sidebar-collapsible {
             display: block !important;
           }
           .sidebar-desktop-content {
             display: none !important;
-          }
-
-          /* Change to stacked layout */
-          .services-main {
-            flex-direction: column !important;
-            gap: 1.25rem !important;
-            min-height: auto !important;
-            height: auto !important;
-          }
-
-          /* Sidebar - 100% width on top */
-          .services-sidebar {
-            width: 100% !important;
-            height: auto !important;
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
-            overflow: hidden;
-            transition: height 280ms cubic-bezier(0.4, 0, 0.2, 1);
-          }
-
-          /* Content - 100% width below */
-          .services-content {
-            width: 100% !important;
-            height: auto !important;
-            min-height: auto !important;
-            position: relative;
-          }
-
-          /* Fix absolute positioning for mobile - make content flow naturally */
-          .services-content > div {
-            position: relative !important;
-            inset: auto !important;
-          }
-
-          /* Hide outgoing content on mobile to prevent stacking */
-          .services-content > div.slide-out-left,
-          .services-content > div.slide-out-right {
-            display: none !important;
-          }
-
-          /* Inner content - stacked vertically */
-          .services-inner {
-            display: flex !important;
-            flex-direction: column !important;
-            position: relative !important;
-            height: auto !important;
-          }
-
-          /* Image */
-          .services-image {
-            width: 100% !important;
-            height: 280px !important;
-            flex-shrink: 0;
-          }
-
-          /* Text - proper height wrapping */
-          .services-text {
-            width: 100% !important;
-            height: auto !important;
-            flex: none !important;
-            padding: 1.5rem !important;
-          }
-
-          .text-wrapper {
-            height: auto !important;
-          }
-
-          .text-description {
-            margin-left: 0 !important;
           }
           
           /* Collapsed header row */
@@ -823,6 +572,7 @@ export const Page2Services = () => {
             display: flex;
             align-items: center;
             gap: 0.75rem;
+            min-width: 0;
           }
           
           .sidebar-collapsed-number {
@@ -830,15 +580,18 @@ export const Page2Services = () => {
             font-weight: 400;
             color: white;
             min-width: 24px;
+            flex-shrink: 0;
           }
           
           .sidebar-collapsed-title {
-            font-size: 18px;
+            font-size: clamp(14px, 3.5vw, 18px);
             font-weight: 600;
             color: white;
+            line-height: 1.3;
           }
           
           .sidebar-chevron {
+            flex-shrink: 0;
             transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
             color: white;
           }
@@ -901,11 +654,13 @@ export const Page2Services = () => {
             font-weight: 400;
             color: white;
             min-width: 24px;
+            flex-shrink: 0;
           }
           
           .sidebar-expanded-title {
-            font-size: 16px;
+            font-size: clamp(13px, 3.2vw, 16px);
             color: white;
+            line-height: 1.35;
           }
           
           .sidebar-expanded-item.active .sidebar-expanded-title {
@@ -916,29 +671,184 @@ export const Page2Services = () => {
             font-weight: 400;
           }
         }
+
+        /* ===========================================
+           DESKTOP: Side-by-Side Layout (xl: 1200px+)
+           =========================================== */
+        @media (min-width: 1200px) {
+          .services-main {
+            display: flex;
+            flex-direction: row;
+            aspect-ratio: var(--content-aspect-lg);
+            gap: 0;
+          }
+
+          .services-sidebar {
+            flex: var(--sidebar-flex) 0 var(--sidebar-width);
+            max-width: var(--sidebar-max);
+            height: 100%;
+            flex-shrink: 0;
+          }
+
+          .services-content {
+            flex: 1 1 0%;
+            width: auto;
+            height: 100%;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+          }
+
+          .services-content > div {
+            width: 100%;
+            height: 100%;
+          }
+
+          .services-inner {
+            flex: 1 1 100%;
+            width: 100%;
+            min-width: 0;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: flex-start;
+            gap: 0;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+          }
+
+          .services-image {
+            flex: 1 1 58%;
+            width: auto;
+            max-width: none;
+            min-width: 0;
+            height: 100%;
+            margin: 0;
+            padding-left: 1rem;
+          }
+
+          .services-text {
+            flex: 1 1 42%;
+            width: auto;
+            max-width: none;
+            min-width: 0;
+            height: 100%;
+            margin: 0;
+            padding: clamp(1.5rem, 3vw, 3rem);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+
+          
+        }
+
+        /* ===========================================
+           BETWEEN 1120px - 1200px: tighter text padding
+           =========================================== */
+        @media (min-width: 1200px) and (max-width: 1320px) {
+          .services-text {
+            padding: clamp(1.25rem, 2.5vw, 2rem);
+          }
+        }
+
+        /* ===========================================
+           FIRST DECREASE (1220px): Partial reduction
+           =========================================== */
+        @media (min-width: 1200px) and (max-width: 1220px) {
+          /* Partial reduction - sidebar */
+          .sidebar-number {
+            font-size: 13px !important;
+          }
+          .sidebar-title {
+            font-size: 15px !important;
+          }
+          .sidebar-item {
+            gap: 0.5rem !important;
+            padding: 0.5rem 1.2rem !important;
+          }
+
+          /* Partial reduction - middle column */
+          .services-text {
+            padding: 2rem !important;
+          }
+          .text-wrapper {
+            gap: 0.8rem !important;
+          }
+          .text-subtitle {
+            font-size: 12px !important;
+          }
+         
+          
+          .text-link {
+            font-size: 11px !important;
+          }
+        }
+
+        /* ===========================================
+           SECOND DECREASE (1120px): Slight reduction
+           =========================================== */
+        @media (min-width: 1200px) and (max-width: 1120px) {
+          /* Slight reduction - sidebar */
+          .sidebar-number {
+            font-size: 12px !important;
+          }
+          .sidebar-title {
+            font-size: 14px !important;
+          }
+          .sidebar-item {
+            gap: 0.45rem !important;
+            padding: 0.45rem 1.1rem !important;
+          }
+
+          /* Slight reduction - middle column */
+          .services-text {
+            padding: 1.75rem !important;
+          }
+          .text-wrapper {
+            gap: 0.7rem !important;
+          }
+          .text-subtitle {
+            font-size: 11px !important;
+          }
+        
+          
+          .text-link {
+            font-size: 10.5px !important;
+          }
+        }
+
       `}</style>
 
-      <div className="services-container-inner box-border caret-transparent max-w-[1400px] mx-auto lg:px-16">
-        <div className="box-border caret-transparent mb-8 sm:mb-12 lg:mb-16">
-          <h2 className="text-5xl sm:text-6xl md:text-[72px] box-border caret-transparent leading-[1.1] break-words mb-6 font-apfel_grotezk">
-            Our services
+      <div ref={revealRef} className="services-container-inner home-container box-border caret-transparent">
+        <div
+          className={`box-border caret-transparent mb-8 sm:mb-12 lg:mb-16 ${revealTransitionClass}`}
+          style={revealMotionStyle(visible, 0, "up")}
+        >
+          <h2 className="box-border caret-transparent leading-[1.1] break-words mb-6 font-extrabold uppercase">
+            Our Expertise
           </h2>
-          <p className="box-border caret-transparent break-words text-base sm:text-lg md:text-xl max-w-[800px]">
+          <p className="box-border caret-transparent break-words text-base sm:text-lg max-w-[800px]">
             We oversee project lifecycles with structured planning, disciplined coordination, and precise control to ensure timely dependable results.
           </p>
         </div>
 
-        <div className="services-main box-border caret-transparent flex flex-col bg-white rounded-lg overflow-hidden lg:flex-row">
-          
+        <div
+          className={`services-main box-border caret-transparent flex flex-col bg-white overflow-hidden lg:flex-row lg:gap-0 ${revealTransitionClass}`}
+          style={revealMotionStyle(visible, 120, "up")}
+        >
+
           {/* LEFT COLUMN - Sidebar */}
-          <div 
+          <div
             ref={sidebarRef}
-            className="services-sidebar bg-[#2B7DE9] box-border caret-transparent rounded-lg flex flex-col justify-center"
+            className="services-sidebar w-full rounded-lg bg-[#1a2744] box-border caret-transparent flex flex-col justify-start shrink-0"
           >
-            {/* COLLAPSIBLE VERSION (shown on screens < 669px) */}
+            {/* COLLAPSIBLE VERSION (shown below xl) */}
             <div className="sidebar-collapsible">
               {/* Collapsed Header Row */}
-              <div 
+              <div
                 className="sidebar-collapsed-header"
                 onClick={toggleExpanded}
               >
@@ -950,11 +860,11 @@ export const Page2Services = () => {
                     {services[activeIndex].title}
                   </span>
                 </div>
-                <svg 
+                <svg
                   className={`sidebar-chevron ${isExpanded ? 'expanded' : ''}`}
-                  width="20" 
-                  height="20" 
-                  viewBox="0 0 24 24" 
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
@@ -964,9 +874,9 @@ export const Page2Services = () => {
                   <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
               </div>
-              
+
               {/* Expanded Content */}
-              <div 
+              <div
                 ref={expandedContentRef}
                 className={`sidebar-expanded-content ${isExpanded ? 'expanded' : ''}`}
                 style={{
@@ -993,7 +903,7 @@ export const Page2Services = () => {
               </div>
             </div>
 
-            {/* DESKTOP VERSION (shown on screens >= 669px) */}
+            {/* DESKTOP VERSION (shown at xl and above) */}
             <div className="sidebar-desktop-content">
               {services.map((service, index) => (
                 <div
@@ -1003,7 +913,7 @@ export const Page2Services = () => {
                 >
                   {index === activeIndex && (
                     <div
-                      className="absolute left-0 top-1/2 -translate-y-1/2 h-[2px] bg-white animate-line-in"
+                      className="absolute left-0 top-[22px] -translate-y-1/2 h-[2px] bg-white animate-line-in"
                       style={{
                         width: "14px",
                         transformOrigin: "left center",
@@ -1024,22 +934,20 @@ export const Page2Services = () => {
                     )}
 
                   <span
-                    className={`sidebar-number ${
-                      index === activeIndex ? "text-white" : "text-white/50"
-                    }`}
+                    className={`sidebar-number ${index === activeIndex ? "text-white" : "text-white/50"
+                      }`}
                     style={{
-                      marginLeft: index === activeIndex ? "16px" : "0",
+                      marginLeft: index === activeIndex ? "0px" : "0",
                     }}
                   >
                     {service.number}
                   </span>
 
                   <span
-                    className={`sidebar-title ${
-                      index === activeIndex
-                        ? "font-semibold text-white"
-                        : "font-normal text-white/50"
-                    }`}
+                    className={`sidebar-title uppercase ${index === activeIndex
+                      ? "font-normal text-white"
+                      : "font-normal text-white/50"
+                      }`}
                   >
                     {service.title}
                   </span>
@@ -1051,7 +959,7 @@ export const Page2Services = () => {
           {/* MIDDLE + RIGHT COLUMNS - Content Area */}
           <div className="services-content">
             {isAnimating && (
-              <div 
+              <div
                 key={`outgoing-${previousIndex}`}
                 className={`absolute inset-0 ${getOutgoingClass()}`}
               >
@@ -1059,7 +967,7 @@ export const Page2Services = () => {
               </div>
             )}
 
-            <div 
+            <div
               key={`current-${activeIndex}`}
               className={`absolute inset-0 ${getIncomingClass()}`}
             >

@@ -15,7 +15,7 @@ export const CompanyTaqat = () => {
   }, []);
 
   return (
-    <div className="bg-white text-[#1a1a1a] font-neue_haas_grotesk_display antialiased">
+    <div className="bg-white text-foreground font-neue_haas_grotesk_display antialiased">
       <Page2Header />
       <main>
         <Hero />

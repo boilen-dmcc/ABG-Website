@@ -3,6 +3,8 @@ import type { SolutionData } from "../types";
 export const petrochemicals: SolutionData = {
   slug: "petrochemicals",
   name: "Petrochemicals",
+  heroBackgroundImage:
+    "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1920&q=80&fit=crop",
   industryCategory: "FEEDSTOCK · CONVERSION · DERIVATIVES",
   eyebrow: "PETROCHEMICALS · AL BARHAM GROUP",
   taglinePrefix: "Past the ",

@@ -24,7 +24,7 @@ export const Why = ({ data }: Props) => {
   }, []);
 
   return (
-    <section className="relative w-full bg-white text-[#1a1a1a] py-20 sm:py-28 lg:py-36">
+    <section className="relative w-full bg-white text-foreground py-20 sm:py-28 lg:py-36">
       <div
         ref={ref}
         className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12"
@@ -34,7 +34,7 @@ export const Why = ({ data }: Props) => {
             <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-red-600 mb-5">
               {data.whyEyebrow}
             </p>
-            <h2 className="font-apfel_grotezk font-semibold text-4xl sm:text-5xl lg:text-[56px] leading-[1.05] tracking-tight max-w-[22ch]">
+            <h2 className="heading-section leading-[1.05] max-w-[22ch]">
               {data.whyHeading}
             </h2>
           </div>

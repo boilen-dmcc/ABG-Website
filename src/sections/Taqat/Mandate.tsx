@@ -24,7 +24,7 @@ export const Mandate = () => {
   return (
     <section
       id="mandate"
-      className="relative w-full bg-white text-[#1a1a1a] py-20 sm:py-28 lg:py-36"
+      className="relative w-full bg-white text-foreground py-20 sm:py-28 lg:py-36"
     >
       <div
         ref={ref}
@@ -40,10 +40,10 @@ export const Mandate = () => {
           <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.2em] text-red-600 mb-5">
             {mandate.eyebrow}
           </p>
-          <h2 className="font-apfel_grotezk font-semibold text-4xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-tight max-w-[22ch]">
+          <h2 className="heading-section max-w-[22ch]">
             {mandate.heading}
           </h2>
-          <div className="mt-8 lg:mt-10 space-y-5 max-w-[62ch] text-base lg:text-lg text-gray-700 leading-[1.7]">
+          <div className="mt-8 lg:mt-10 space-y-5 max-w-[62ch] text-base lg:text-lg text-foreground leading-[1.7]">
             {mandate.body.map((p) => (
               <p key={p}>{p}</p>
             ))}
