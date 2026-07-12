@@ -1348,7 +1348,11 @@ export const Page2Header = () => {
 
                 {/* Contact Us Button */}
                 <div className="pt-4 border-t border-gray-200 space-y-5">
-                  <SocialLinks variant="footer" className="justify-start" />
+                  <SocialLinks
+                    variant="header"
+                    headerTone="on-light"
+                    className="justify-start"
+                  />
                   <Button
                     fullWidth
                     to="/contact"
