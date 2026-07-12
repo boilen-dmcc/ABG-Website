@@ -927,14 +927,17 @@ export const Page2Header = () => {
                             Key Projects
                           </h3>
                           {projectNavItems.map((project, index) => {
-                            const isActive = project.name === activeProject.name;
+                            const displayName = project.menuName ?? project.name;
+                            const isActive =
+                              project.slug === activeProject.slug ||
+                              project.url === activeProject.url;
                             const rowInner = (
                               <div className="flex items-center">
                                 {project.logo ? (
                                   <div className="mr-3 h-8 w-8 shrink-0 overflow-hidden rounded bg-gray-200">
                                     <img
                                       src={project.logo}
-                                      alt={project.name}
+                                      alt={displayName}
                                       className="h-full w-full object-cover"
                                     />
                                   </div>
@@ -943,17 +946,17 @@ export const Page2Header = () => {
                                     className="mr-3 flex h-8 w-8 shrink-0 items-center justify-center rounded text-xs font-bold text-white"
                                     style={{ backgroundColor: project.color }}
                                   >
-                                    {project.name.charAt(0)}
+                                    {displayName.charAt(0)}
                                   </div>
                                 )}
                                 <div className="flex-1">
                                   <h4
-                                    className={`text-sm font-bold transition-colors ${isActive
+                                    className={`text-sm font-bold leading-snug transition-colors ${isActive
                                       ? "text-white"
                                       : "text-foreground group-hover:text-white"
                                       }`}
                                   >
-                                    {project.name}
+                                    {displayName}
                                   </h4>
                                 </div>
                               </div>
@@ -991,7 +994,7 @@ export const Page2Header = () => {
                             <div className="mb-4 aspect-[4/3] w-full overflow-hidden rounded-lg bg-gray-200">
                               <img
                                 src={activeProject.logo}
-                                alt={activeProject.name}
+                                alt={activeProject.menuName ?? activeProject.name}
                                 className="h-full w-full object-cover"
                               />
                             </div>
@@ -1000,12 +1003,16 @@ export const Page2Header = () => {
                               className="mb-4 flex h-32 w-32 items-center justify-center rounded-lg text-2xl font-bold text-white"
                               style={{ backgroundColor: activeProject.color }}
                             >
-                              {activeProject.name.charAt(0)}
+                              {(activeProject.menuName ?? activeProject.name).charAt(0)}
                             </div>
                           )}
-                          <h3 className="mb-2 text-sm font-bold text-foreground">
-                            {activeProject.name}
-                          </h3>
+                          {activeProject.statusLabel ? (
+                            <div className="mb-3">
+                              <span className="inline-block bg-red-600 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white">
+                                {activeProject.statusLabel}
+                              </span>
+                            </div>
+                          ) : null}
                           <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-red-600">
                             {activeProject.category}
                           </p>

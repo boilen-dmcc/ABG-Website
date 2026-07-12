@@ -22,14 +22,12 @@ export type Project = {
   heroImage?: string;
   color?: string;
   processPackage?: ProjectProcessPackage;
+  statusBadge?: string;
 };
 
 export type ProjectsPageData = {
   heroEyebrow: string;
   heroTitle: string;
   heroBackgroundImage: string;
-  spreadsEyebrow: string;
-  spreadsHeading: string;
-  spreadsIntro: string;
   documentTitle: string;
 };

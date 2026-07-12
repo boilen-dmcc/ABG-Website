@@ -1,12 +1,23 @@
 import type { Project, ProjectsPageData } from "../types";
 
 export type ProjectNavItem = {
+  slug: string;
   name: string;
+  menuName?: string;
+  statusLabel?: string;
   description: string;
   category: string;
   color: string;
   logo?: string;
   url?: string;
+};
+
+const projectMenuNames: Partial<Record<string, string>> = {
+  "gasoline-production-complex": "12,000 BPD GASOLINE PRODUCTION COMPLEX",
+  "petroleum-solvent-production-plant":
+    "600 M³/DAY PETROLEUM SOLVENT REFINERY PROJECT",
+  "al-barham-depot": "30,000 M³ AL-BARHAM DEPOT",
+  "diwaniya-refinery-expansion": "70,000 BPD DIWANYA REFINERY EXPANSION PROJECT",
 };
 
 export const projects: Project[] = [
@@ -178,6 +189,7 @@ export const projects: Project[] = [
     image: "/projects/05/about.webp",
     heroImage: "/projects/05/hero.webp",
     color: "#0284C7",
+    statusBadge: "Ongoing",
     processPackage: {
       heading: "Project Scope:",
       items: [
@@ -189,7 +201,10 @@ export const projects: Project[] = [
 ];
 
 export const projectNavItems: ProjectNavItem[] = projects.map((project) => ({
+  slug: project.slug,
   name: project.title,
+  menuName: projectMenuNames[project.slug],
+  statusLabel: project.statusBadge,
   description: project.description,
   category: project.category,
   color: project.color ?? "#DC2626",
@@ -202,9 +217,5 @@ export const projectsPageData: ProjectsPageData = {
   heroTitle: "Projects",
   heroBackgroundImage:
     "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1920&q=80&fit=crop",
-  spreadsEyebrow: "KEY PROJECTS",
-  spreadsHeading: "Industrial assets built to perform.",
-  spreadsIntro:
-    "ABG delivers complex programmes across refining, petrochemicals, asphalt manufacturing, strategic depots, and infrastructure expansion — with integrated engineering, procurement, construction, and commissioning from first concept through to operation.",
   documentTitle: "Projects — Al Barham Group",
 };

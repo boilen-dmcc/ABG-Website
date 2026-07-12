@@ -1,14 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { Project, ProjectsPageData } from "./types";
+import type { Project } from "./types";
 
 type Props = {
-  data: ProjectsPageData;
   projects: Project[];
   focusedSlug: string;
   onSelect: (slug: string) => void;
 };
 
-export const Spreads = ({ data, projects, focusedSlug, onSelect }: Props) => {
+export const Spreads = ({ projects, focusedSlug, onSelect }: Props) => {
   const projectIndex = useMemo(() => {
     const map = new Map<string, { project: Project; index: number }>();
     projects.forEach((p, i) => map.set(p.slug, { project: p, index: i }));
@@ -45,22 +44,6 @@ export const Spreads = ({ data, projects, focusedSlug, onSelect }: Props) => {
       className="home-section-y relative w-full scroll-mt-[calc(6rem+env(safe-area-inset-top,0px))] border-t border-[#1a1a1a]/5 bg-white"
     >
       <div className="home-container">
-        <header className="mb-8 grid grid-cols-1 gap-6 xs:mb-10 lg:mb-12 lg:grid-cols-12 lg:gap-12">
-          <div className="lg:col-span-5">
-            <p className="font-necto_mono text-[11px] lg:text-xs font-bold uppercase tracking-[0.22em] text-red-600 mb-5">
-              {data.spreadsEyebrow}
-            </p>
-            <h2 className="heading-section leading-[1.05]">
-              {data.spreadsHeading}
-            </h2>
-          </div>
-          <div className="lg:col-span-6 lg:col-start-7 lg:pt-4">
-            <p className="max-w-[52ch] text-base lg:text-lg text-foreground/70 leading-relaxed">
-              {data.spreadsIntro}
-            </p>
-          </div>
-        </header>
-
         <nav
           aria-label="Project selector"
           className="mb-10 border-t border-[#1a1a1a]/15 lg:mb-20"
@@ -142,9 +125,16 @@ export const Spreads = ({ data, projects, focusedSlug, onSelect }: Props) => {
                 </span>
               </div>
 
-              <h3 className="font-apfel_grotezk text-2xl font-semibold leading-[1.02] tracking-tight xs:text-3xl sm:text-4xl lg:text-5xl">
-                {project.title}
-              </h3>
+              <div className="mb-5 flex flex-wrap items-center gap-3">
+                <h3 className="font-apfel_grotezk text-2xl font-semibold leading-[1.02] tracking-tight xs:text-3xl sm:text-4xl lg:text-5xl">
+                  {project.title}
+                </h3>
+                {project.statusBadge ? (
+                  <span className="inline-block bg-red-600 px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-white sm:text-sm">
+                    {project.statusBadge}
+                  </span>
+                ) : null}
+              </div>
 
               <p className="mt-3 font-necto_mono text-[11px] lg:text-xs uppercase tracking-[0.2em] text-foreground/55">
                 {project.location}

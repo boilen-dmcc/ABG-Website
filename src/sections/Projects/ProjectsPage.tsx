@@ -99,7 +99,6 @@ export const ProjectsPage = ({ data, projects }: Props) => {
           project={showProjectHero ? focusedProject : undefined}
         />
         <Spreads
-          data={data}
           projects={projects}
           focusedSlug={focusedSlug}
           onSelect={handleSelect}
