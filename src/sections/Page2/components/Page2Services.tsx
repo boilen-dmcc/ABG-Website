@@ -824,7 +824,7 @@ export const Page2Services = () => {
 
       <div ref={revealRef} className="services-container-inner home-container box-border caret-transparent">
         <div
-          className={`box-border caret-transparent mb-8 sm:mb-12 lg:mb-16 ${revealTransitionClass}`}
+          className={`box-border caret-transparent mb-8 ${revealTransitionClass}`}
           style={revealMotionStyle(visible, 0, "up")}
         >
           <h2 className="box-border caret-transparent leading-[1.1] break-words mb-6 font-extrabold uppercase">

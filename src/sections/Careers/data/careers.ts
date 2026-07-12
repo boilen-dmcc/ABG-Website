@@ -123,7 +123,7 @@ export const careers: CareersData = {
     {
       slug: "project-manager",
       title: "Project Manager",
-      team: "Engineering",
+      team: "Commercial",
       location: "Dubai, UAE",
       type: "Full-time",
       summary:

@@ -20,6 +20,9 @@ export const oilGas: SolutionData = {
   refiningUnits: {
     image: "/solutions/02/about.webp",
     imageAlt: "Petroleum refinery and gas processing facility",
+    introParagraphs: [
+      "At ABG, we support the complete refining value chain by providing engineering, procurement, construction, and commissioning solutions for refinery and petrochemical facilities. From crude oil processing to the production of high-quality refined petroleum products, our expertise ensures efficient, safe, and reliable operations that meet international industry standards.",
+    ],
     units: [
       "Atmospheric Distillation Unit (ADU)",
       "Vacuum Distillation Unit (VDU)",
@@ -31,12 +34,6 @@ export const oilGas: SolutionData = {
       "Solvent Deasphalting Unit",
       "Asphalt Blowing Unit",
       "Visbreaking Unit",
-      "Gas Processing Unit",
-      "Amine Treating Unit (Sour Gas Treatment Unit)",
-      "Flare System",
-      "Water Treatment Unit",
-      "Storage Tanks",
-      "Pipeline Transportation of Liquids and Gases",
     ],
   },
   glance: {

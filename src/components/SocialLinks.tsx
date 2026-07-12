@@ -14,6 +14,20 @@ function LinkedInIcon({ className = "" }: { className?: string }) {
   );
 }
 
+function XIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 1024 1024"
+      fill="currentColor"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <path d="M786.773 80.043h146.603l-320.239 365.909 376.73 498.005h-294.912l-231.151-301.943-264.158 301.943h-146.773l342.426-391.475-361.165-472.439h302.387l208.691 276.002zM735.266 856.337h81.203l-524.186-693.248h-87.245z" />
+    </svg>
+  );
+}
+
 function YouTubeIcon({ className = "" }: { className?: string }) {
   return (
     <svg
@@ -30,16 +44,23 @@ function YouTubeIcon({ className = "" }: { className?: string }) {
 
 const icons = {
   LinkedIn: LinkedInIcon,
+  X: XIcon,
   YouTube: YouTubeIcon,
 } as const;
 
 type Props = {
   variant?: "header" | "footer";
+  headerTone?: "on-dark" | "on-light";
   className?: string;
 };
 
-export function SocialLinks({ variant = "header", className = "" }: Props) {
+export function SocialLinks({
+  variant = "header",
+  headerTone = "on-dark",
+  className = "",
+}: Props) {
   const isHeader = variant === "header";
+  const isLightHeader = isHeader && headerTone === "on-light";
 
   return (
     <ul
@@ -57,7 +78,9 @@ export function SocialLinks({ variant = "header", className = "" }: Props) {
               aria-label={link.label}
               className={`inline-flex items-center justify-center rounded-full border transition-colors duration-300 ${
                 isHeader
-                  ? "h-9 w-9 border-white/20 text-white/80 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                  ? isLightHeader
+                    ? "h-9 w-9 border-[#121e37]/15 text-[#121e37]/75 hover:border-red-500 hover:bg-red-600 hover:text-white"
+                    : "h-9 w-9 border-white/20 text-white/80 hover:border-red-500 hover:bg-red-600 hover:text-white"
                   : "h-10 w-10 border-white/15 text-white/70 hover:border-red-600 hover:bg-red-600 hover:text-white"
               }`}
             >

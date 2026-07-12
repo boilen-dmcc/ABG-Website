@@ -17,8 +17,12 @@ export type SolutionsNavItem = {
   url: string;
 };
 
+const solutionNavNames: Partial<Record<string, string>> = {
+  "end-to-end-project-delivery-financing-solutions": "Turnkey Execution & Financing",
+};
+
 export const solutionsNav: SolutionsNavItem[] = solutionPages.map((solution) => ({
-  name: solution.heroTitle ?? solution.name,
+  name: solutionNavNames[solution.slug] ?? solution.heroTitle ?? solution.name,
   description: solution.heroSubhead,
   url: `/solutions/${solution.slug}`,
 }));

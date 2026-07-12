@@ -59,25 +59,21 @@ const SubmenuNavLink = ({
     style={variant === "desktop" ? { animationDelay: `${120 + index * 70}ms` } : undefined}
     className={
       variant === "desktop"
-        ? "submenu-link-item group relative flex items-center overflow-hidden whitespace-nowrap rounded-md px-3 py-2.5 text-sm font-semibold text-[#121e37]"
-        : "group flex items-center rounded-md px-3 py-2 text-sm text-[#121e37] outline-none transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] hover:bg-red-600 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600"
+        ? "submenu-link-item group flex items-center rounded-md px-3 py-2.5 text-sm font-semibold text-[#121e37] transition-all duration-300 ease-out hover:bg-red-50 hover:text-red-600"
+        : "group flex items-center rounded-md px-3 py-2 text-sm text-[#121e37] outline-none transition-all duration-300 ease-out hover:bg-red-50 hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600"
     }
   >
-    {variant === "desktop" ? (
-      <span
-        aria-hidden
-        className="absolute inset-0 origin-left scale-x-0 bg-red-600 transition-transform duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:scale-x-100"
-      />
-    ) : null}
-    <span className="relative z-10 inline-flex w-0 overflow-hidden opacity-0 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:mr-2 group-hover:w-[14px] group-hover:opacity-100">
-      <ArrowRight
-        aria-hidden
-        className="h-3.5 w-3.5 shrink-0 text-red-600 transition-colors duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:text-white"
-      />
+    <span
+      aria-hidden
+      className={`inline-flex shrink-0 overflow-hidden transition-all duration-300 ease-out ${
+        variant === "desktop"
+          ? "mr-0 w-0 opacity-0 group-hover:mr-2 group-hover:w-[14px] group-hover:opacity-100"
+          : "mr-2 w-[14px] opacity-70"
+      }`}
+    >
+      <ArrowRight className="h-3.5 w-3.5 text-red-600" />
     </span>
-    <span className="relative z-10 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:translate-x-0.5 group-hover:text-white">
-      {children}
-    </span>
+    <span className="whitespace-nowrap">{children}</span>
   </Link>
 );
 
@@ -269,6 +265,27 @@ export const Page2Header = () => {
   }, []);
 
   const showSolidHeader = isHoveringNav || (isScrolled && isHeaderVisible);
+  const isLightHeader = showSolidHeader;
+
+  const headerShellClass = isLightHeader
+    ? "bg-white shadow-[0_8px_30px_-20px_rgba(18,30,55,0.35)] ring-1 ring-black/[0.05] duration-300"
+    : "bg-transparent duration-1000";
+
+  const navItemClass = `nav-item-hover flex items-center space-x-1 text-sm font-semibold uppercase tracking-wider transition-colors duration-300 ${
+    isLightHeader
+      ? "text-[#121e37] hover:text-red-600"
+      : "text-white hover:text-red-200"
+  }`;
+
+  const navItemActiveClass = isLightHeader ? "text-red-600" : "text-red-200";
+
+  const careersLinkClass = `nav-item-hover text-sm font-semibold uppercase tracking-wider transition-colors duration-300 ${
+    isLightHeader
+      ? "text-[#121e37] hover:text-red-600"
+      : "text-white hover:text-red-200"
+  }`;
+
+  const menuIconClass = isLightHeader ? "text-[#121e37]" : "text-white";
 
   const closeDropdown = () => {
     setActiveDropdown(null);
@@ -504,20 +521,27 @@ export const Page2Header = () => {
           }`}
       >
         <div
-          className={`overflow-visible py-[7.5px] transition-colors ease-out motion-reduce:transition-none ${showSolidHeader
-            ? "bg-[#122142] duration-300"
-            : "bg-transparent duration-1000"
-            }`}
+          className={`overflow-visible py-[7.5px] transition-[background-color,box-shadow,border-color] ease-out motion-reduce:transition-none ${headerShellClass}`}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-12">
             <div className="flex items-center justify-between h-auto py-4 min-h-[90px]">
               {/* Logo */}
               <div className="flex items-center">
-                <Link to="/" className="block relative">
+                <Link to="/" className="relative block h-14">
                   <img
-                    src="https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770304013454-0.png"
+                    src="/ABG-Logo.svg"
                     alt="Al-Barham Group"
-                    className="h-14 w-auto"
+                    className={`h-14 w-auto transition-opacity duration-300 ease-out ${
+                      isLightHeader ? "opacity-0" : "opacity-100"
+                    }`}
+                  />
+                  <img
+                    src="/ABG-Logo-blue.svg"
+                    alt=""
+                    aria-hidden
+                    className={`absolute left-0 top-0 h-14 w-auto transition-opacity duration-300 ease-out ${
+                      isLightHeader ? "opacity-100" : "opacity-0"
+                    }`}
                   />
                 </Link>
               </div>
@@ -529,7 +553,7 @@ export const Page2Header = () => {
                     <button
                       ref={(el) => (dropdownRefs.current["company"] = el)}
                       onMouseEnter={(e) => handleMouseEnter("company", e)}
-                      className={`nav-item-hover flex items-center space-x-1 text-sm font-semibold uppercase tracking-wider text-white hover:text-red-200 ${activeDropdown === "company" ? "text-red-200" : ""}`}
+                      className={`${navItemClass} ${activeDropdown === "company" ? navItemActiveClass : ""}`}
                       aria-label="Company menu"
                     >
                       <span>COMPANY</span>
@@ -541,7 +565,7 @@ export const Page2Header = () => {
                     <button
                       ref={(el) => (dropdownRefs.current["solutions"] = el)}
                       onMouseEnter={(e) => handleMouseEnter("solutions", e)}
-                      className={`nav-item-hover flex items-center space-x-1 text-sm font-semibold uppercase tracking-wider text-white hover:text-red-200 ${activeDropdown === "solutions" ? "text-red-200" : ""}`}
+                      className={`${navItemClass} ${activeDropdown === "solutions" ? navItemActiveClass : ""}`}
                       aria-label="Solutions menu"
                     >
                       <span>SOLUTIONS</span>
@@ -554,7 +578,7 @@ export const Page2Header = () => {
                       <button
                         ref={(el) => (dropdownRefs.current["partnership"] = el)}
                         onMouseEnter={(e) => handleMouseEnter("partnership", e)}
-                        className={`nav-item-hover flex items-center space-x-1 text-sm font-semibold uppercase tracking-wider text-white hover:text-red-200 ${activeDropdown === "partnership" ? "text-red-200" : ""}`}
+                        className={`${navItemClass} ${activeDropdown === "partnership" ? navItemActiveClass : ""}`}
                         aria-label="Our Partnership menu"
                       >
                         <span>OUR PARTNERSHIP</span>
@@ -567,7 +591,7 @@ export const Page2Header = () => {
                     <button
                       ref={(el) => (dropdownRefs.current["projects"] = el)}
                       onMouseEnter={(e) => handleMouseEnter("projects", e)}
-                      className={`nav-item-hover flex items-center space-x-1 text-sm font-semibold uppercase tracking-wider text-white hover:text-red-200 ${activeDropdown === "projects" ? "text-red-200" : ""}`}
+                      className={`${navItemClass} ${activeDropdown === "projects" ? navItemActiveClass : ""}`}
                       aria-label="Projects menu"
                     >
                       <span>PROJECTS</span>
@@ -580,7 +604,7 @@ export const Page2Header = () => {
                       <button
                         ref={(el) => (dropdownRefs.current["companies"] = el)}
                         onMouseEnter={(e) => handleMouseEnter("companies", e)}
-                        className={`nav-item-hover flex items-center space-x-1 text-sm font-semibold uppercase tracking-wider text-white hover:text-red-200 ${activeDropdown === "companies" ? "text-red-200" : ""}`}
+                        className={`${navItemClass} ${activeDropdown === "companies" ? navItemActiveClass : ""}`}
                         aria-label="Companies menu"
                       >
                         <span>COMPANIES</span>
@@ -594,7 +618,7 @@ export const Page2Header = () => {
                       <button
                         ref={(el) => (dropdownRefs.current["services"] = el)}
                         onMouseEnter={(e) => handleMouseEnter("services", e)}
-                        className={`nav-item-hover flex items-center space-x-1 text-sm font-semibold uppercase tracking-wider text-white hover:text-red-200 ${activeDropdown === "services" ? "text-red-200" : ""}`}
+                        className={`${navItemClass} ${activeDropdown === "services" ? navItemActiveClass : ""}`}
                         aria-label="Services menu"
                       >
                         <span>SERVICES</span>
@@ -605,9 +629,9 @@ export const Page2Header = () => {
 
                   <Link
                     to="/careers"
-                    className="nav-item-hover text-sm font-semibold uppercase tracking-wider text-white hover:text-red-200"
+                    className={careersLinkClass}
                   >
-                    CAREER
+                    CAREERS
                   </Link>
 
                 </div>
@@ -615,7 +639,10 @@ export const Page2Header = () => {
 
               {/* Desktop CTA + Social (xl: 1200px+) */}
               <div className="hidden xl:flex items-center gap-4">
-                <SocialLinks variant="header" />
+                <SocialLinks
+                  variant="header"
+                  headerTone={isLightHeader ? "on-light" : "on-dark"}
+                />
                 <Button to="/contact" aria-label="Contact Us">
                   CONTACT US
                 </Button>
@@ -629,9 +656,9 @@ export const Page2Header = () => {
                 aria-expanded={isMobileMenuOpen}
               >
                 {isMobileMenuOpen ? (
-                  <X className="w-6 h-6 text-white" />
+                  <X className={`w-6 h-6 transition-colors duration-300 ${menuIconClass}`} />
                 ) : (
-                  <Menu className="w-6 h-6 text-white" />
+                  <Menu className={`w-6 h-6 transition-colors duration-300 ${menuIconClass}`} />
                 )}
               </button>
             </div>
@@ -896,6 +923,9 @@ export const Page2Header = () => {
                     return (
                       <div className="grid grid-cols-2 gap-6">
                         <div>
+                          <h3 className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-foreground/60">
+                            Key Projects
+                          </h3>
                           {projectNavItems.map((project, index) => {
                             const isActive = project.name === activeProject.name;
                             const rowInner = (
@@ -1306,7 +1336,7 @@ export const Page2Header = () => {
                   onClick={closeMobileMenu}
                   className="block rounded-md py-2 font-semibold text-foreground outline-none transition-colors hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600"
                 >
-                  CAREER
+                  CAREERS
                 </Link>
 
                 {/* Contact Us Button */}

@@ -55,13 +55,13 @@ export const Page2Footer = () => {
           <div className="lg:col-span-4">
             <Link to="/" className="inline-block">
               <img
-                src="https://c.animaapp.com/mkkxt1y8OC5kKc/img/uploaded-asset-1770304013454-0.png"
+                src="/ABG-Logo.svg"
                 alt="Al-Barham Group"
                 className="h-12 w-auto"
               />
             </Link>
             <p className="mt-6 max-w-[20rem] text-base leading-relaxed text-white/65">
-              <span className="block font-semibold text-white/85">
+              <span className="mb-4 inline-block bg-red-600 px-1.5 py-0.5 text-sm font-semibold uppercase tracking-wide text-white">
                 Engineering. Integrity. Innovation.
               </span>
               Delivering world-class oil, gas, and industrial solutions across Iraq

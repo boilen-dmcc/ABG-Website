@@ -120,13 +120,8 @@ export const projects: Project[] = [
     description:
       "30,000 m³ petroleum products storage and distribution depot with integrated fuel filling station.",
     overview:
-      "Al-Barham Depot is a storage and distribution facility for petroleum products, operating under the Ministry of Oil in accordance with Law No. 9 of 2006 — Import & Sale of Petroleum Products. The depot provides strategic capacity for petroleum product handling and distribution, with a modern fuel filling station integrated within the facility.",
+      "Al-Barham Depot is a storage and distribution facility for petroleum products. The depot provides strategic capacity for petroleum product handling and distribution, with a modern fuel filling station integrated within the facility.",
     highlights: [
-      {
-        label: "PROJECT OWNER",
-        value:
-          "Ministry of Oil (under Law No. 9 of 2006 – Import & Sale of Petroleum Products)",
-      },
       {
         label: "PROJECT",
         value: "Storage and Distribution Depot for Petroleum Products",
@@ -144,19 +139,23 @@ export const projects: Project[] = [
     color: "#0891B2",
   },
   {
-    slug: "diwanaya-refinery-expansion",
-    title: "DIWANAYA REFINERY EXPANSION PROJECT",
+    slug: "diwaniya-refinery-expansion",
+    title: "DIWANIYA REFINERY EXPANSION PROJECT",
     category: "Oil & Gas Refining",
     location: "Diwaniya, Iraq",
     year: "Ongoing",
     description:
       "70,000 BPD CDU plus 18,000 BPD EURO V gasoline complex — EPCC delivery for Midland Refineries.",
     overview:
-      "The Diwanaya Refinery Expansion Project is an EPCC programme for Midland Refineries Companies (MRC) and the Ministry of Oil, Iraq. The project converts crude oil into LPG, kerosene, LGO, HGO, atmospheric residue, and EURO V compliant clean motor gasoline — producing high-quality, low-sulphur products that meet international standards.",
+      "Al Barham Group has been selected as the main EPCC contractor for the Diwaniya Refinery Expansion Project. The project converts crude oil into LPG, kerosene, LGO, HGO, atmospheric residue, and EURO V-compliant clean motor gasoline, producing high-quality, low-sulphur products that meet international standards.",
     highlights: [
       {
         label: "PROJECT OWNER",
         value: "Midland Refineries Companies (MRC) / Ministry of Oil (MOO), Iraq",
+      },
+      {
+        label: "LICENSOR",
+        value: "Honeywell UOP",
       },
       {
         label: "CAPACITY",
@@ -182,8 +181,8 @@ export const projects: Project[] = [
     processPackage: {
       heading: "Project Scope:",
       items: [
-        "Phases 1: Crude Distillation Unit (CDU), LPG Complex, Utilities, Offsites & Gantry Systems",
-        "Phases 2: Naphtha Hydrotreater (NHT), Isomerization Unit, and Fixed Bed Platforming (FBP) Unit under license from Honeywell UOP.",
+        "Phase 1: Crude Distillation Unit (CDU), LPG Complex, Utilities, Offsites & Gantry Systems",
+        "Phase 2: Naphtha Hydrotreater (NHT), Isomerization Unit, and Fixed Bed Platforming (FBP) Unit under license from Honeywell UOP.",
       ],
     },
   },

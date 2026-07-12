@@ -29,6 +29,21 @@ export const Page2Certificates = () => {
   return (
     <section className="home-section-y bg-white">
       <div className="home-container">
+        <div className="mb-10 max-w-4xl space-y-5 text-base leading-relaxed text-gray-700 md:mb-12 md:space-y-6 md:text-lg lg:mb-14">
+          <h2 className="font-extrabold uppercase leading-[1.1] text-[#121e37]">
+            Committed to International Standards
+          </h2>
+          <p>
+            At Al-Barham Group (ABG), quality, safety, and environmental responsibility are
+            integral to the way we operate. Our systems and processes are aligned with
+            internationally recognized standards to ensure consistent performance and
+            continuous improvement across all our operations.
+          </p>
+          <p>
+            We are proud to be certified in the following management systems:
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 gap-8 xs:gap-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8 xl:gap-10">
           {certificates.map((certificate) => (
             <div key={certificate.src} className="group flex flex-col items-start">
