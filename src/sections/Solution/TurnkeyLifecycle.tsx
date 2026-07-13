@@ -50,15 +50,15 @@ const PhaseCard = ({
       className={`group relative flex items-start gap-4 rounded-xl border border-transparent p-3 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-[#121e37]/10 hover:bg-[#121e37]/[0.03] hover:shadow-[0_10px_28px_rgba(18,30,55,0.08)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 sm:gap-5 sm:p-4 ${revealTransitionClass}`}
       style={revealMotionStyle(visible, delay, "up")}
     >
-      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-[#121e37]/5 transition-all duration-300 ease-out group-hover:scale-110 group-hover:bg-red-600 group-hover:shadow-[0_8px_20px_rgba(220,38,38,0.28)] motion-reduce:transition-none motion-reduce:group-hover:scale-100 sm:h-16 sm:w-16">
+      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-red-600 shadow-[0_8px_20px_rgba(220,38,38,0.28)] transition-all duration-300 ease-out group-hover:scale-110 motion-reduce:transition-none motion-reduce:group-hover:scale-100 sm:h-16 sm:w-16">
         <Icon
-          className="h-7 w-7 text-[#121e37] transition-all duration-300 ease-out group-hover:rotate-3 group-hover:text-white motion-reduce:transition-none motion-reduce:group-hover:rotate-0 sm:h-8 sm:w-8"
+          className="h-7 w-7 text-white transition-all duration-300 ease-out group-hover:rotate-3 motion-reduce:transition-none motion-reduce:group-hover:rotate-0 sm:h-8 sm:w-8"
           strokeWidth={1.5}
         />
         <span className="sr-only">{phase.title}</span>
       </div>
       <div className="min-w-0 pt-1">
-        <h3 className="font-apfel_grotezk text-base font-bold leading-snug text-[#121e37] transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:text-red-600 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0 sm:text-lg">
+        <h3 className="font-apfel_grotezk text-base font-bold leading-snug text-red-600 sm:text-lg">
           {phase.title}
         </h3>
         <p className="mt-2 text-sm leading-relaxed text-gray-600 transition-colors duration-300 group-hover:text-gray-700 sm:text-base">
