@@ -4,7 +4,7 @@ export const careers: CareersData = {
   heroEyebrow: "CAREERS · AL BARHAM GROUP",
   heroTitle: "Careers",
   heroBackgroundImage:
-    "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=80&fit=crop",
+    "/careers-hero.webp",
   whyEyebrow: "WHY AL BARHAM GROUP",
   whyHeading: "We hire for the long haul.",
   whyPrinciples: [
@@ -123,7 +123,7 @@ export const careers: CareersData = {
     {
       slug: "project-manager",
       title: "Project Manager",
-      team: "Commercial",
+      team: "PROJECT MANAGEMENT",
       location: "Dubai, UAE",
       type: "Full-time",
       summary:

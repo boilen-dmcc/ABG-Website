@@ -214,7 +214,11 @@ function createMarkerPopupHtml(country: string, region: string) {
   `;
 }
 
-function fitPartnerMapView(map: L.Map, group: L.FeatureGroup) {
+function fitPartnerMapView(
+  map: L.Map,
+  group: L.FeatureGroup,
+  options?: { mobilePan?: boolean },
+) {
   const bounds = group.getBounds().pad(0.04);
   const size = map.getSize();
   if (size.x === 0 || size.y === 0) return false;
@@ -239,9 +243,69 @@ function fitPartnerMapView(map: L.Map, group: L.FeatureGroup) {
   map.setView(bounds.getCenter(), fittedZoom, { animate: false });
   map.setMinZoom(fittedZoom);
   map.setMaxZoom(fittedZoom);
-  map.setMaxBounds(bounds.pad(0.08));
+
+  if (options?.mobilePan) {
+    const sw = bounds.getSouthWest();
+    const ne = bounds.getNorthEast();
+    const latPad = Math.max((ne.lat - sw.lat) * 0.1, 5);
+    const lngPad = Math.max((ne.lng - sw.lng) * 0.5, 28);
+    map.setMaxBounds(
+      L.latLngBounds(
+        [sw.lat - latPad, sw.lng - lngPad],
+        [ne.lat + latPad, ne.lng + lngPad],
+      ),
+    );
+    map.dragging.enable();
+  } else {
+    map.setMaxBounds(bounds.pad(0.08));
+    map.dragging.disable();
+  }
 
   return true;
+}
+
+const MOBILE_MAP_QUERY = "(max-width: 767px)";
+
+function isMobileMapView() {
+  return window.matchMedia(MOBILE_MAP_QUERY).matches;
+}
+
+const MOBILE_POPUP_WIDTH = 110;
+const DESKTOP_POPUP_WIDTH = 220;
+
+function getPopupOptions() {
+  const mobile = isMobileMapView();
+  return {
+    className: "partner-map-popup",
+    maxWidth: mobile ? MOBILE_POPUP_WIDTH : 260,
+    minWidth: mobile ? MOBILE_POPUP_WIDTH : DESKTOP_POPUP_WIDTH,
+    closeOnClick: false,
+    autoPan: false,
+  };
+}
+
+function applyMobilePopupLayout(popup: L.Popup) {
+  const element = popup.getElement();
+  if (!element) return;
+
+  const content = element.querySelector(
+    ".leaflet-popup-content",
+  ) as HTMLElement | null;
+
+  if (isMobileMapView()) {
+    element.classList.add("partner-map-popup--mobile");
+    if (content) {
+      content.style.width = `${MOBILE_POPUP_WIDTH}px`;
+      content.style.maxWidth = `${MOBILE_POPUP_WIDTH}px`;
+    }
+    return;
+  }
+
+  element.classList.remove("partner-map-popup--mobile");
+  if (content) {
+    content.style.width = `${DESKTOP_POPUP_WIDTH}px`;
+    content.style.maxWidth = "";
+  }
 }
 
 type GlobalPartnersMapProps = {
@@ -303,6 +367,7 @@ export const GlobalPartnersMap = ({ fullHeight = false }: GlobalPartnersMapProps
     });
 
     let hoverCloseTimeout: ReturnType<typeof setTimeout> | undefined;
+    let activeMobileMarker: L.Marker | null = null;
 
     const bindPopupHover = (marker: L.Marker) => {
       const popup = marker.getPopup();
@@ -325,23 +390,44 @@ export const GlobalPartnersMap = ({ fullHeight = false }: GlobalPartnersMapProps
         icon: createPartnerMarkerIcon(),
       })
         .addTo(map)
-        .bindPopup(createMarkerPopupHtml(location.name, location.region), {
-          className: "partner-map-popup",
-          maxWidth: 260,
-          minWidth: 220,
-          closeOnClick: false,
-          autoPan: false,
+        .bindPopup(createMarkerPopupHtml(location.name, location.region), getPopupOptions());
+
+      marker.on("click", (event) => {
+        L.DomEvent.stopPropagation(event);
+        if (!isMobileMapView()) return;
+
+        window.clearTimeout(hoverCloseTimeout);
+
+        if (activeMobileMarker === marker && marker.isPopupOpen()) {
+          marker.closePopup();
+          activeMobileMarker = null;
+          return;
+        }
+
+        activeMobileMarker = marker;
+        markers.forEach((other) => {
+          if (other !== marker) other.closePopup();
         });
 
-      marker.off("click");
+        marker.openPopup();
+      });
+
+      marker.on("popupopen", () => {
+        const popup = marker.getPopup();
+        if (popup) applyMobilePopupLayout(popup);
+      });
 
       marker.on("mouseover", () => {
+        if (isMobileMapView()) return;
+
         window.clearTimeout(hoverCloseTimeout);
         marker.openPopup();
         bindPopupHover(marker);
       });
 
       marker.on("mouseout", () => {
+        if (isMobileMapView()) return;
+
         hoverCloseTimeout = window.setTimeout(() => marker.closePopup(), 120);
       });
 
@@ -352,9 +438,38 @@ export const GlobalPartnersMap = ({ fullHeight = false }: GlobalPartnersMapProps
     let hasFitted = false;
 
     const tryFitMap = () => {
-      if (hasFitted) return;
       map.invalidateSize({ animate: false });
-      hasFitted = fitPartnerMapView(map, group);
+      if (hasFitted) {
+        const bounds = group.getBounds().pad(0.04);
+        const fittedZoom = map.getZoom();
+        const mobilePan = isMobileMapView();
+
+        map.setMinZoom(fittedZoom);
+        map.setMaxZoom(fittedZoom);
+
+        if (mobilePan) {
+          const sw = bounds.getSouthWest();
+          const ne = bounds.getNorthEast();
+          const latPad = Math.max((ne.lat - sw.lat) * 0.1, 5);
+          const lngPad = Math.max((ne.lng - sw.lng) * 0.5, 28);
+          map.setMaxBounds(
+            L.latLngBounds(
+              [sw.lat - latPad, sw.lng - lngPad],
+              [ne.lat + latPad, ne.lng + lngPad],
+            ),
+          );
+          map.dragging.enable();
+        } else {
+          map.setMaxBounds(bounds.pad(0.08));
+          map.dragging.disable();
+          map.setView(bounds.getCenter(), fittedZoom, { animate: false });
+        }
+        return;
+      }
+
+      hasFitted = fitPartnerMapView(map, group, {
+        mobilePan: isMobileMapView(),
+      });
     };
 
     map.whenReady(() => {
@@ -363,21 +478,33 @@ export const GlobalPartnersMap = ({ fullHeight = false }: GlobalPartnersMapProps
       window.setTimeout(tryFitMap, 500);
     });
 
+    map.on("click", () => {
+      if (!isMobileMapView()) return;
+      markers.forEach((marker) => marker.closePopup());
+      activeMobileMarker = null;
+    });
+
+    map.on("popupopen", (event) => {
+      applyMobilePopupLayout(event.popup);
+    });
+
     let resizeTimeout: ReturnType<typeof setTimeout> | undefined;
     const resizeObserver = new ResizeObserver(() => {
       window.clearTimeout(resizeTimeout);
-      resizeTimeout = window.setTimeout(() => {
-        map.invalidateSize({ animate: false });
-        tryFitMap();
-      }, 150);
+      resizeTimeout = window.setTimeout(tryFitMap, 150);
     });
     resizeObserver.observe(mapRef.current);
+
+    const mobileMedia = window.matchMedia(MOBILE_MAP_QUERY);
+    const handleViewportChange = () => tryFitMap();
+    mobileMedia.addEventListener("change", handleViewportChange);
 
     mapInstanceRef.current = map;
 
     return () => {
       window.clearTimeout(hoverCloseTimeout);
       window.clearTimeout(resizeTimeout);
+      mobileMedia.removeEventListener("change", handleViewportChange);
       resizeObserver.disconnect();
       map.remove();
       mapInstanceRef.current = null;
@@ -415,6 +542,30 @@ export const GlobalPartnersMap = ({ fullHeight = false }: GlobalPartnersMapProps
           color: #fff;
           padding: 2px 6px;
           pointer-events: none;
+        }
+        @media (max-width: 767px) {
+          .global-partners-map .region-map-label {
+            display: none !important;
+          }
+          .global-partners-map .leaflet-container {
+            touch-action: pan-x;
+          }
+          .global-partners-map .partner-map-marker__wrap {
+            width: 38px;
+            height: 38px;
+          }
+          .global-partners-map .partner-map-marker__core {
+            width: 14px;
+            height: 14px;
+            border-width: 1px;
+          }
+          .global-partners-map .partner-map-marker__ripple {
+            width: 14px;
+            height: 14px;
+            margin-left: -7px;
+            margin-top: -7px;
+            border-width: 1px;
+          }
         }
         .global-partners-map .leaflet-container,
         .global-partners-map .leaflet-pane,
@@ -556,6 +707,46 @@ export const GlobalPartnersMap = ({ fullHeight = false }: GlobalPartnersMapProps
           color: rgba(255, 255, 255, 0.55);
           font-size: 11px;
           margin-top: 2px;
+        }
+
+        @media (max-width: 767px) {
+          .global-partners-map .leaflet-popup.partner-map-popup.partner-map-popup--mobile .leaflet-popup-content-wrapper,
+          .global-partners-map .leaflet-popup.partner-map-popup .leaflet-popup-content-wrapper {
+            border-radius: 6px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.24);
+          }
+          .global-partners-map .leaflet-popup.partner-map-popup.partner-map-popup--mobile .leaflet-popup-content,
+          .global-partners-map .leaflet-popup.partner-map-popup .leaflet-popup-content {
+            width: ${MOBILE_POPUP_WIDTH}px !important;
+            max-width: ${MOBILE_POPUP_WIDTH}px !important;
+          }
+          .global-partners-map .leaflet-popup.partner-map-popup .leaflet-popup-close-button {
+            font-size: 12px;
+            top: 2px;
+            right: 4px;
+          }
+          .global-partners-map .leaflet-popup.partner-map-popup .partner-popup__logo {
+            padding: 6px 8px 5px;
+            border-bottom-width: 2px;
+          }
+          .global-partners-map .leaflet-popup.partner-map-popup .partner-popup__logo img {
+            width: 60px !important;
+            max-width: 60px;
+          }
+          .global-partners-map .leaflet-popup.partner-map-popup .partner-popup__body {
+            padding: 7px 8px 8px;
+            gap: 2px;
+          }
+          .global-partners-map .leaflet-popup.partner-map-popup .partner-popup__region {
+            font-size: 7px;
+            padding: 2px 4px;
+            letter-spacing: 0.04em;
+          }
+          .global-partners-map .leaflet-popup.partner-map-popup .partner-popup__country {
+            font-size: 9px;
+            margin-top: 2px;
+            line-height: 1.2;
+          }
         }
       `}</style>
     </div>
