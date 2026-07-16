@@ -200,7 +200,7 @@ export const projects: Project[] = [
   },
 ];
 
-const projectNavOrder = [
+const projectDisplayOrder = [
   "gasoline-production-complex",
   "diwaniya-refinery-expansion",
   "petroleum-solvent-production-plant",
@@ -208,10 +208,15 @@ const projectNavOrder = [
   "al-barham-depot",
 ];
 
-export const projectNavItems: ProjectNavItem[] = projectNavOrder
-  .map((slug) => projects.find((project) => project.slug === slug))
-  .filter((project): project is Project => project != null)
-  .map((project) => ({
+function getProjectsByOrder(order: string[]): Project[] {
+  return order
+    .map((slug) => projects.find((project) => project.slug === slug))
+    .filter((project): project is Project => project != null);
+}
+
+export const orderedProjects = getProjectsByOrder(projectDisplayOrder);
+
+export const projectNavItems: ProjectNavItem[] = orderedProjects.map((project) => ({
     slug: project.slug,
     name: project.title,
     menuName: projectMenuNames[project.slug],
