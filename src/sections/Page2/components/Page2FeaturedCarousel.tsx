@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { projects } from "@/sections/Projects/data/projects";
+import { orderedProjects } from "@/sections/Projects/data/projects";
 
 const SLIDE_DURATION = 5000;
 
@@ -96,7 +96,7 @@ export const Page2FeaturedCarousel = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const posts = projects.map((project) => ({
+  const posts = orderedProjects.map((project) => ({
     id: project.slug,
     image: project.image,
     title: project.title

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { projects } from "@/sections/Projects/data/projects";
+import { orderedProjects } from "@/sections/Projects/data/projects";
 import {
   revealMotionStyle,
   revealTransitionClass,
@@ -68,7 +68,7 @@ export const Page2Projects = () => {
     [viewportWidth],
   );
 
-  const trackWidth = projects.length * cardWidth + (projects.length - 1) * cardGap;
+  const trackWidth = orderedProjects.length * cardWidth + (orderedProjects.length - 1) * cardGap;
 
   const translateX = useMemo(() => {
     const maxOffset = Math.max(0, trackWidth - viewportWidth);
@@ -93,7 +93,7 @@ export const Page2Projects = () => {
   }, []);
 
   useEffect(() => {
-    setCurrentIndex((prev) => Math.min(prev, projects.length - 1));
+    setCurrentIndex((prev) => Math.min(prev, orderedProjects.length - 1));
   }, [cardStep, viewportWidth]);
 
   const handlePrev = () => {
@@ -101,7 +101,7 @@ export const Page2Projects = () => {
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) => Math.min(projects.length - 1, prev + 1));
+    setCurrentIndex((prev) => Math.min(orderedProjects.length - 1, prev + 1));
   };
 
   const handleCardClick = (index: number) => {
@@ -130,7 +130,7 @@ export const Page2Projects = () => {
                 transform: `translateX(-${translateX}px)`,
               }}
             >
-              {projects.map((project, index) => (
+              {orderedProjects.map((project, index) => (
                 <div
                   key={project.slug}
                   onClick={() => handleCardClick(index)}
@@ -184,7 +184,7 @@ export const Page2Projects = () => {
             <div
               className="h-full rounded-full bg-red-600 transition-all duration-500"
               style={{
-                width: `${((currentIndex + 1) / projects.length) * 100}%`,
+                width: `${((currentIndex + 1) / orderedProjects.length) * 100}%`,
               }}
             />
           </div>
@@ -210,7 +210,7 @@ export const Page2Projects = () => {
 
               <button
                 onClick={handleNext}
-                disabled={currentIndex === projects.length - 1}
+                disabled={currentIndex === orderedProjects.length - 1}
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-900/10 bg-gray-900/5 text-foreground backdrop-blur-sm transition-all hover:bg-gray-900/10 disabled:cursor-not-allowed disabled:opacity-30"
                 aria-label="Next project"
               >
@@ -227,7 +227,7 @@ export const Page2Projects = () => {
             </div>
 
             <span className="text-sm tabular-nums text-gray-500">
-              {currentIndex + 1} / {projects.length}
+              {currentIndex + 1} / {orderedProjects.length}
             </span>
           </div>
         </div>
