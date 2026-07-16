@@ -200,17 +200,28 @@ export const projects: Project[] = [
   },
 ];
 
-export const projectNavItems: ProjectNavItem[] = projects.map((project) => ({
-  slug: project.slug,
-  name: project.title,
-  menuName: projectMenuNames[project.slug],
-  statusLabel: project.statusBadge,
-  description: project.description,
-  category: project.category,
-  color: project.color ?? "#DC2626",
-  logo: project.image,
-  url: `/projects/${project.slug}`,
-}));
+const projectNavOrder = [
+  "gasoline-production-complex",
+  "diwaniya-refinery-expansion",
+  "petroleum-solvent-production-plant",
+  "oxidized-asphalt-production",
+  "al-barham-depot",
+];
+
+export const projectNavItems: ProjectNavItem[] = projectNavOrder
+  .map((slug) => projects.find((project) => project.slug === slug))
+  .filter((project): project is Project => project != null)
+  .map((project) => ({
+    slug: project.slug,
+    name: project.title,
+    menuName: projectMenuNames[project.slug],
+    statusLabel: project.statusBadge,
+    description: project.description,
+    category: project.category,
+    color: project.color ?? "#DC2626",
+    logo: project.image,
+    url: `/projects/${project.slug}`,
+  }));
 
 export const projectsPageData: ProjectsPageData = {
   heroEyebrow: "PROJECTS · AL BARHAM GROUP",
