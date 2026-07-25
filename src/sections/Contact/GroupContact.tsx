@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { ContactData } from "./types";
+import { ContactForm } from "./ContactForm";
 
 type Props = { data: ContactData };
 
@@ -25,6 +26,7 @@ export const GroupContact = ({ data }: Props) => {
           <p className="mt-5 max-w-[54ch] text-base leading-relaxed text-gray-700 xs:mt-6 lg:mt-8 lg:text-lg">
             {groupContact.body}
           </p>
+          <ContactForm />
         </div>
 
         <div className="flex flex-col gap-8 lg:col-span-5 lg:border-l lg:border-[#1a1a1a]/10 lg:pl-12">
