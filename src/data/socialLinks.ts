@@ -1,7 +1,7 @@
 export const socialLinks = [
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/company/al-barham-group/",
+    href: "https://www.linkedin.com/company/abg-al-barham-group/about/?viewAsMember=true",
   },
   {
     label: "X",

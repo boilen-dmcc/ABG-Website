@@ -9,6 +9,8 @@ export type Role = {
   summary: string;
   responsibilities: string[];
   requirements: string[];
+  applicationEmail?: string;
+  applicationSubject?: string;
 };
 
 export type Team = {

@@ -37,8 +37,11 @@ export const OpenRoles = ({ data }: Props) => {
         <div className="border-t-2 border-[#1a1a1a]">
           {data.roles.map((role) => {
             const isOpen = expandedSlug === role.slug;
-            const subject = encodeURIComponent(`Application · ${role.title}`);
-            const mailto = `mailto:${data.contact.email}?subject=${subject}`;
+            const subject = encodeURIComponent(
+              role.applicationSubject ?? `Application · ${role.title}`,
+            );
+            const applyEmail = role.applicationEmail ?? data.contact.email;
+            const mailto = `mailto:${applyEmail}?subject=${subject}`;
 
             return (
               <div key={role.slug} className="border-b border-gray-200">
